@@ -9,6 +9,7 @@
 	<title>Изучение C++</title>
 </head>
 <body>
+<!--HEADER START-->
 <div class="header">
 	<div class="header-item">
 		<a class="header-link" href="" target="_self">
@@ -41,11 +42,52 @@
 		<a href="https://github.com/Antoher0101/wwwLearnCpp" target="_blank" class="header-link header-item">Github</a>
 	</nav>
 </div>
+<!--HEADER END-->
+
 <main class="wrapper sidebar-position">
 	<div id="main-content" class="Layout centered-container">
+		<!--		MAIN ARTICLES START-->
 		<div class="Layout-main">
-			<div id="AboutCpp-article" class="content centered-container bordered-container">
-				<div class="container-header"></div>
+			<div id="AboutWebsite-article" class="centered-container bordered-container">
+				<div class="container-content">
+					<span class="content-header">О ресурсе</span>
+					Сборник уроков по программированию на C++. Независимо от того, имели ли вы опыт программирования или
+					нет, учебные материалы данного учебника проведут вас через все этапы написания, компиляции и отладки
+					ваших программ на C++.
+					<div class="code-container">
+						<pre class="ascii-art">
+                                               .--.
+                                               `.  \
+                                                 \  \
+                                                  .  \
+                                                  :   .
+                                                  |    .
+                                                  |    :
+                                                  |    |
+  ..._  ___                                       |    |
+ `."".`''''""--..___                              |    |
+ ,-\  \             ""-...__         _____________/    |
+ / ` " '                    `""""""""                  .
+ \                                                      L
+ (>                                                      \
+/                                                         \
+\_    ___..---.                                            L
+  `--'         '.                                           \
+                 .                                           \_
+                _/`.                                           `.._
+             .'     -.                                             `.
+            /     __.-Y     /''''''-...___,...--------.._            |
+           /   _."    |    /                ' .      \   '---..._    |
+          /   /      /    /                _,. '    ,/           |   |
+          \_,'     _.'   /              /''     _,-'            _|   |
+                  '     /               `-----''               /     |
+                  `...-'                                       `...-'
+
+						</pre>
+					</div>
+				</div>
+			</div>
+			<div id="AboutCpp-article" class="centered-container bordered-container">
 				<div class="container-content">
 					<span class="content-header">О языке C++</span>
 					С момента своего создания C++ стал одним из наиболее широко используемых языков программирования в
@@ -73,13 +115,13 @@
 					меньше. Современный код на C++ проще, безопаснее, элегантнее и так же быстр, как и раньше.
 				</div>
 			</div>
-			<div id="HelloWorld-article" class="content centered-container bordered-container">
-				<div class="container-header"></div>
+			<div id="Examples-article" class="centered-container bordered-container">
 				<div class="container-content">
-					<span class="content-header">Hello world!</span>
+					<span class="content-header">Пример программы</span>
+					<span id="HelloWorld-article" class="content-subheader">Hello world!</span>
 					<!-- HTML generated using hilite.me -->
 					<div class="code-container">
-			<pre style="margin: 0; line-height: 125%">#<span style="color: #ff7b72">include</span><span
+			<pre style="margin: 0; line-height: 125%; color: #c9d1d9">#<span style="color: #ff7b72">include</span><span
 					style="color: #a5d6ff"> &lt;iostream&gt;</span>
 <span style="color: #ff7b72">int</span> <span style="color: #d2a8ff">main</span><span style="color: #f0f6fc">()</span>
 <span style="color: #f0f6fc">{</span>
@@ -92,34 +134,89 @@
 <span style="color: #f0f6fc">}</span>
 </pre>
 					</div>
+					<span id="Calculator-article" class="content-subheader">Calculator</span>
+					<div class="code-container">
+						<pre style="margin: 0;line-height: 125%;"><code id="htmlViewer"
+						                                                style="color:#f0f6fc;display:block;"><span
+								style="color:#f0f6fc;">#<span style="color:#ff7b72;">include</span> <span
+								style="color:#a5d6ff;">&lt;iostream&gt;</span></span>
+
+<span style="color:#ff7b72;">using</span> <span style="color:#ff7b72;">namespace</span> <span style="color:#d2a8ff;">std<span
+									style="color:#ff7b72;">;</span></span>
+
+<span style="color:#ff7b72;"><span style="color:#ff7b72;">double</span> <span style="color:#d2a8ff">Calculator::Calculate</span><span
+		style="color:#c9d1d9">(</span><span style="color:#ff7b72;"><span style="color:#ff7b72;">double</span> <span
+		style="color:#c9d1d9">x</span>, <span style="color:#ff7b72;">char</span> <span style="color:#c9d1d9">oper</span>, <span
+		style="color:#ff7b72;">double</span> <span style="color:#c9d1d9">y)</span></span>
+</span>{
+    <span style="color:#ff7b72;">switch</span>(oper)
+    {
+        <span style="color:#ff7b72;">case</span> <span style="color:#a5d6ff;">&#x27;+&#x27;</span>:
+            <span style="color:#ff7b72;">return</span> x + y;
+        <span style="color:#ff7b72;">case</span> <span style="color:#a5d6ff;">&#x27;-&#x27;</span>:
+            <span style="color:#ff7b72;">return</span> x - y;
+        <span style="color:#ff7b72;">case</span> <span style="color:#a5d6ff;">&#x27;*&#x27;</span>:
+            <span style="color:#ff7b72;">return</span> x * y;
+        <span style="color:#ff7b72;">case</span> <span style="color:#a5d6ff;">&#x27;/&#x27;</span>:
+            <span style="color:#ff7b72;">return</span> x / y;
+        <span style="color:#ff7b72;">default</span>:
+            <span style="color:#ff7b72;">return</span> <span style="color:#79c0ff;">0.0</span>;
+    }
+}
+
+<span style="color:#ff7b72;"><span style="color:#ff7b72;">int</span> <span style="color:#d2a8ff">main</span><span
+		style="color:#c9d1d9;">()</span>
+</span>{
+    <span style="color:#ff7b72;">double</span> x = <span style="color:#79c0ff;">0.0</span>;
+    <span style="color:#ff7b72;">double</span> y = <span style="color:#79c0ff;">0.0</span>;
+    <span style="color:#ff7b72;">double</span> result = <span style="color:#79c0ff;">0.0</span>;
+    <span style="color:#ff7b72;">char</span> oper = <span style="color:#a5d6ff;">&#x27;+&#x27;</span>;
+
+    cout &lt;&lt; <span style="color:#a5d6ff;">&quot;Calculator Console Application&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+    cout &lt;&lt; <span style="color:#a5d6ff;">&quot;Please enter the operation to perform. Format: a+b | a-b | a*b | a/b&quot;</span> &lt;&lt; endl;
+
+    Calculator c;
+    <span style="color:#ff7b72;">while</span> (<span style="color:#79c0ff;">true</span>)
+    {
+        cin  &gt;&gt; x  &gt;&gt; oper  &gt;&gt; y;
+        <span style="color:#ff7b72;">if</span> (oper == <span style="color:#a5d6ff;">&#x27;/&#x27;</span> &amp;&amp; y == <span
+									style="color:#79c0ff;">0</span>)
+        {
+            cout &lt;&lt; <span style="color:#a5d6ff;">&quot;Division by 0 exception&quot;</span> &lt;&lt; endl;
+            <span style="color:#ff7b72;">continue</span>;
+        }
+        <span style="color:#ff7b72;">else</span>
+        {
+            result = c.<span style="color:#79c0ff;">Calculate</span>(x, oper, y);
+        }
+        cout &lt;&lt; <span style="color:#a5d6ff;">&quot;Result is: &quot;</span> &lt;&lt; result &lt;&lt; endl;
+    }
+
+    <span style="color:#ff7b72;">return</span> <span style="color:#79c0ff;">0</span>;
+}</code></pre>
+
+					</div>
 				</div>
 			</div>
 		</div>
+		<!--MAIN ARTICLES END-->
+
+		<!--		SIDEBAR START-->
 		<div class="Layout-sidebar bordered-container">
 			<div class="container-sidebar">
 				<span class="content-header">Содержание</span>
-				<ul style="display: block;">
-					<li>2</li>
-					<li>3</li>
-					<li>4</li>
-					<li>5</li>
-					<li>6</li>
-					<li>7</li>
-					<li>8</li>
-					<li>9</li>
-					<li>0</li>
-				</ul>
+				<a class="sidebar-item" href="#AboutWebsite-article">О ресурсе</a>
+				<a class="sidebar-item" href="#AboutCpp-article">О языке С++</a>
+				<a class="sidebar-item" href="#Examples-article">Пример программы</a>
+				<a class="sidebar-item sidebar-subitem" href="#HelloWorld-article">Hello world!</a>
+				<a class="sidebar-item sidebar-subitem" href="#Calculator-article">Calculator</a>
 			</div>
 		</div>
+		<!--		SIDEBAR END-->
 	</div>
 
 </main>
-<div class="navigation">
-
-</div>
-<div class="extra">
-
-</div>
+<!--FOOTER START-->
 <footer class="footer centered-container border-top">
 	<div class="flex-container flex-items-center f12">
 		<ul class="list-style-none" style="margin-top: 6px;">
@@ -144,5 +241,6 @@
 		</ul>
 	</div>
 </footer>
+<!--FOOTER END-->
 </body>
 </html>
