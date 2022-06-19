@@ -16,7 +16,9 @@ body{
     color: var(--text-main-color);
     background-color: var(--bg-dark-color);
 }
+.wrapper{
 
+}
 .header{
     z-index: 1000;
     display: flex;
@@ -42,7 +44,7 @@ body{
     color: rgba(255,255,255,0.7);
     text-decoration: none;
 }
-.sidebar-item{
+.sidebar-item, details{
     box-sizing: border-box;
     display: block;
     background: var(--bg-default-color);
@@ -61,6 +63,11 @@ body{
     background: var(--bg-hover-color);
     transition: background .12s ease-out;
 }
+details:hover{
+    cursor: pointer;
+    background: var(--bg-hover-color);
+    transition: background .12s ease-out;
+}
 .sidebar-item::before{
     content: counter(section_counter, disc);
     display: inline-block;
@@ -69,13 +76,18 @@ body{
 }
 
 .container-content{
-    padding: 2px 32px 32px 32px;
+    padding: 2px 32px 2px 32px;
 }
 .container-sidebar{
-    position: sticky;
+    position: relative;
     top: 0px;
     padding: 2px 18px 18px 18px;
 }
+.Layout-sidebar{
+    grid-column: 2/span 2;
+    width: 300px;
+}
+
 .content-header{
     display: block;
     margin-bottom: 18px;
@@ -85,6 +97,7 @@ body{
 }
 .content-subheader{
     display: block;
+    color: #d2a8ff;
     margin-bottom: 18px;
     font-size: 1.25em;
     font-weight: 600;
@@ -111,6 +124,7 @@ body{
     font-size: 100%;
     padding: 16px;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 .bordered-container{
     background: #0d1117;
@@ -134,20 +148,19 @@ body{
 .Layout-main{
     grid-column: 1;
 }
-.Layout-sidebar{
-    grid-column: 2/span 2;
-    width: 296px;
-}
+
 .footer{
-    padding-top: 28px;
-    padding-bottom: 28px;
+    padding: 28px 16px;
     margin-top: 40px;
 }
 .flex-container {
     display: flex;
     align-items: stretch;
     flex-direction: row;
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap;
+}
+.flex-column-reverse {
+    flex-direction: column-reverse;
 }
 .border-top {
     border-top: 1px solid #30363d;
@@ -203,13 +216,13 @@ a:hover {
 }
 
 .full-width{
-    width: 100%;
+    min-width: 100%;
 }
 .two-third-width{
-    width: 66.6666666%;
+    min-width: 66.6666666%;
 }
 .one-third-width{
-    width: 33.3333333%;
+    min-width: 33.3333333%;
 }
 .mg-t12{
     margin-top: 12px;
