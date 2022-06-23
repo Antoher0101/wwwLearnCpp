@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css">
+	<title>Изучение C++</title>
+</head>
+<body>
+<!--HEADER START-->
+<div class="header">
+	<div class="header-item">
+		<a class="header-link" href="../.." target="_self">
+			<span class="flex-span" style="display: flex;">
+			<svg class="icon" height="48" width="48" viewBox="0 0 32 32">
+				<path d="M29,10.232a2.387,2.387,0,0,0-.318-1.244,2.451,2.451,0,0,0-.936-.879Q22.552,5.241,17.353,2.376A2.642,2.642,0,0,0,14.59,2.4c-1.378.779-8.275,4.565-10.331,5.706A2.287,2.287,0,0,0,3,10.231V21.77a2.4,2.4,0,0,0,.3,1.22,2.434,2.434,0,0,0,.954.9c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733a2.444,2.444,0,0,0,.955-.9,2.4,2.4,0,0,0,.3-1.22V10.232"
+				      style="fill:#909090"/>
+				<path d="M28.549,23.171a2.126,2.126,0,0,0,.147-.182,2.4,2.4,0,0,0,.3-1.22V10.232a2.387,2.387,0,0,0-.318-1.244c-.036-.059-.089-.105-.13-.16L16,16Z"
+				      style="fill:#464646"/>
+				<path d="M28.549,23.171,16,16,3.451,23.171a2.435,2.435,0,0,0,.809.72c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733A2.43,2.43,0,0,0,28.549,23.171Z"
+				      style="fill:#363636"/>
+				<path d="M19.6,18.02a4.121,4.121,0,1,1-.027-4.087l3.615-2.073A8.309,8.309,0,0,0,7.7,16a8.216,8.216,0,0,0,1.1,4.117A8.319,8.319,0,0,0,23.211,20.1L19.6,18.02"
+				      color=""/>
+				<polygon
+						points="24.076 15.538 23.15 15.538 23.15 14.617 22.225 14.617 22.225 15.538 21.299 15.538 21.299 16.461 22.225 16.461 22.225 17.381 23.15 17.381 23.15 16.461 24.076 16.461 24.076 15.538"
+						style="fill:#fff"/>
+				<polygon
+						points="27.549 15.538 26.623 15.538 26.623 14.617 25.697 14.617 25.697 15.538 24.771 15.538 24.771 16.461 25.697 16.461 25.697 17.381 26.623 17.381 26.623 16.461 27.549 16.461 27.549 15.538"
+						style="fill:#fff"/>
+			</svg>
+			Leaner
+			</span>
+		</a>
+	</div>
+	<div class="v-splitter header-item"></div>
+	<nav class="flex-container flex-space-between one-third-width flex-no-wrap">
+		<a href="../faq.html" class="header-link header-item">FAQ</a>
+		<a href="text-guide-introduction.html" class="header-link header-item">Учебник</a>
+		<a href="../video-lessons.html" class="header-link header-item">Видеоуроки</a>
+		<a href="../compiler.html" class="header-link header-item">Компилятор</a>
+		<a href="https://github.com/Antoher0101/wwwLearnCpp" target="_blank" class="header-link header-item">Github</a>
+	</nav>
+</div>
+<!--HEADER END-->
+
+<main class="wrapper sidebar-position">
+	<div id="main-content" class="centered-container">
+		<!--		MAIN ARTICLES START-->
+		<div class="container-content bordered-container">
+			<div class="centered-container">
+				<span class="content-header">Массивы</span>
+				Массив представляет набор однотипных данных. Формальное определение массива выглядит следующим образом:
+				<div class="code-container code">тип_переменной название_массива [длина_массива]</div>
+				После типа переменной идет название массива, а затем в квадратных скобках его размер. Например,
+				определим массив из 4 чисел:
+				<div class="code-container code">int numbers[4];</div>
+				Данный массив имеет четыре числа, но все эти числа имеют неопределенное значение. Однако мы можем
+				выполнить инициализацию и присвоить этим числам некоторые начальные значения через фигурные скобки:
+				<div class="code-container code">int numbers[4] = {1,2,3,4};</div>
+				Значения в фигурных скобках еще называют инициализаторами. Если инициализаторов меньше, чем элементов в
+				массиве, то инициализаторы используются для первых элементов. Если в инициализаторов больше, чем
+				элементов в массиве, то при компиляции возникнет ошибка:
+				<div class="code-container code">int numbers[4] = {1, 2, 3, 4, 5, 6};</div>
+				Здесь массив имеет размер 4, однако ему передается 6 значений.
+				<br><br>
+				Если размер массива не указан явно, то он выводится из количества инициализаторов:
+				<div class="code-container code">int numbers[] = {1, 2, 3, 4, 5, 6};</div>
+				В данном случае в массиве есть 6 элементов.
+				<br><br>
+				Свои особенности имеет инициализация символьных массивов. Мы можем передать символьному массиву как
+				набор инициализаторов, так и строку:
+				<div class="code-container code">char s1[] = {'h', 'e', 'l', 'l', 'o'};
+char s2[] = "world";</div>
+				Причем во втором случае массив s2 будет иметь не 5 элементов, а 6, поскольку при инициализации строкой в
+				символьный массив автоматически добавляется нулевой символ '\0'.
+				<br><br>
+				При этом не допускается присвоение одному массиву другого массива:
+				<div class="code-container code">int nums1[] = {1,2,3,4,5};
+int nums2[] = nums1;        // ошибка
+nums2 = nums1;              // ошибка</div>
+				После определения массива мы можем обратиться к его отдельным элементам по индексу. Индексы начинаются с
+				нуля, поэтому для обращения к первому элементу необходимо использовать индекс 0. Обратившись к элементу
+				по индексу, мы можем получить его значение, либо изменить его:
+				<div class="code-container code">#include &lt;iostream&gt;
+
+int main()
+{
+	int numbers[4] = {1,2,3,4};
+	int first_number = numbers[0];
+	std::cout << first_number << std::endl; // 1
+	numbers[0] = 34; // изменяем элемент
+	std::cout << numbers[0] << std::endl; // 34
+
+	return 0;
+}</div>
+					Число элементов массива также можно определять через константу:
+
+				<div class="code-container code">const int n = 4;
+int numbers[n] = {1,2,3,4};</div>
+					<div class="container-content">
+						<span class="content-subheader">Перебор массивов</span>
+						Используя циклы, можно пробежаться по всему массиву и через индексы обратиться к его элементам:
+
+						<div class="code-container code">#include &lt;iostream&gt;
+
+int main()
+{
+	int numbers[4] = {1,2,3,4};
+	int size = sizeof(numbers)/sizeof(numbers[0]);
+	for(int i=0; i < size; i++)
+	std::cout << numbers[i] << std::endl;
+	
+	return 0;
+}</div>
+							Чтобы пройтись по массиву в цикле, вначале надо найти длину массива. Для нахождения длины
+							применяется оператор <b>sizeof</b>. По сути длина массива равна совокупной длине его элементов. Все
+							элементы представляют один и тот же тип и занимают один и тот же размер в памяти. Поэтому с
+							помощью выражения sizeof(numbers) находим длину всего массива в байтах, а с помощью
+							выражения sizeof(numbers[0]) - длину одного элемента в байтах. Разделив два значения, можно
+							получить количество элементов в массиве. А далее с помощью цикла for перебираем все
+							элементы, пока счетчик i не станет равным длине массива. В итоге на консоль будут выведены
+							все элементы массива:
+						<div class="console-out"><pre>1
+2
+3
+4</pre>
+						</div>
+							Но также есть и еще одна форма цикла <b>for</b>, которая предназначена специально для работа с
+							коллекциями, в том числе с массивами. Эта форма имеет следующее формальное определение:
+						<div class="code-container code">for(тип переменная : коллекция)
+{
+	инструкции;
+}</div>
+							Используем эту форму для перебора массива:
+						<div class="code-container code">#include &lt;iostream&gt;
+
+int main()
+{
+	int numbers[4] = {1,2,3,4};
+	for(int number : numbers)
+		std::cout << number << std::endl;
+
+	return 0;
+}</div>
+								При переборе массива каждый перебираемый элемент будет помещаться в переменную number,
+								значение которой в цикле выводится на консоль.
+								<br><br>
+								Если нам неизвестен тип объектов в массиве, то мы можем использовать спецификатор auto
+								для определения типа:
+						<div class="code-container code">for(auto number : numbers)
+std::cout << number << std::endl;</div>
+					</div>
+					<div class="container-content">
+						<span class="content-subheader">Многомерные массивы</span>
+						Кроме одномерных массивов в C++ есть многомерные. Элементы таких массивов сами в свою очередь
+						являются массивами, в которых также элементы могут быть массивами. Например, определим
+						двухмерный массив чисел:
+						<div class="code-container code">int numbers[3][2];</div>
+						Такой массив состоит из трех элементов, при этом каждый элемент представляет массив из двух
+						элементов. Инициализируем подобный массив:
+						<div class="code-container code">int numbers[3][2] = { {1, 2}, {4, 5}, {7, 8} };</div>
+						Вложенные фигурные скобки очерчивают элементы для каждого подмассива. Такой массив еще можно
+						представить в виде таблицы:
+						<div class="console-out"><pre>1    2
+4    5
+7    8</pre>
+						</div>
+						Также при инициализации можно опускать фигурные скобки:
+						<div class="code-container code">int numbers[3][2] = { 1, 2, 4, 5, 7, 8 };</div>
+						Возможна также инициализация не всех элементов, а только некоторых:
+						<div class="code-container code">int numbers[3][2] = { {1, 2}, {}, {7} };</div>
+						И чтобы обратиться к элементам вложенного массива, потребуется два индекса:
+						<div class="code-container code">int numbers[3][2] = { {1, 2}, {3, 4}, {5, 6} };
+std::cout << numbers[1][0] << std::endl; // 3
+numbers[1][0] = 12; // изменение элемента
+std::cout << numbers[1][0] << std::endl; // 12</div>
+						Переберем двухмерный массив:
+						<div class="code-container code">#include &lt;iostream&gt;
+
+int main()
+{
+	const int rows = 3, columns = 2;
+	int numbers[rows][columns] = { {1, 2}, {3, 4}, {5, 6} };
+	for(int i=0; i < rows; i++)
+	{
+		for(int j=0; j < columns; j++)
+		{
+			std::cout << numbers[i] [j] << "\t";
+		}
+		std::cout << std::endl;
+	}
+	return 0;
+}</div>
+							Также для перебора элементов многомерного массива можно использовать другую форму цикла for:
+
+						<div class="code-container code">#include &lt;iostream&gt;
+
+int main()
+{
+	const int rows = 3, columns = 2;
+	int numbers[rows][columns] = { {1, 2}, {3, 4}, {5, 6} };
+
+	for(auto &subnumbers : numbers)
+	{
+		for(int number : subnumbers)
+		{
+			std::cout << number << "\t";
+		}
+		std::cout << std::endl;
+	}
+
+	return 0;
+}</div>
+								Для перебора массивов, которые входят в массив, применяются ссылки. То есть во внешнем
+								цикле for(auto &subnumbers : numbers) &subnumbers представляет ссылку на подмассив в
+								массиве. Во внутреннем цикле for(int number : subnumbers) из каждого подмассива в
+								subnumbers получаем отдельные его элементы в переменную number и выводим ее значение на
+								консоль.
+					</div>
+					<div class="code-container">Вся информация принадлежит сайту <a href="https://metanit.com/"
+					                                                                target="_blank">METANIT.COM</a>
+					</div>
+					<div class="centered-content">
+						<a href="2-14.html">Назад</a>
+						<a href="text-guide-introduction.html">Содержание</a>
+						<a href="2-16.html">Вперед</a>
+					</div>
+			</div>
+		</div>
+		<!--MAIN ARTICLES END-->
+	</div>
+
+</main>
+<!--FOOTER START-->
+<footer class="footer centered-container border-top">
+	<div class="flex-container flex-items-center f12">
+		<ul class="list-style-none" style="margin-top: 6px;width: 16%;">
+			<li class="flex-items-center">
+				<a class="header-link" href="https://github.com/Antoher0101" target="_blank">
+					<span>
+						<img alt="@Antoher0101" class="avatar circle"
+						     height="24" src="https://avatars.githubusercontent.com/u/62786345?s=96&amp;v=4" width="24">
+					 © 2022 Antoher0101 </span>
+				</a>
+
+			</li>
+		</ul>
+		<ul class="flex-ul list-style-none two-third-width flex-space-between">
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp" target="_self">This
+			                                                                                                  repository</a>
+			</li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/commits/master"
+			                                 target="_blank">Commits</a></li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/blob/master/README.md"
+			                                 target="_blank">About</a></li>
+		</ul>
+	</div>
+</footer>
+<!--FOOTER END-->
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/ace/ace.js"></script>
+<script>
+    var code;
+    $('.code').each(function () {
+        code = ace.edit(this);
+        code.setTheme("ace/theme/one_dark");
+        code.getSession().setMode("ace/mode/c_cpp");
+        code.setShowPrintMargin(false);
+        code.setReadOnly(true);
+        code.setOptions({
+            maxLines: Infinity,
+            fontSize: "12pt",
+        });
+        code.$blockScrolling = Infinity;
+    });
+</script>
+</body>
+</html>

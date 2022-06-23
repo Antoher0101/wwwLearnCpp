@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css">
+	<title>Изучение C++</title>
+</head>
+<body>
+<!--HEADER START-->
+<div class="header">
+	<div class="header-item">
+		<a class="header-link" href="../.." target="_self">
+			<span class="flex-span" style="display: flex;">
+			<svg class="icon" height="48" width="48" viewBox="0 0 32 32">
+				<path d="M29,10.232a2.387,2.387,0,0,0-.318-1.244,2.451,2.451,0,0,0-.936-.879Q22.552,5.241,17.353,2.376A2.642,2.642,0,0,0,14.59,2.4c-1.378.779-8.275,4.565-10.331,5.706A2.287,2.287,0,0,0,3,10.231V21.77a2.4,2.4,0,0,0,.3,1.22,2.434,2.434,0,0,0,.954.9c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733a2.444,2.444,0,0,0,.955-.9,2.4,2.4,0,0,0,.3-1.22V10.232"
+				      style="fill:#909090"/>
+				<path d="M28.549,23.171a2.126,2.126,0,0,0,.147-.182,2.4,2.4,0,0,0,.3-1.22V10.232a2.387,2.387,0,0,0-.318-1.244c-.036-.059-.089-.105-.13-.16L16,16Z"
+				      style="fill:#464646"/>
+				<path d="M28.549,23.171,16,16,3.451,23.171a2.435,2.435,0,0,0,.809.72c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733A2.43,2.43,0,0,0,28.549,23.171Z"
+				      style="fill:#363636"/>
+				<path d="M19.6,18.02a4.121,4.121,0,1,1-.027-4.087l3.615-2.073A8.309,8.309,0,0,0,7.7,16a8.216,8.216,0,0,0,1.1,4.117A8.319,8.319,0,0,0,23.211,20.1L19.6,18.02"
+				      color=""/>
+				<polygon
+						points="24.076 15.538 23.15 15.538 23.15 14.617 22.225 14.617 22.225 15.538 21.299 15.538 21.299 16.461 22.225 16.461 22.225 17.381 23.15 17.381 23.15 16.461 24.076 16.461 24.076 15.538"
+						style="fill:#fff"/>
+				<polygon
+						points="27.549 15.538 26.623 15.538 26.623 14.617 25.697 14.617 25.697 15.538 24.771 15.538 24.771 16.461 25.697 16.461 25.697 17.381 26.623 17.381 26.623 16.461 27.549 16.461 27.549 15.538"
+						style="fill:#fff"/>
+			</svg>
+			Leaner
+			</span>
+		</a>
+	</div>
+	<div class="v-splitter header-item"></div>
+	<nav class="flex-container flex-space-between one-third-width flex-no-wrap">
+		<a href="../faq.html" class="header-link header-item">FAQ</a>
+		<a href="text-guide-introduction.html" class="header-link header-item">Учебник</a>
+		<a href="../video-lessons.html" class="header-link header-item">Видеоуроки</a>
+		<a href="../compiler.html" class="header-link header-item">Компилятор</a>
+		<a href="https://github.com/Antoher0101/wwwLearnCpp" target="_blank" class="header-link header-item">Github</a>
+	</nav>
+</div>
+<!--HEADER END-->
+
+<main class="wrapper sidebar-position">
+	<div id="main-content" class="centered-container">
+		<!--		MAIN ARTICLES START-->
+		<div class="container-content bordered-container">
+			<div class="centered-container">
+				<span class="content-header">Операции с векторами</span>
+				<div class="container-content">
+					<span class="content-subheader">Добавление элементов в вектор</span>
+					Для добавления элементов в вектор применяется функция <b>push_back()</b>, в который передается добавляемый
+					элемент:
+
+					<div class="code-container code">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+int main()
+{
+	std::vector&lt;int&gt; numbers; // пустой вектор
+	numbers.push_back(5);
+	numbers.push_back(3);
+	numbers.push_back(10);
+	for(int n : numbers)
+		cout << n << "\t"; // 5 3 10
+
+	std::cout << std::endl;
+	return 0;
+}</div>
+					Векторы являются динамическими структурами в отличие от массивов, где мы скованы его заданым
+					размером. Поэтому мы можем динамически добавлять в вектор новые данные.
+					<br><br>
+					Функция <b>emplace_back()</b> выполняет аналогичную задачу - добавляет элемент в конец контейнера:
+					<div class="code-container code">std::vector&lt;int&gt; numbers1 = { 1, 2, 3, 4, 5 };
+numbers1.emplace_back(8); // numbers1 = { 1, 2, 3, 4, 5, 8 };</div>
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Добавление элементов на определенную позицию</span>
+					Ряд функций позволяет добавлять элементы на определенную позицию.
+					<div class="sidebar-item"><b>emplace(pos, value)</b>: вставляет элемент value на позицию, на которую
+					                                                    указывает итератор pos
+					</div>
+					<div class="sidebar-item"><b>insert(pos, value)</b>: вставляет элемент value на позицию, на которую
+					                                                   указывает итератор pos,
+					                                                   аналогично функции emplace
+					</div>
+					<div class="sidebar-item"><b>insert(pos, n, value)</b>: вставляет n элементов value начиная с
+					                                                      позиции, на которую указывает итератор
+					                                                      pos
+					</div>
+					<div class="sidebar-item"><b>insert(pos, begin, end)</b>: вставляет начиная с позиции, на которую
+					                                                        указывает итератор pos, элементы из
+					                                                        другого контейнера из диапазона между
+					                                                        итераторами begin и end
+					</div>
+					<div class="sidebar-item"><b>insert(pos, values)</b>: вставляет список значений начиная с позиции,
+					                                                    на которую указывает итератор pos
+					</div>
+					Функция emplace:
+					<div class="code-container code">std::vector&lt;int&gt; numbers = { 1, 2, 3, 4, 5 };
+auto iter = numbers.cbegin(); // константный итератор указывает на первый элемент
+numbers.emplace(iter + 2, 8); // добавляем после второго элемента numbers = { 1, 2, 8, 3, 4, 5};</div>
+					Функция insert:
+
+					<div class="code-container code">std::vector&lt;int&gt; numbers1 = { 1, 2, 3, 4, 5 };
+auto iter1 = numbers1.cbegin(); // константный итератор указывает на первый элемент
+numbers1.insert(iter1 + 2, 8); // добавляем после второго элемента
+//numbers1 = { 1, 2, 8, 3, 4, 5};
+
+std::vector&lt;int&gt; numbers2 = { 1, 2, 3, 4, 5 };
+auto iter2 = numbers2.cbegin(); // константный итератор указывает на первый элемент
+numbers2.insert(iter2 + 1, 3, 4); // добавляем после первого элемента три четверки
+//numbers2 = { 1, 4, 4, 4, 2, 3, 4, 5};
+
+std::vector&lt;int&gt; values = { 10, 20, 30, 40, 50 };
+std::vector&lt;int&gt; numbers3 = { 1, 2, 3, 4, 5 };
+auto iter3 = numbers3.cbegin(); // константный итератор указывает на первый элемент
+// добавляем после первого элемента три первых элемента из вектора values
+numbers3.insert(iter3 + 1, values.begin(), values.begin() + 3);
+//numbers3 = { 1, 10, 20, 30, 2, 3, 4, 5};
+
+std::vector&lt;int&gt; numbers4 = { 1, 2, 3, 4, 5 };
+auto iter4 = numbers4.cend(); // константный итератор указывает на позицию за последним элементом
+// добавляем в конец вектора numbers4 элементы из списка { 21, 22, 23 }
+numbers4.insert(iter4, { 21, 22, 23 });
+//numbers4 = { 1, 2, 3, 4, 5, 21, 22, 23};</div>
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Удаление элементов</span>
+					Если необходимо удалить все элементы вектора, то можно использовать функцию <b>clear</b>:
+					<div class="code-container code">std::vector&lt;int&gt; v = { 1,2,3,4 };
+v.clear();</div>
+					Функция <b>pop_back()</b> удаляет последний элемент вектора:
+					<div class="code-container code">std::vector&lt;int&gt; v = { 1,2,3,4 };
+v.pop_back(); // v = { 1,2,3 }</div>
+					Если нужно удалить элемент из середины или начала контейнера, применяется функция <b>erase()</b>, которая
+					имеет следующие формы:
+					<div class="sidebar-item"><b>erase(p)</b>: удаляет элемент, на который указывает итератор p.
+					                                         Возвращает итератор на
+					                                         элемент,
+					                                         следующий после удаленного, или на конец контейнера, если
+					                                         удален последний элемент
+					</div>
+					<div class="sidebar-item"><b>erase(begin, end)</b>: удаляет элементы из диапазона, на начало и конец
+					                          которого указывают итераторы
+					                          begin и end. Возвращает итератор на элемент, следующий после последнего
+					                          удаленного, или на конец
+					                          контейнера, если удален последний элемент
+					</div>
+					
+					Применение функции:
+					<div class="code-container code">std::vector&lt;int&gt; numbers1 = { 1, 2, 3, 4, 5, 6 };
+auto iter = numbers1.cbegin(); // указатель на первый элемент
+numbers1.erase(iter + 2); // удаляем третий элемент
+// numbers1 = { 1, 2, 4, 5, 6 }
+
+std::vector&lt;int&gt; numbers2 = { 1, 2, 3, 4, 5, 6 };
+auto begin = numbers2.cbegin(); // указатель на первый элемент
+auto end = numbers2.cend(); // указатель на последний элемент
+numbers2.erase(begin + 2, end - 1); // удаляем с третьего элемента до последнего
+// numbers2 = {1, 2, 6}</div>
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Размер вектора</span>
+					С помощью функции <b>size()</b> можно узнать размер вектора, а с помощью функции <b>empty()</b> проверить, путой
+					ли вектор:
+					<div class="code-container code">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using std::vector;
+using std::cout;
+using std::endl;
+
+int main()
+{
+	vector&lt;int&gt; numbers = {1, 2, 3};
+	if(numbers.empty())
+		cout << "Vector is empty" << endl;
+	else
+		cout << "Vector has size " << numbers.size() << endl;
+
+	return 0;
+}</div>
+					С помощью функции <b>resize()</b> можно изменить размер вектора. Эта функция имеет две формы:
+					<div class="sidebar-item"><b>resize(n)</b>: оставляет в векторе n первых элементов. Если вектор
+					                                          содержит больше элементов,
+					                                          то
+					                                          его размер усекается до n элементов. Если размер вектора
+					                                          меньше n, то добавляются
+					                                          недостающие элементы и инициализируются значением по
+					                                          умолчанию
+					</div>
+					<div class="sidebar-item"><b>resize(n, value)</b>: также оставляет в векторе n первых элементов.
+					                                                 Если размер вектора меньше
+					                                                 n, то добавляются недостающие элементы со значением
+					                                                 value
+					</div>
+					Применение функции:
+					<div class="code-container code">std::vector&lt;int&gt; numbers1 = { 1, 2, 3, 4, 5, 6 };
+numbers1.resize(4); // оставляем первые четыре элемента - numbers1 = {1, 2, 3, 4}
+
+numbers1.resize(6, 8); // numbers1 = {1, 2, 3, 4, 8, 8}</div>
+					Важно учитывать, что применение функции resize может сделать некорректными все итераторы,
+					указатели и ссылки на элементы.
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Изменение элементов вектора</span>
+					Функция <b>assign()</b> позволяет заменить все элементы вектора определенным набором:
+					<div class="code-container code">std::vector&lt;std::string&gt; names = { "Tom", "Bob", "Kate"};
+names.assign(4, "Sam"); // numbers = {"Sam", "Sam", "Sam", "Sam"}</div>
+					В данном случае элементы вектора заменяются набором из четырех строк "Sam".
+					<br><br>
+					Еще одна функция - <b>swap()</b> обменивает значения двух контейнеров:
+					<div class="code-container code">std::vector&lt;std::string&gt; clangs = { "C++", "C#", "Java" };
+std::vector&lt;std::string&gt; ilangs = { "JavaScript", "Python", "PHP"};
+clangs.swap(ilangs); // clangs = { "JavaScript", "Python", "PHP"};
+for(std::string n : clangs)
+	std::cout << n << "\t";
+std::cout << std::endl;</div>
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Сравнение векторов</span>
+					Векторы можно сравнивать. Сравнение контейнеров осуществляется на основании сравнения пар элементов
+					на тех же позициях. Векторы равны, если они содержат одинаковые элементы на тех же позициях. Иначе
+					они не равны:
+					<div class="code-container code">std::vector&lt;int&gt; v1 = {1, 2, 3};
+std::vector&lt;int&gt; v2 = {1, 2, 3};
+std::vector&lt;int&gt; v3 = {3, 2, 1};
+
+bool v1v2 = v1 == v2; // true
+bool v1v3 = v1 != v3; // true
+bool v2v3 = v2 == v3; // false</div>
+				</div>
+
+				<div class="code-container">Вся информация принадлежит сайту <a href="https://metanit.com/"
+				                                                                target="_blank">METANIT.COM</a></div>
+				<div class="centered-content">
+					<a href="7-3.html">Назад</a>
+					<a href="text-guide-introduction.html">Содержание</a>
+					<a href="7-5.html">Вперед</a>
+				</div>
+			</div>
+		</div>
+		<!--MAIN ARTICLES END-->
+	</div>
+
+</main>
+<!--FOOTER START-->
+<footer class="footer centered-container border-top">
+	<div class="flex-container flex-items-center f12">
+		<ul class="list-style-none" style="margin-top: 6px;width: 16%;">
+			<li class="flex-items-center">
+				<a class="header-link" href="https://github.com/Antoher0101" target="_blank">
+					<span>
+						<img alt="@Antoher0101" class="avatar circle"
+						     height="24" src="https://avatars.githubusercontent.com/u/62786345?s=96&amp;v=4" width="24">
+					 © 2022 Antoher0101 </span>
+				</a>
+
+			</li>
+		</ul>
+		<ul class="flex-ul list-style-none two-third-width flex-space-between">
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp" target="_self">This
+			                                                                                                  repository</a>
+			</li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/commits/master"
+			                                 target="_blank">Commits</a></li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/blob/master/README.md"
+			                                 target="_blank">About</a></li>
+		</ul>
+	</div>
+</footer>
+<!--FOOTER END-->
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/ace/ace.js"></script>
+<script>
+    var code;
+    $('.code').each(function () {
+        code = ace.edit(this);
+        code.setTheme("ace/theme/one_dark");
+        code.getSession().setMode("ace/mode/c_cpp");
+        code.setShowPrintMargin(false);
+        code.setReadOnly(true);
+        code.setOptions({
+            maxLines: Infinity,
+            fontSize: "12pt",
+        });
+        code.$blockScrolling = Infinity;
+    });
+</script>
+</body>
+</html>

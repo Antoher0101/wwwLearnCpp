@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css">
+	<title>Изучение C++</title>
+</head>
+<body>
+<!--HEADER START-->
+<div class="header">
+	<div class="header-item">
+		<a class="header-link" href="../.." target="_self">
+			<span class="flex-span" style="display: flex;">
+			<svg class="icon" height="48" width="48" viewBox="0 0 32 32">
+				<path d="M29,10.232a2.387,2.387,0,0,0-.318-1.244,2.451,2.451,0,0,0-.936-.879Q22.552,5.241,17.353,2.376A2.642,2.642,0,0,0,14.59,2.4c-1.378.779-8.275,4.565-10.331,5.706A2.287,2.287,0,0,0,3,10.231V21.77a2.4,2.4,0,0,0,.3,1.22,2.434,2.434,0,0,0,.954.9c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733a2.444,2.444,0,0,0,.955-.9,2.4,2.4,0,0,0,.3-1.22V10.232"
+				      style="fill:#909090"/>
+				<path d="M28.549,23.171a2.126,2.126,0,0,0,.147-.182,2.4,2.4,0,0,0,.3-1.22V10.232a2.387,2.387,0,0,0-.318-1.244c-.036-.059-.089-.105-.13-.16L16,16Z"
+				      style="fill:#464646"/>
+				<path d="M28.549,23.171,16,16,3.451,23.171a2.435,2.435,0,0,0,.809.72c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733A2.43,2.43,0,0,0,28.549,23.171Z"
+				      style="fill:#363636"/>
+				<path d="M19.6,18.02a4.121,4.121,0,1,1-.027-4.087l3.615-2.073A8.309,8.309,0,0,0,7.7,16a8.216,8.216,0,0,0,1.1,4.117A8.319,8.319,0,0,0,23.211,20.1L19.6,18.02"
+				      color=""/>
+				<polygon
+						points="24.076 15.538 23.15 15.538 23.15 14.617 22.225 14.617 22.225 15.538 21.299 15.538 21.299 16.461 22.225 16.461 22.225 17.381 23.15 17.381 23.15 16.461 24.076 16.461 24.076 15.538"
+						style="fill:#fff"/>
+				<polygon
+						points="27.549 15.538 26.623 15.538 26.623 14.617 25.697 14.617 25.697 15.538 24.771 15.538 24.771 16.461 25.697 16.461 25.697 17.381 26.623 17.381 26.623 16.461 27.549 16.461 27.549 15.538"
+						style="fill:#fff"/>
+			</svg>
+			Leaner
+			</span>
+		</a>
+	</div>
+	<div class="v-splitter header-item"></div>
+	<nav class="flex-container flex-space-between one-third-width flex-no-wrap">
+		<a href="../faq.html" class="header-link header-item">FAQ</a>
+		<a href="text-guide-introduction.html" class="header-link header-item">Учебник</a>
+		<a href="../video-lessons.html" class="header-link header-item">Видеоуроки</a>
+		<a href="../compiler.html" class="header-link header-item">Компилятор</a>
+		<a href="https://github.com/Antoher0101/wwwLearnCpp" target="_blank" class="header-link header-item">Github</a>
+	</nav>
+</div>
+<!--HEADER END-->
+
+<main class="wrapper sidebar-position">
+	<div id="main-content" class="centered-container">
+		<!--		MAIN ARTICLES START-->
+		<div class="container-content bordered-container">
+			<div class="centered-container">
+				<span class="content-header">Файловые потоки. Открытие и закрытие</span>
+				Для работы с файлами в стандартной библиотеке определен заголовочный файл <b>fstream</b>, который
+				определяет
+				базовые типы для чтения и записи файлов. В частности, это:
+
+				<div class="sidebar-item"><b>ifstream</b>: для чтения с файла</div>
+
+				<div class="sidebar-item"><b>ofstream</b>: для записи в файл</div>
+
+				<div class="sidebar-item"><b>fstream</b>: совмещает запись и чтение</div>
+
+				Для работы с данными типа <b>wchar_t</b> для этих потоков определены двойники:
+
+				<div class="sidebar-item"><b>wifstream</b></div>
+
+				<div class="sidebar-item"><b>wofstream</b></div>
+
+				<div class="sidebar-item"><b>wfstream</b></div>
+				<div class="container-content">
+					<span class="content-subheader"></span>
+					При операциях с файлом вначале необходимо открыть файл с помощью функции <b>open()</b>. Данная функция
+					имеет две версии:
+
+					<div class="sidebar-item">open(путь)</div>
+
+					<div class="sidebar-item">open(путь, режим)</div>
+
+					Для открытия файла в функцию необходимо передать путь к файлу в виде строки. И также можно указать
+					режим открытия. Список доступных режимов открытия файла:
+
+					<div class="sidebar-item"><b>ios::in</b>: файл открывается для ввода (чтения). Может быть установлен
+					                                        только для объекта ifstream или
+					                                        fstream
+					</div>
+
+					<div class="sidebar-item"><b>ios::out</b>: файл открывается для вывода (записи). При этом старые
+					                                         данные удаляются. Может быть
+					                                         установлен только для объекта ofstream или fstream
+					</div>
+
+					<div class="sidebar-item"><b>ios::app</b>: файл открывается для дозаписи. Старые данные не
+					                                         удаляются.
+					</div>
+
+					<div class="sidebar-item"><b>ios::ate</b>: после открытия файла перемещает указатель в конец файла
+					</div>
+
+					<div class="sidebar-item"><b>ios::trunc</b>: файл усекается при открытии. Может быть установлен,
+					                                           если также установлен режим out
+					</div>
+
+					<div class="sidebar-item"><b>ios::binary</b>: файл открывается в бинарном режиме</div>
+
+					Если при открытии режим не указан, то по умолчанию для объектов ofstream применяется режим ios::out,
+					а для объектов ifstream - режим ios::in. Для объектов fstream совмещаются режимы ios::out и ios::in.
+					<div class="code-container code">std::ofstream out; // поток для записи
+out.open("D:\\hello1.txt"); // окрываем файл для записи
+
+std::ofstream out2;
+out2.open("D:\\hello2.txt", std::ios::app); // окрываем файл для дозаписи
+
+std::ofstream out3;
+out2.open("D:\\hello3.txt", std::ios::out | std::ios::trunc); // установка нескольких режимов
+
+std::ifstream in; // поток для чтения
+in.open("D:\\hello4.txt"); // окрываем файл для чтения
+
+std::fstream fs; // поток для чтения-записи
+fs.open("D:\\hello5.txt"); // окрываем файл для чтения-записи</div>
+					Однако в принципе необязательно использовать функцию open для открытия файла. В качестве
+					альтернативы можно также использовать конструктор объектов-потоков и передавать в них путь к файлу и
+					режим открытия:
+					<div class="code-container code">fstream(путь)
+fstream(путь, режим)</div>
+					При вызове конструктора, в который передан путь к файлу, данный файл будет автоматически
+					открываться:
+					<div class="code-container code">std::ofstream out("D:\\hello.txt");
+std::ifstream in("D:\\hello.txt");
+std::fstream fs("D:\\hello.txt", std::ios::app);</div>
+					Вообще использование конструкторов для открытия потока является более предпочтительным, так как
+					определение переменной, представляющей файловой поток, уже преполагает, что этот поток будет открыт
+					для чтения или записи. А использование конструктора избавит от ситуации, когда мы забудем открыть
+					поток, но при этом начнем его использовать.
+					<br><br>
+					В процессе работы мы можем проверить, окрыт ли файл с помощью функции is_open(). Если файл открыт,
+					то она возвращает true:
+					<div class="code-container code">std::ifstream in; // поток для чтения
+in.open("D:\\hello.txt"); // окрываем файл для чтения
+// если файл открыт
+if (in.is_open())
+{
+}</div>
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Закрытие файла</span>
+					После завершения работы с файлом его следует закрыть с помощью функции <b>close()</b>. Также стоит
+					отметить, то при выходе объекта потока из области видимости, он удаляется, и у него автоматически
+					вызывается функция close.
+					<div class="code-container code">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+
+int main()
+{
+	std::ofstream out; // поток для записи
+	out.open("D:\\hello.txt"); // окрываем файл для записи
+	out.close(); // закрываем файл
+
+	std::ifstream in; // поток для чтения
+	in.open("D:\\hello.txt"); // окрываем файл для чтения
+	in.close(); // закрываем файл
+
+	std::fstream fs; // поток для чтения-записи
+	fs.open("D:\\hello.txt"); // окрываем файл для чтения-записи
+	fs.close(); // закрываем файл
+
+	return 0;
+}</div>
+					Стоит отметить, что при компиляции через <b>g++</b> следует использовать флаг <b>-static</b>, если программа
+					работает со файлами и использует типы из заголовочного файла fstream:
+					<div class="console-out">g++ app.cpp -o app -static</div>
+				</div>
+
+				<div class="code-container">Вся информация принадлежит сайту <a href="https://metanit.com/"
+				                                                                target="_blank">METANIT.COM</a></div>
+				<div class="centered-content">
+					<a href="8-1.html">Назад</a>
+					<a href="text-guide-introduction.html">Содержание</a>
+					<a href="8-3.html">Вперед</a>
+				</div>
+			</div>
+		</div>
+		<!--MAIN ARTICLES END-->
+	</div>
+
+</main>
+<!--FOOTER START-->
+<footer class="footer centered-container border-top">
+	<div class="flex-container flex-items-center f12">
+		<ul class="list-style-none" style="margin-top: 6px;width: 16%;">
+			<li class="flex-items-center">
+				<a class="header-link" href="https://github.com/Antoher0101" target="_blank">
+					<span>
+						<img alt="@Antoher0101" class="avatar circle"
+						     height="24" src="https://avatars.githubusercontent.com/u/62786345?s=96&amp;v=4" width="24">
+					 © 2022 Antoher0101 </span>
+				</a>
+
+			</li>
+		</ul>
+		<ul class="flex-ul list-style-none two-third-width flex-space-between">
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp" target="_self">This
+			                                                                                                  repository</a>
+			</li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/commits/master"
+			                                 target="_blank">Commits</a></li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/blob/master/README.md"
+			                                 target="_blank">About</a></li>
+		</ul>
+	</div>
+</footer>
+<!--FOOTER END-->
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/ace/ace.js"></script>
+<script>
+    var code;
+    $('.code').each(function () {
+        code = ace.edit(this);
+        code.setTheme("ace/theme/one_dark");
+        code.getSession().setMode("ace/mode/c_cpp");
+        code.setShowPrintMargin(false);
+        code.setReadOnly(true);
+        code.setOptions({
+            maxLines: Infinity,
+            fontSize: "12pt",
+        });
+        code.$blockScrolling = Infinity;
+    });
+</script>
+</body>
+</html>

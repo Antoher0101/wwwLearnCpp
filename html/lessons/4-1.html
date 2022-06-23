@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css">
+	<title>Изучение C++</title>
+</head>
+<body>
+<!--HEADER START-->
+<div class="header">
+	<div class="header-item">
+		<a class="header-link" href="../.." target="_self">
+			<span class="flex-span" style="display: flex;">
+			<svg class="icon" height="48" width="48" viewBox="0 0 32 32">
+				<path d="M29,10.232a2.387,2.387,0,0,0-.318-1.244,2.451,2.451,0,0,0-.936-.879Q22.552,5.241,17.353,2.376A2.642,2.642,0,0,0,14.59,2.4c-1.378.779-8.275,4.565-10.331,5.706A2.287,2.287,0,0,0,3,10.231V21.77a2.4,2.4,0,0,0,.3,1.22,2.434,2.434,0,0,0,.954.9c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733a2.444,2.444,0,0,0,.955-.9,2.4,2.4,0,0,0,.3-1.22V10.232"
+				      style="fill:#909090"/>
+				<path d="M28.549,23.171a2.126,2.126,0,0,0,.147-.182,2.4,2.4,0,0,0,.3-1.22V10.232a2.387,2.387,0,0,0-.318-1.244c-.036-.059-.089-.105-.13-.16L16,16Z"
+				      style="fill:#464646"/>
+				<path d="M28.549,23.171,16,16,3.451,23.171a2.435,2.435,0,0,0,.809.72c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733A2.43,2.43,0,0,0,28.549,23.171Z"
+				      style="fill:#363636"/>
+				<path d="M19.6,18.02a4.121,4.121,0,1,1-.027-4.087l3.615-2.073A8.309,8.309,0,0,0,7.7,16a8.216,8.216,0,0,0,1.1,4.117A8.319,8.319,0,0,0,23.211,20.1L19.6,18.02"
+				      color=""/>
+				<polygon
+						points="24.076 15.538 23.15 15.538 23.15 14.617 22.225 14.617 22.225 15.538 21.299 15.538 21.299 16.461 22.225 16.461 22.225 17.381 23.15 17.381 23.15 16.461 24.076 16.461 24.076 15.538"
+						style="fill:#fff"/>
+				<polygon
+						points="27.549 15.538 26.623 15.538 26.623 14.617 25.697 14.617 25.697 15.538 24.771 15.538 24.771 16.461 25.697 16.461 25.697 17.381 26.623 17.381 26.623 16.461 27.549 16.461 27.549 15.538"
+						style="fill:#fff"/>
+			</svg>
+			Leaner
+			</span>
+		</a>
+	</div>
+	<div class="v-splitter header-item"></div>
+	<nav class="flex-container flex-space-between one-third-width flex-no-wrap">
+		<a href="../faq.html" class="header-link header-item">FAQ</a>
+		<a href="text-guide-introduction.html" class="header-link header-item">Учебник</a>
+		<a href="../video-lessons.html" class="header-link header-item">Видеоуроки</a>
+		<a href="../compiler.html" class="header-link header-item">Компилятор</a>
+		<a href="https://github.com/Antoher0101/wwwLearnCpp" target="_blank" class="header-link header-item">Github</a>
+	</nav>
+</div>
+<!--HEADER END-->
+
+<main class="wrapper sidebar-position">
+	<div id="main-content" class="centered-container">
+		<!--		MAIN ARTICLES START-->
+		<div class="container-content bordered-container">
+			<div class="centered-container">
+				<span class="content-header">Указатели</span>
+				<span class="content-header">Что такое указатели</span>
+				Указатели представляют собой объекты, значением которых служат адреса других объектов (переменных,
+				констант, указателей) или функций. Как и ссылки, указатели применяются для косвенного доступа к
+				объекту. Однако в отличие от ссылок указатели обладают большими возможностями.
+				<br><br>
+				Для определения указателя надо указать тип объекта, на который указывает указатель, и символ
+				звездочки *. Например, определим указатель на объект типа int:
+				<div class="code-container code">int *p;</div>
+				Пока указатель не ссылается ни на какой объект. При этом в отличие от ссылки указатель необязательно
+				инициализировать каким-либо значением. Теперь присвоим указателю адрес переменной:
+
+				<div class="code-container code">int x = 10; // определяем переменную
+int *p; // определяем указатель
+p = &x; // указатель получает адрес переменной</div>
+				Для получения адреса переменной применяется операция <b>&</b>. Что важно, переменная x имеет тип int, и
+				указатель, который указывает на ее адрес, тоже имеет тип int. То есть должно быть соответствие по
+				типу.
+				<br><br>
+				Если мы попробуем вывести адрес переменной на консоль, то увидим, что он представляет
+				шестнадцатиричное значение:
+
+				<div class="code-container code">#include &lt;iostream&gt;
+
+int main()
+{
+	int x = 10; // определяем переменную
+	int *p; // определяем указатель
+	p = &x; // указатель получает адрес переменной
+	std::cout << "p = " << p << std::endl;
+	return 0;
+}</div>
+				Консольный вывод программы:
+				<div class="console-out">p = 0x60fe98</div>
+				В каждом отдельном случае адрес может отличаться, но к примеру, в моем случае машинный адрес
+				переменной x - 0x60fe98. То есть в памяти компьютера есть адрес 0x60fe98, по которому располагается
+				переменная x. Так как переменная x представляет тип <b>int</b>, то на большинстве архитектур она будет
+				занимать следующие 4 байта (на конкретных архитектурах размер памяти для типа int может отличаться).
+				Таким образом, переменная типа int последовательно займет ячейки памяти с адресами 0x60FE98,
+				0x60FE99, 0x60FE9A, 0x60FE9B.
+				<div class="code-container">
+					<table class="tbl">
+						<tbody>
+						<tr>
+							<td>0x60FE98</td>
+							<td>0x60FE99</td>
+							<td>0x60FE9A</td>
+							<td>0x60FE9B</td>
+						</tr>
+						<tr>
+							<td>1 байт</td>
+							<td>1 байт</td>
+							<td>1 байт</td>
+							<td>1 байт</td>
+						</tr>
+						<tr>
+							<td colspan="4">10</td>
+						</tr>
+						<tr>
+							<td colspan="4">переменная x</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+				И указатель <b>p</b> будет ссылаться на адрес, по которому располагается переменная x, то есть на адрес
+				0x60FE98.
+				<br><br>
+				Но так как указатель хранит адрес, то мы можем по этому адресу получить хранящееся там значение, то
+				есть значение переменной x. Для этого применяется операция <b>*</b> или операция разыменования, то есть та
+				операция, которая применяется при определении указателя. Результатом этой операции всегда является
+				объект, на который указывает указатель. Применим данную операцию и получим значение переменной x:
+
+				<div class="code-container code">#include &lt;iostream&gt;
+
+int main()
+{
+	int x = 10;
+	int *p;
+	p = &x;
+	std::cout << "Address = " << p << std::endl;
+	std::cout << "Value = " << *p << std::endl;
+	return 0;
+}</div>
+				Консольный вывод:
+				<div class="console-out"><pre>Address = 0x60fe98
+Value = 10</pre>
+				</div>
+				Значение, которое получено в результате операции разыменования, можно присвоить другой переменной:
+				<div class="code-container code">int x = 10;
+int *p = &x;
+int y = *p;
+std::cout << "Value = " << y << std::endl; // 10</div>
+				И также используя указатель, мы можем менять значение по адресу, который хранится в указателе:
+				<div class="code-container code">int x = 10;
+int *p = &x;
+*p = 45;
+std::cout << "x = " << x << std::endl; // 45</div>
+				Так как по адресу, на который указывает указатель, располагается переменная x, то соответственно ее
+				значение изменится.
+				<br><br>
+				Создадим еще несколько указателей:
+				<div class="code-container code">#include &lt;iostream&gt;
+
+int main()
+{
+	short c = 12;
+	int d = 10;
+	short s = 2;
+
+	short *pc = &c;     // получаем адрес переменной с типа short
+	int *pd = &d;       // получаем адрес переменной d типа int
+	short *ps = &s;     // получаем адрес переменной s типа short
+
+	std::cout << "Variable c: address=" << pc << "\t value=" << *pc << std::endl;
+	std::cout << "Variable d: address=" << pd << "\t value=" << *pd << std::endl;
+	std::cout << "Variable s: address=" << ps << "\t value=" << *ps << std::endl;
+
+	return 0;
+}</div>
+				В моем случае я получу следующий консольный вывод:
+				<div class="console-out"><pre>Variable c: address=0x60fe92 value=12
+Variable d: address=0x60fe8c value=10
+Variable s: address=0x60fe8a value=2</pre>
+				</div>
+				По адресам можно увидеть, что переменные часто расположены в памяти рядом, но не обязательно в том
+				порядке, в котором они определены в коде программы:
+				<div class="code-container">
+					<table class="tbl">
+						<thead>
+						<tr>
+							<th> 60FE8A</th>
+							<th>60FE8B</th>
+							<th>60FE8C</th>
+							<th>60FE8D</th>
+							<th>60FE8E</th>
+							<th>60FE8F</th>
+							<th>60FE90</th>
+							<th>60FE91</th>
+							<th>60FE92</th>
+							<th>60FE93</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>1 байт</td>
+							<td>1 байт</td>
+							<td>1 байт</td>
+							<td>1 байт</td>
+							<td>1 байт</td>
+							<td>1 байт</td>
+							<td>1 байт</td>
+							<td>1 байт</td>
+							<td>1 байт</td>
+							<td>1 байт</td>
+						</tr>
+						<tr>
+							<td colspan="2">2</td>
+							<td colspan="4">10</td>
+							<td></td>
+							<td></td>
+							<td colspan="2">12</td>
+						</tr>
+						<tr>
+							<td colspan="2">переменная s</td>
+							<td colspan="4">переменная d</td>
+							<td></td>
+							<td></td>
+							<td colspan="2">переменная c</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="code-container">Вся информация принадлежит сайту <a href="https://metanit.com/"
+				                                                                target="_blank">METANIT.COM</a></div>
+				<div class="centered-content">
+					<a href="3-9.html">Назад</a>
+					<a href="text-guide-introduction.html">Содержание</a>
+					<a href="4-2.html">Вперед</a>
+				</div>
+			</div>
+		</div>
+		<!--MAIN ARTICLES END-->
+	</div>
+
+</main>
+<!--FOOTER START-->
+<footer class="footer centered-container border-top">
+	<div class="flex-container flex-items-center f12">
+		<ul class="list-style-none" style="margin-top: 6px;width: 16%;">
+			<li class="flex-items-center">
+				<a class="header-link" href="https://github.com/Antoher0101" target="_blank">
+					<span>
+						<img alt="@Antoher0101" class="avatar circle"
+						     height="24" src="https://avatars.githubusercontent.com/u/62786345?s=96&amp;v=4" width="24">
+					 © 2022 Antoher0101 </span>
+				</a>
+
+			</li>
+		</ul>
+		<ul class="flex-ul list-style-none two-third-width flex-space-between">
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp" target="_self">This
+			                                                                                                  repository</a>
+			</li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/commits/master"
+			                                 target="_blank">Commits</a></li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/blob/master/README.md"
+			                                 target="_blank">About</a></li>
+		</ul>
+	</div>
+</footer>
+<!--FOOTER END-->
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/ace/ace.js"></script>
+<script>
+    var code;
+    $('.code').each(function () {
+        code = ace.edit(this);
+        code.setTheme("ace/theme/one_dark");
+        code.getSession().setMode("ace/mode/c_cpp");
+        code.setShowPrintMargin(false);
+        code.setReadOnly(true);
+        code.setOptions({
+            maxLines: Infinity,
+            fontSize: "12pt",
+        });
+        code.$blockScrolling = Infinity;
+    });
+</script>
+</body>
+</html>

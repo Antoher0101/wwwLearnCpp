@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css">
+	<title>Изучение C++</title>
+</head>
+<body>
+<!--HEADER START-->
+<div class="header">
+	<div class="header-item">
+		<a class="header-link" href="../.." target="_self">
+			<span class="flex-span" style="display: flex;">
+			<svg class="icon" height="48" width="48" viewBox="0 0 32 32">
+				<path d="M29,10.232a2.387,2.387,0,0,0-.318-1.244,2.451,2.451,0,0,0-.936-.879Q22.552,5.241,17.353,2.376A2.642,2.642,0,0,0,14.59,2.4c-1.378.779-8.275,4.565-10.331,5.706A2.287,2.287,0,0,0,3,10.231V21.77a2.4,2.4,0,0,0,.3,1.22,2.434,2.434,0,0,0,.954.9c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733a2.444,2.444,0,0,0,.955-.9,2.4,2.4,0,0,0,.3-1.22V10.232"
+				      style="fill:#909090"/>
+				<path d="M28.549,23.171a2.126,2.126,0,0,0,.147-.182,2.4,2.4,0,0,0,.3-1.22V10.232a2.387,2.387,0,0,0-.318-1.244c-.036-.059-.089-.105-.13-.16L16,16Z"
+				      style="fill:#464646"/>
+				<path d="M28.549,23.171,16,16,3.451,23.171a2.435,2.435,0,0,0,.809.72c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733A2.43,2.43,0,0,0,28.549,23.171Z"
+				      style="fill:#363636"/>
+				<path d="M19.6,18.02a4.121,4.121,0,1,1-.027-4.087l3.615-2.073A8.309,8.309,0,0,0,7.7,16a8.216,8.216,0,0,0,1.1,4.117A8.319,8.319,0,0,0,23.211,20.1L19.6,18.02"
+				      color=""/>
+				<polygon
+						points="24.076 15.538 23.15 15.538 23.15 14.617 22.225 14.617 22.225 15.538 21.299 15.538 21.299 16.461 22.225 16.461 22.225 17.381 23.15 17.381 23.15 16.461 24.076 16.461 24.076 15.538"
+						style="fill:#fff"/>
+				<polygon
+						points="27.549 15.538 26.623 15.538 26.623 14.617 25.697 14.617 25.697 15.538 24.771 15.538 24.771 16.461 25.697 16.461 25.697 17.381 26.623 17.381 26.623 16.461 27.549 16.461 27.549 15.538"
+						style="fill:#fff"/>
+			</svg>
+			Leaner
+			</span>
+		</a>
+	</div>
+	<div class="v-splitter header-item"></div>
+	<nav class="flex-container flex-space-between one-third-width flex-no-wrap">
+		<a href="../faq.html" class="header-link header-item">FAQ</a>
+		<a href="text-guide-introduction.html" class="header-link header-item">Учебник</a>
+		<a href="../video-lessons.html" class="header-link header-item">Видеоуроки</a>
+		<a href="../compiler.html" class="header-link header-item">Компилятор</a>
+		<a href="https://github.com/Antoher0101/wwwLearnCpp" target="_blank" class="header-link header-item">Github</a>
+	</nav>
+</div>
+<!--HEADER END-->
+
+<main class="wrapper sidebar-position">
+	<div id="main-content" class="centered-container">
+		<!--		MAIN ARTICLES START-->
+		<div class="container-content bordered-container">
+			<div class="centered-container">
+				<span class="content-header">Операции с указателями</span>
+				Указатели поддерживают ряд операций: присваивание, получение адреса указателя, получение значения по
+				указателю, некоторые арифметические операции и операции сравнения.
+				<div class="container-content">
+					<span class="content-subheader">Присваивание</span>
+					Указателю можно присвоить либо адрес объекта того же типа, либо значение другого указателя.
+					<br><br>
+					Присвоение указателю адреса уже рассматривалось в прошлой теме. Для получения адреса объекта
+					используется операция <b>&</b>:
+					<div class="code-container code">int a = 10;
+int *pa = &a; // указатель pa хранит адрес переменной a</div>
+					При этом указатель и переменная должны иметь один и тот же тип, в данном случае это тип int.
+					<br><br>
+					Присвоение указателю другого указателя:
+
+					<div class="code-container code">#include &lt;iostream&gt;
+using std::cout;
+using std::endl;
+
+int main()
+{
+	int a = 10;
+	int b = 2;
+
+	int *pa = &a;
+	int *pb = &b;
+
+	cout << "Variable a: address=" << pa << "\t value=" << *pa << endl;
+	cout << "Variable b: address=" << pb << "\t value=" << *pb << endl;
+
+	pa = pb; // теперь указатель pa хранит адрес переменной b
+	cout << "Variable b: address=" << pa << "\t value=" << *pa << endl;
+
+	return 0;
+}</div>
+						Когда указателю присваивается другой указатель, то фактически первый указатель начинает также
+						указывать на тот же адрес, на который указывает второй указатель.
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Нулевые указатели</span>
+					Нулевой указатель (null pointer) - это указатель, который не указывает ни на какой объект. Если мы
+					не хотим, чтобы указатель указывал на какой-то конкретный адрес, то можно присвоить ему условное
+					нулевое значение. Для создания нулевого указателя можно применять различные способы:
+					<div class="code-container code">int *p1 = nullptr;
+int *p2 = NULL;
+int *p3 = 0;</div>
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Ссылки на указатели</span>
+					Так как ссылка не является объектом, то нельзя определить указатель на ссылку, однако можно
+					определить ссылку на указатель. Через подобную ссылку можно изменять значение, на которое указывает
+					указатель или изменять адрес самого указателя:
+
+					<div class="code-container code">#include &lt;iostream&gt;
+
+int main()
+{
+	int a = 10;
+	int b = 6;
+
+	int *p = 0; // указатель
+	int *&pRef = p; // ссылка на указатель
+	pRef = &a; // через ссылку указателю p присваивается адрес переменной a
+	std::cout << "p value=" << *p << std::endl; // 10
+	*pRef = 70; // изменяем значение по адресу, на который указывает указатель
+	std::cout << "a value=" << a << std::endl; // 70
+
+	pRef = &b; // изменяем адрес, на который указывает указатель
+	std::cout << "p value=" << *p << std::endl; // 6
+
+	return 0;
+}</div>
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Разыменование указателя</span>
+					Операция разыменования указателя представляет выражение в виде *имя_указателя. Эта операция
+					позволяет получить объект по адресу, который хранится в указателе.
+
+					<div class="code-container code">#include &lt;iostream&gt;
+using std::cout;
+using std::endl;
+
+int main()
+{
+	int a = 10;
+
+	int *pa = &a;
+	int *pb = pa;
+
+	*pa = 25;
+
+	cout << "Value on pointer pa: " << *pa << endl; // 25
+	cout << "Value on pointer pb: " << *pb << endl; // 25
+	cout << "Value of variable a: " << a << endl; // 25
+
+	return 0;
+}</div>
+						Через выражение *pa мы можем получить значение по адресу, который хранится в указателе pa, а
+						через выражение типа *pa = значение вложить по этому адресу новое значение.
+						<br><br>
+						И так как в данном случае указатель pa указывает на переменную a, то при изменении значения по
+						адресу, на который указывает указатель, также изменится и значение переменной a.
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Адрес указателя</span>
+					Указатель хранит адрес переменной, и по этому адресу мы можем получить значение этой переменной. Но
+					кроме того, указатель, как и любая переменная, сам имеет адрес, по которому он располагается в
+					памяти. Этот адрес можно получить также через операцию <b>&</b>:
+
+					<div class="code-container code">int a = 10;
+int *pa = &a;
+std::cout << "address of pointer=" << &pa << std::endl; // адрес указателя
+std::cout << "address stored in pointer=" << pa << std::endl; // адрес, который хранится в указателе - адрес переменной a
+std::cout << "value on pointer=" << *pa << std::endl; // значение по адресу в указателе - значение переменной a</div>
+
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Операции сравнения</span>
+					К указателям могут применяться операции сравнения <b>&gt;, &gt;=, &lt;, &lt;=,==, !=</b>. Операции сравнения
+					применяются только к указателям одного типа и к значениям <b>NULL</b> и <b>nullptr</b>. Для сравнения используются
+					номера адресов:
+
+					<div class="code-container code">#include &lt;iostream&gt;
+using std::cout;
+using std::endl;
+
+int main()
+{
+	int a = 10;
+	int b = 20;
+	int *pa = &a;
+	int *pb = &b;
+
+	if(pa > pb)
+		cout << "pa (" << pa << ") is greater than pb ("<< pb << ")" << endl;
+	else
+		cout << "pa (" << pa << ") is less or equal pb ("<< pb << ")" << endl;
+
+	return 0;
+}</div>
+						Консольный вывод в моем случае:
+					<div class="console-out">pa (0x60fe94) is greater than pb (0x60fe90)</div>
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Приведение типов</span>
+					Иногда требуется присвоить указателю одного типа значение указателя другого типа. В этом случае
+					следует выполнить операцию приведения типов с помощью операции (тип_указателя *):
+					<div class="code-container code">#include &lt;iostream&gt;
+
+int main()
+{
+	char c = 'N';
+	char *pc = &c;
+	int *pd = (int *)pc;
+	void *pv = (void*)pc;
+	std::cout << "pv=" << pv << std::endl;
+	std::cout << "pd=" << pd << std::endl;
+
+	return 0;
+}</div>
+						Для преобразования указателя к другому типу в скобках перед указателем ставится тип, к которому
+						надо преобразовать. Причем если мы не можем просто создать объект, например, переменную типа
+						void, то для указателя это вполне будет работать. То есть можно создать указатель типа void.
+<br><br>
+						Кроме того, следует отметить, что указатель на тип char (char *pc = &c) при выводе на консоль
+						система интерпретирует как строку:
+
+					<div class="code-container code">std::cout << "pc=" << pc << std::endl;</div>
+						Поэтому если мы все-таки хотим вывести на консоль адрес, который хранится в указателе типа char,
+						то это указатель надо преобразовать к другому типу, например, к void* или к int*.
+				</div>
+
+
+				<div class="code-container">Вся информация принадлежит сайту <a href="https://metanit.com/"
+				                                                                target="_blank">METANIT.COM</a></div>
+				<div class="centered-content">
+					<a href="4-1.html">Назад</a>
+					<a href="text-guide-introduction.html">Содержание</a>
+					<a href="4-3.html">Вперед</a>
+				</div>
+			</div>
+		</div>
+		<!--MAIN ARTICLES END-->
+	</div>
+
+</main>
+<!--FOOTER START-->
+<footer class="footer centered-container border-top">
+	<div class="flex-container flex-items-center f12">
+		<ul class="list-style-none" style="margin-top: 6px;width: 16%;">
+			<li class="flex-items-center">
+				<a class="header-link" href="https://github.com/Antoher0101" target="_blank">
+					<span>
+						<img alt="@Antoher0101" class="avatar circle"
+						     height="24" src="https://avatars.githubusercontent.com/u/62786345?s=96&amp;v=4" width="24">
+					 © 2022 Antoher0101 </span>
+				</a>
+
+			</li>
+		</ul>
+		<ul class="flex-ul list-style-none two-third-width flex-space-between">
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp" target="_self">This
+			                                                                                                  repository</a>
+			</li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/commits/master"
+			                                 target="_blank">Commits</a></li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/blob/master/README.md"
+			                                 target="_blank">About</a></li>
+		</ul>
+	</div>
+</footer>
+<!--FOOTER END-->
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/ace/ace.js"></script>
+<script>
+    var code;
+    $('.code').each(function () {
+        code = ace.edit(this);
+        code.setTheme("ace/theme/one_dark");
+        code.getSession().setMode("ace/mode/c_cpp");
+        code.setShowPrintMargin(false);
+        code.setReadOnly(true);
+        code.setOptions({
+            maxLines: Infinity,
+            fontSize: "12pt",
+        });
+        code.$blockScrolling = Infinity;
+    });
+</script>
+</body>
+</html>

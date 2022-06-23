@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css">
+	<title>Изучение C++</title>
+</head>
+<body>
+<!--HEADER START-->
+<div class="header">
+	<div class="header-item">
+		<a class="header-link" href="../.." target="_self">
+			<span class="flex-span" style="display: flex;">
+			<svg class="icon" height="48" width="48" viewBox="0 0 32 32">
+				<path d="M29,10.232a2.387,2.387,0,0,0-.318-1.244,2.451,2.451,0,0,0-.936-.879Q22.552,5.241,17.353,2.376A2.642,2.642,0,0,0,14.59,2.4c-1.378.779-8.275,4.565-10.331,5.706A2.287,2.287,0,0,0,3,10.231V21.77a2.4,2.4,0,0,0,.3,1.22,2.434,2.434,0,0,0,.954.9c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733a2.444,2.444,0,0,0,.955-.9,2.4,2.4,0,0,0,.3-1.22V10.232"
+				      style="fill:#909090"/>
+				<path d="M28.549,23.171a2.126,2.126,0,0,0,.147-.182,2.4,2.4,0,0,0,.3-1.22V10.232a2.387,2.387,0,0,0-.318-1.244c-.036-.059-.089-.105-.13-.16L16,16Z"
+				      style="fill:#464646"/>
+				<path d="M28.549,23.171,16,16,3.451,23.171a2.435,2.435,0,0,0,.809.72c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733A2.43,2.43,0,0,0,28.549,23.171Z"
+				      style="fill:#363636"/>
+				<path d="M19.6,18.02a4.121,4.121,0,1,1-.027-4.087l3.615-2.073A8.309,8.309,0,0,0,7.7,16a8.216,8.216,0,0,0,1.1,4.117A8.319,8.319,0,0,0,23.211,20.1L19.6,18.02"
+				      color=""/>
+				<polygon
+						points="24.076 15.538 23.15 15.538 23.15 14.617 22.225 14.617 22.225 15.538 21.299 15.538 21.299 16.461 22.225 16.461 22.225 17.381 23.15 17.381 23.15 16.461 24.076 16.461 24.076 15.538"
+						style="fill:#fff"/>
+				<polygon
+						points="27.549 15.538 26.623 15.538 26.623 14.617 25.697 14.617 25.697 15.538 24.771 15.538 24.771 16.461 25.697 16.461 25.697 17.381 26.623 17.381 26.623 16.461 27.549 16.461 27.549 15.538"
+						style="fill:#fff"/>
+			</svg>
+			Leaner
+			</span>
+		</a>
+	</div>
+	<div class="v-splitter header-item"></div>
+	<nav class="flex-container flex-space-between one-third-width flex-no-wrap">
+		<a href="../faq.html" class="header-link header-item">FAQ</a>
+		<a href="text-guide-introduction.html" class="header-link header-item">Учебник</a>
+		<a href="../video-lessons.html" class="header-link header-item">Видеоуроки</a>
+		<a href="../compiler.html" class="header-link header-item">Компилятор</a>
+		<a href="https://github.com/Antoher0101/wwwLearnCpp" target="_blank" class="header-link header-item">Github</a>
+	</nav>
+</div>
+<!--HEADER END-->
+
+<main class="wrapper sidebar-position">
+	<div id="main-content" class="centered-container">
+		<!--		MAIN ARTICLES START-->
+		<div class="container-content bordered-container">
+			<div class="centered-container">
+				<span class="content-header">Deque</span>
+				<b>Deque</b> представляет двухстороннюю очередь. Для использования данного контейнера нужно подключить
+				заголовочный файл <b>deque</b>.
+				<br><br>
+				Способы создания двухсторонней очереди:
+
+				<div class="code-container code">std::deque&lt;int&gt; deque1; // пустая очередь
+std::deque&lt;int&gt; deque2(5); // deque2 состоит из 5 чисел, каждый элемент имеет значение по
+умолчанию
+std::deque&lt;int&gt; deque(5, 2); // deque3 состоит из 5 чисел, каждое число равно 2
+std::deque&lt;int&gt; deque4{ 1, 2, 4, 5 }; // deque4 состоит из чисел 1, 2, 4, 5
+std::deque&lt;int&gt; deque5 = { 1, 2, 3, 5 }; // deque5 состоит из чисел 1, 2, 3, 5
+std::deque&lt;int&gt; deque6({ 1, 2, 3, 4, 5 }); // deque6 состоит из чисел 1, 2, 3, 4, 5
+std::deque&lt;int&gt; deque7(deque4); // deque7 - копия очереди deque4
+std::deque&lt;int&gt; deque8 = deque7; // deque8 - копия очереди deque7</div>
+				<div class="container-content">
+					<span class="content-subheader">Получение элементов очереди</span>
+					Для получения элементов очереди можно использовать операцию [] и ряд функций:
+
+					<div class="sidebar-item"><b>[index]</b>: получение элемента по индексу</div>
+
+					<div class="sidebar-item"><b>at(index)</b>: возращает элемент по индексу</div>
+
+					<div class="sidebar-item"><b>front()</b>: возвращает первый элемент</div>
+
+					<div class="sidebar-item"><b>back()</b>: возвращает последний элемент</div>
+					<div class="code-container code">#include &lt;iostream&gt;
+#include &lt;deque&gt;
+
+int main()
+{
+	std::deque&lt;int&gt; numbers = { 1, 2, 3, 4, 5 };
+
+	int first = numbers.front(); // 1
+	int last = numbers.back(); // 5
+	int second = numbers[1]; // 2
+	int third = numbers.at(2); // 3
+	std::cout << first << second << third << last << std::endl; // 1235
+
+	return 0;
+}</div>
+					Стоит отметить, что если мы будем обращаться с помощью операции индексирования по некорректному
+					индексу, который выходит за границы контейнера, то результат будет неопредленным:
+					<div class="code-container code">std::deque&lt;int&gt; numbers = { 1, 2, 3, 4, 5 };
+int eighth = numbers[7];</div>
+					В этом случае использование функции <b>at()</b> является более предпочтительным, так как при обращении по
+					некорректному индексу она генерирует исключение <b>out_of_range</b>:
+					<div class="code-container code">#include &lt;iostream&gt;
+#include &lt;deque&gt;
+#include &lt;stdexcept&gt;
+
+int main()
+{
+	std::deque&lt;int&gt; numbers = { 1, 2, 3, 4, 5};
+	try
+	{
+		int n = numbers.at(7);
+	}
+	catch (std::out_of_range e)
+	{
+		std::cout << "Incorrect index" << std::endl;
+	}
+
+	return 0;
+}</div>
+					Также в цикле или с помощью итераторов можно перебрать элементы контейнера:
+					<div class="code-container code">#include &lt;iostream&gt;
+#include &lt;deque&gt;
+
+int main()
+{
+	std::deque&lt;int&gt; numbers = { 1, 2, 3, 4, 5 };
+
+	for (int n : numbers)
+		std::cout << n << "\t";
+	std::cout << std::endl;
+
+	for (int i=0; i < numbers.size(); i++)
+		std::cout << numbers[i] << "\t";
+	std::cout << std::endl;
+
+	for (auto iter = numbers.begin(); iter != numbers.end(); iter++)
+		std::cout << *iter << "\t";
+	std::cout << std::endl;
+
+	return 0;
+}</div>
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Размер очереди</span>
+					Чтобы узнать размер очереди, можно использовать функцию <b>size()</b>. А функция <b>empty()</b> позволяет узнать,
+					содержит ли очередь элементы. Она возвращает значение true, если в очереди есть элементы:
+<div class="code-container code">std::deque&lt;int&gt; numbers = { 1, 2, 3, 4, 5 };
+if (numbers.empty())
+{
+	std::cout << "Deque is empty" << std::endl;
+}
+else
+{
+	int n = numbers.size();
+	std::cout << "Deque has " << n << " elements" << std::endl;
+}</div>
+					Функция <b>resize()</b> позволяет изменить размер очереди. Эта функция имеет две формы:
+					<div class="sidebar-item"><b>resize(n)</b>: оставляет в очереди n первых элементов. Если deque
+					                                          содержит больше элементов,
+					                                          то размер
+					                                          контейнера усекается до первых n элементов. Если размер
+					                                          очереди меньше n, то
+					                                          добавляются недостающие
+					                                          элементы и инициализируются значением по умолчанию
+					</div>
+					<div class="sidebar-item"><b>resize(n, value)</b>: также оставляет в очереди n первых элементов.
+					                                                 Если размер очереди меньше n,
+					                                                 то
+					                                                 добавляются недостающие элементы со значением value
+					</div>
+					Применение функции:
+					<div class="code-container code">std::deque&lt;int&gt; numbers = { 1, 2, 3, 4, 5, 6 };
+numbers.resize(4); // оставляем первые четыре элемента - numbers = {1, 2, 3, 4}
+
+numbers.resize(6, 8); // numbers = {1, 2, 3, 4, 8, 8}</div>
+					Важно учитывать, что применение функции resize может сделать некорректными все итераторы, указатели
+					и ссылки на элементы.
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Изменение элементов очереди</span>
+					Функция <b>assign()</b> позволяет заменить все элементы очереди определенным набором. Она имеет следующие
+					формы:
+
+					<div class="sidebar-item"><b>assign(il)</b>: заменяет содержимое контейнера элементами из списка
+					                                           инициализации il
+					</div>
+
+					<div class="sidebar-item"><b>assign(n, value)</b>: заменяет содержимое контейнера n элементами,
+					                                                 которые имеют значение
+					                                                 value
+					</div>
+
+					<div class="sidebar-item"><b>assign(begin, end)</b>: заменяет содержимое контейнера элементами из
+					                                                   диапазона, на начало и
+					                                                   конец
+					                                                   которого указывают итераторы begin и end
+					</div>
+
+					Применение функции:
+					<div class="code-container code">std::deque&lt;int&gt; numbers = { 1, 2, 3, 4, 5 };
+
+numbers.assign({ 21, 22, 23, 24, 25 }); // numbers = { 21, 22, 23, 24, 25 }
+
+numbers.assign(4, 3); // numbers = {3, 3, 3, 3}
+
+std::deque&lt;int&gt; values = { 6, 7, 8, 9, 10, 11 };
+auto start = values.begin() + 2; // итератор указывает на третий элемент
+auto end = values.end(); // итератор указывает на последний элемент
+numbers.assign(start, end); // numbers = { 8, 9, 10, 11 }</div>
+					Функция <b>swap()</b> обменивает значениями две очереди:
+					<div class="code-container code">std::deque&lt;int&gt; deque1 = { 1, 2, 3, 4, 5 };
+std::deque&lt;int&gt; deque2 = { 6, 7, 8, 9};
+deque1.swap(deque2); // deque1 = { 6, 7, 8, 9};</div>
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Добавление элементов</span>
+					Чтобы добавить элементы в очередь deque, можно применять ряд функций:
+
+					<div class="sidebar-item"><b>push_back(val)</b>: добавляет значение val в конец очереди</div>
+
+				<div class="sidebar-item"><b>push_front(val)</b>: добавляет значение val в начало очереди</div>
+
+			<div class="sidebar-item"><b>emplace_back(val)</b>: добавляет значение val в конец очереди</div>
+
+		<div class="sidebar-item"><b>emplace_front(val)</b>: добавляет значение val в начало очереди</div>
+
+	<div class="sidebar-item"><b>emplace(pos, val)</b>: вставляет элемент val на позицию, на которую указывает итератор pos. Возвращает
+	   итератор на добавленный элемент</div>
+
+<div class="sidebar-item"><b>insert(pos, val)</b>: вставляет элемент val на позицию, на которую указывает итератор pos, аналогично
+   функции emplace. Возвращает итератор на добавленный элемент</div>
+
+<div class="sidebar-item"><b>insert(pos, n, val)</b>: вставляет n элементов val начиная с позиции, на которую указывает итератор pos.
+   Возвращает итератор на первый добавленный элемент. Если n = 0, то возвращается итератор pos.</div>
+
+<div class="sidebar-item"><b>insert(pos, begin, end)</b>: вставляет начиная с позиции, на которую указывает итератор pos, элементы из
+   другого контейнера из диапазона между итераторами begin и end. Возвращает итератор на первый
+   добавленный элемент. Если между итераторами begin и end нет элементов, то возвращается итератор pos.</div>
+
+<div class="sidebar-item"><b>insert(pos, values)</b>: вставляет список значений values начиная с позиции, на которую указывает
+   итератор pos. Возвращает итератор на первый добавленный элемент. Если values не содержит элементов,
+   то возвращается итератор pos.</div>
+
+					Функции push_back(), push_front(), emplace_back() и emplace_front():
+					<div class="code-container code">std::deque&lt;int&gt; numbers = { 1, 2, 3, 4, 5 };
+numbers.push_back(6); // { 1, 2, 3, 4, 5, 6 }
+numbers.push_front(0); // { 0, 1, 2, 3, 4, 5, 6 }
+numbers.emplace_back(7); // { 0, 1, 2, 3, 4, 5, 6, 7 }
+numbers.emplace_front(-1); // { -1, 0, 1, 2, 3, 4, 5, 6, 7 }</div>
+					Добавление в середину списка с помощью функции <b>emplace()</b>:
+					<div class="code-container code">std::deque&lt;int&gt; numbers = { 1, 2, 3, 4, 5 };
+auto iter = ++numbers.cbegin(); // итератор указывает на второй элемент
+numbers.emplace(iter, 8); // добавляем после первого элемента numbers = { 1, 8, 2, 3, 4, 5};</div>
+					Добавление в середину списка с помощью функции <b>insert()</b>:
+					<div class="code-container code">std::deque&lt;int&gt; numbers1 = { 1, 2, 3, 4, 5 };
+auto iter1 = numbers1.cbegin(); // итератор указывает на второй элемент
+numbers1.insert(iter1 + 2, 8); // добавляем после второго элемента
+//numbers1 = { 1, 2, 8, 3, 4, 5};
+
+std::deque&lt;int&gt; numbers2 = { 1, 2, 3, 4, 5 };
+auto iter2 = numbers2.cbegin(); // итератор указывает на первый элемент
+numbers2.insert(iter2, 3, 4); // добавляем вначало три четверки
+//numbers2 = { 4, 4, 4, 1, 2, 3, 4, 5};
+
+std::list&lt;int&gt; values = { 10, 20, 30, 40, 50 };
+std::deque&lt;int&gt; numbers3 = { 1, 2, 3, 4, 5 };
+auto iter3 = numbers3.cbegin(); // итератор указывает на первый элемент
+// добавляем в начало все элементы из values
+numbers3.insert(iter3, values.begin(), values.end());
+//numbers3 = { 10, 20, 30, 40, 50, 1, 2, 3, 4, 5};
+
+std::deque&lt;int&gt; numbers4 = { 1, 2, 3, 4, 5 };
+auto iter4 = numbers4.cend(); // итератор указывает на позицию за последним элементом
+// добавляем после последнего элемента список { 21, 22, 23 }
+numbers4.insert(iter4, { 21, 22, 23 });
+//numbers4 = { 1, 2, 3, 4, 5, 21, 22, 23};</div>
+					При добавлении в контейнер deque следует учитывать, что добавление может сделать недействительными
+					все итераторы, указатели и ссылки на элементы контейнера.
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Удаление элементов</span>
+					Для удаления элементов из контейнера deque используются следующие функции:
+
+					<div class="sidebar-item"><b>clear(p)</b>: удаляет все элементы</div>
+
+					<div class="sidebar-item"><b>pop_back()</b>: удаляет последний элемент</div>
+
+					<div class="sidebar-item"><b>pop_front()</b>: удаляет первый элемент</div>
+
+					<div class="sidebar-item"><b>erase(p)</b>: удаляет элемент, на который указывает итератор p.
+					                                         Возвращает итератор на элемент,
+					                                         следующий после удаленного, или на конец контейнера, если
+					                                         удален последний элемент
+					</div>
+
+					<div class="sidebar-item"><b>erase(begin, end)</b>: удаляет элементы из диапазона, на начало и конец
+					                                                  которого указывают итераторы
+					                                                  begin и end. Возвращает итератор на элемент,
+					                                                  следующий после последнего удаленного, или на
+					                                                  конец
+					                                                  контейнера, если удален последний элемент
+					</div>
+
+					Применение функций:
+					<div class="code-container code">std::deque&lt;int&gt; numbers = { 1, 2, 3, 4, 5 };
+numbers.pop_front(); // numbers = { 2, 3, 4, 5 }
+numbers.pop_back(); // numbers = { 2, 3, 4 }
+numbers.clear(); // numbers ={}
+
+numbers = { 1, 2, 3, 4, 5 };
+auto iter = numbers.cbegin(); // указатель на первый элемент
+numbers.erase(iter); // удаляем первый элемент
+// numbers = { 2, 4, 5, 6 }
+
+numbers = { 1, 2, 3, 4, 5 };
+auto begin = numbers.begin(); // указатель на первый элемент
+auto end = numbers.end(); // указатель на последний элемент
+numbers.erase(++begin, --end); // удаляем со второго элемента до последнего
+//numbers = {1, 5}</div>
+					При удалении стоит учитывать, что удаление элементов из любой позиции (за исключением удаления
+					первого и последнего элементов) делает все итераторы, указатели и ссылки на элементы deque
+					недействительными.
+				</div>
+
+				<div class="code-container">Вся информация принадлежит сайту <a href="https://metanit.com/"
+				                                                                target="_blank">METANIT.COM</a></div>
+				<div class="centered-content">
+					<a href="7-7.html">Назад</a>
+					<a href="text-guide-introduction.html">Содержание</a>
+					<a href="8-1.html">Вперед</a>
+				</div>
+			</div>
+		</div>
+		<!--MAIN ARTICLES END-->
+	</div>
+
+</main>
+<!--FOOTER START-->
+<footer class="footer centered-container border-top">
+	<div class="flex-container flex-items-center f12">
+		<ul class="list-style-none" style="margin-top: 6px;width: 16%;">
+			<li class="flex-items-center">
+				<a class="header-link" href="https://github.com/Antoher0101" target="_blank">
+					<span>
+						<img alt="@Antoher0101" class="avatar circle"
+						     height="24" src="https://avatars.githubusercontent.com/u/62786345?s=96&amp;v=4" width="24">
+					 © 2022 Antoher0101 </span>
+				</a>
+
+			</li>
+		</ul>
+		<ul class="flex-ul list-style-none two-third-width flex-space-between">
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp" target="_self">This
+			                                                                                                  repository</a>
+			</li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/commits/master"
+			                                 target="_blank">Commits</a></li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/blob/master/README.md"
+			                                 target="_blank">About</a></li>
+		</ul>
+	</div>
+</footer>
+<!--FOOTER END-->
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/ace/ace.js"></script>
+<script>
+    var code;
+    $('.code').each(function () {
+        code = ace.edit(this);
+        code.setTheme("ace/theme/one_dark");
+        code.getSession().setMode("ace/mode/c_cpp");
+        code.setShowPrintMargin(false);
+        code.setReadOnly(true);
+        code.setOptions({
+            maxLines: Infinity,
+            fontSize: "12pt",
+        });
+        code.$blockScrolling = Infinity;
+    });
+</script>
+</body>
+</html>
