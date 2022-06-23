@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css">
+	<title>Изучение C++</title>
+</head>
+<body>
+<!--HEADER START-->
+<div class="header">
+	<div class="header-item">
+		<a class="header-link" href="../.." target="_self">
+			<span class="flex-span" style="display: flex;">
+			<svg class="icon" height="48" width="48" viewBox="0 0 32 32">
+				<path d="M29,10.232a2.387,2.387,0,0,0-.318-1.244,2.451,2.451,0,0,0-.936-.879Q22.552,5.241,17.353,2.376A2.642,2.642,0,0,0,14.59,2.4c-1.378.779-8.275,4.565-10.331,5.706A2.287,2.287,0,0,0,3,10.231V21.77a2.4,2.4,0,0,0,.3,1.22,2.434,2.434,0,0,0,.954.9c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733a2.444,2.444,0,0,0,.955-.9,2.4,2.4,0,0,0,.3-1.22V10.232"
+				      style="fill:#909090"/>
+				<path d="M28.549,23.171a2.126,2.126,0,0,0,.147-.182,2.4,2.4,0,0,0,.3-1.22V10.232a2.387,2.387,0,0,0-.318-1.244c-.036-.059-.089-.105-.13-.16L16,16Z"
+				      style="fill:#464646"/>
+				<path d="M28.549,23.171,16,16,3.451,23.171a2.435,2.435,0,0,0,.809.72c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733A2.43,2.43,0,0,0,28.549,23.171Z"
+				      style="fill:#363636"/>
+				<path d="M19.6,18.02a4.121,4.121,0,1,1-.027-4.087l3.615-2.073A8.309,8.309,0,0,0,7.7,16a8.216,8.216,0,0,0,1.1,4.117A8.319,8.319,0,0,0,23.211,20.1L19.6,18.02"
+				      color=""/>
+				<polygon
+						points="24.076 15.538 23.15 15.538 23.15 14.617 22.225 14.617 22.225 15.538 21.299 15.538 21.299 16.461 22.225 16.461 22.225 17.381 23.15 17.381 23.15 16.461 24.076 16.461 24.076 15.538"
+						style="fill:#fff"/>
+				<polygon
+						points="27.549 15.538 26.623 15.538 26.623 14.617 25.697 14.617 25.697 15.538 24.771 15.538 24.771 16.461 25.697 16.461 25.697 17.381 26.623 17.381 26.623 16.461 27.549 16.461 27.549 15.538"
+						style="fill:#fff"/>
+			</svg>
+			Leaner
+			</span>
+		</a>
+	</div>
+	<div class="v-splitter header-item"></div>
+	<nav class="flex-container flex-space-between one-third-width flex-no-wrap">
+		<a href="../faq.html" class="header-link header-item">FAQ</a>
+		<a href="text-guide-introduction.html" class="header-link header-item">Учебник</a>
+		<a href="../video-lessons.html" class="header-link header-item">Видеоуроки</a>
+		<a href="../compiler.html" class="header-link header-item">Компилятор</a>
+		<a href="https://github.com/Antoher0101/wwwLearnCpp" target="_blank" class="header-link header-item">Github</a>
+	</nav>
+</div>
+<!--HEADER END-->
+
+<main class="wrapper sidebar-position">
+	<div id="main-content" class="centered-container">
+		<!--		MAIN ARTICLES START-->
+		<div class="container-content bordered-container">
+			<div class="centered-container">
+				<span class="content-header">Итераторы</span>
+				Итераторы обеспечивают доступ к элементам контейнера. С помощью итераторов очень удобно перебирать
+				элементы. Итератор описывается типом <b>iterator</b>. Но для каждого контейнера конкретный тип итератора будет
+				отличаться. Так, итератор для контейнера list&lt;int&gt; представляет тип
+				<b>list&lt;int&gt;::iterator</b>, а
+				итератор контейнера vector&lt;int&gt; представляет тип <b>vector&lt;int&gt;::iterator</b> и так далее.
+				<br><br>
+				Для получения итераторов контейнеры в C++ обладают такими функциями, как <b>begin()</b> и <b>end()</b>. Функция
+				<b>begin()</b> возвращает итератор, который указывает на первый элемент контейнера (при наличии в контейнере
+				элементов). Функция <b>end()</b> возвращает итератор, который указывает на следующую позицию после последнего
+				элемента, то есть по сути на конец контейнера. Если контейнер пуст, то итераторы, возвращаемые обоими
+				методами begin и end совпадают. Если итератор begin не равен итератору end, то между ними есть как
+				минимум один элемент.
+				<br><br>
+				Обе этих функции возвращают итератор для конкретного типа контейнера:
+				<div class="code-container code">std::vector&lt;int&gt; v = { 1,2,3,4 };
+std::vector&lt;int&gt;::iterator iter = v.begin(); // получаем итератор</div>
+				В данном случае создается вектор - контейнер типа vector, который содержит значения типа int. И этот
+				контейнер инициализируется набором {1, 2, 3, 4}. И через метод begin() можно получить итератор для этого
+				контейнера. Причем этот итератор будет указывать на первый элемент контейнера.
+				<div class="container-content">
+					<span class="content-subheader">Операции с итераторами</span>
+					С итераторами можно проводить следующие операции:
+					<div class="sidebar-item"><b>*iter</b>: получение элемента, на который указывает итератор</div>
+					<div class="sidebar-item"><b>++iter</b>: перемещение итератора вперед для обращения к следующему
+					                                       элементу
+					</div>
+					<div class="sidebar-item"><b>--iter</b>: перемещение итератора назад для обращения к предыдущему
+					                                       элементу. Итераторы контейнера
+
+						<b>forward_list</b> не поддерживают операцию декремента.
+					</div>
+					<div class="sidebar-item"><b>iter1 == iter2</b>: два итератора равны, если они указывают на один и
+					                                               тот же элемент
+					</div>
+					<div class="sidebar-item"><b>iter1 != iter2</b>: два итератора не равны, если они указывают на
+					                                               разные элементы
+					</div>
+					Например, используем итераторы для перебора элементов вектора:
+					<div class="code-container code">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+int main()
+{
+	std::vector&lt;int&gt; v = {1, 2, 3, 4, 5};
+	auto iter = v.begin(); // получаем итератор
+	while(iter!=v.end()) // пока не дойдем до конца
+	{
+		std::cout << *iter << std::endl;// получаем элементы через итератор
+		++iter; // перемещаемся вперед на один элемент
+	}
+
+	return 0;
+}</div>
+					При работе с контейнерами следует учитывать, что добавление или удаление элементов в контейнере
+					может привести к тому, что все текущие итераторы для данного контейнера, а также ссылки и указатели
+					на его элементы станут недопустимыми.
+					<br><br>
+					Итераторы позволяют не только получать элементы, но и изменять их:
+					<div class="code-container code">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+int main()
+{
+	std::vector&lt;int&gt; v = {1, 2, 3, 4, 5};
+	auto iter = v.begin();
+	while(iter!=v.end()) // пока не дойдем до конца
+	{
+		*iter = (*iter) * (*iter); // возводим число в квадрат
+		++iter;
+	}
+
+	for(iter = v.begin(); iter!=v.end(); ++iter)
+	{
+		std::cout << *iter << std::endl;
+	}
+
+	return 0;
+}</div>
+					В данном случае в цикле while элементы вектора возводятся в квадрат. Консольный вывод данной
+					программы:
+					<div class="console-out"><pre>1
+4
+9
+16
+25</pre>
+					</div>
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Константные итераторы</span>
+					Если контейнер представляет константу, то для обращения к элементам этого контейнера можно
+					использовать только константный итератор (тип <b>const_iterator</b>). Такой итератор позволяет считывать
+					элементы, но не изменять их:
+					<div class="code-container code">const vector&lt;int&gt; v = {1, 2, 3, 4, 5};
+for(auto iter = v.begin(); iter != v.end(); ++iter)
+{
+	std::cout << *iter << std::endl;
+	// так нельзя сделать
+	//*iter = (*iter) * (*iter);
+}</div>
+					Для получения константного итератора также можно использовать функции <b>cbegin()</b> и
+					<b>cend()</b>. При этом даже
+					если контейнер не представляет константу, но при этом для его перебора используется константный
+					итератор, то опять же нельзя изменять значения элементов этого контейнера:
+					<div class="code-container code">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+int main()
+{
+	std::vector&lt;int&gt; v = { 1, 2, 3, 4, 5 };
+	for (std::vector&lt;int&gt;::const_iterator iter = v.cbegin(); iter != v.cend(); ++iter)
+	{
+		std::cout << *iter << std::endl;
+		// так нельзя сделать, так как итератор константный
+		//*iter = (*iter) * (*iter);
+	}
+	return 0;
+}</div>
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Реверсивные итераторы</span>
+					Реверсивные итераторы позволяют перебирать элементы контейнера в обратном направлении. Для получения
+					реверсивного итератора применяются функции <b>rbegin()</b> и <b>rend()</b>, а сам итератор представляет тип :
+					<div class="code-container code">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+int main()
+{
+	std::vector&lt;int&gt; v = { 1, 2, 3, 4, 5 };
+	for (std::vector&lt;int&gt;::reverse_iterator iter = v.rbegin(); iter != v.rend(); ++iter)
+	{
+		std::cout << *iter << std::endl;
+	}
+	std::cout << "\n";
+	return 0;
+}</div>
+					Консольный вывод программы:
+					<div class="console-out"><pre>5
+4
+3
+2
+1</pre>
+					</div>
+					Если надо обеспечить защиту от изменения значений контейнера, то можно использовать константный
+					реверсивный итератор, который представлен типом const_reverse_iterator и который можно получить с
+					помощью функций crbegin() и crend():
+					<div class="code-container code">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+int main()
+{
+	std::vector&lt;int&gt; v = { 1, 2, 3, 4, 5 };
+	for (std::vector&lt;int&gt;::const_reverse_iterator iter = v.crbegin(); iter != v.crend();
+	++iter)
+	{
+		std::cout << *iter << std::endl;
+		// так нельзя сделать, так как итератор константный
+		//*iter = (*iter) * (*iter);
+	}
+	return 0;
+}</div>
+					Также итераторы для всех типов, кроме list и forward_list, поддерживают ряд дополнительных операций:
+					<div class="sidebar-item"><b>iter + n</b>: возвращает итератор, который смещен от итератора iter на
+					                                         n позиций вперед
+					</div>
+					<div class="sidebar-item"><b>iter - n</b>: возвращает итератор, который смещен от итератора iter на
+					                                         n позиций назад
+					</div>
+					<div class="sidebar-item"><b>iter += n</b>: перемещает итератор на n позиций вперед</div>
+					<div class="sidebar-item"><b>iter -= n</b>: перемещает итератор на n позиций назад</div>
+					<div class="sidebar-item"><b>iter1 - iter2</b>: возвращает количество позиций между итераторами
+					                                              iter1 и iter2
+					</div>
+					<div class="sidebar-item"><b>&gt;, &gt;=, &lt;, &lt;=</b>: операции сравнения. Один итератор больше
+					                                                         другого, если указывает на элемент, который
+					                                                         ближе к концу
+					</div>
+					Применение некоторых операций:
+					<div class="code-container code">std::vector&lt;int&gt; v = {1, 2, 3, 4, 5};
+auto iter1 = v.begin();
+auto iter2 = iter1 + 2;
+std::cout << *iter2 << std::endl; // 3
+
+bool res = iter2 > iter1; // true
+std::cout << res << std::endl;</div>
+				</div>
+				<div class="code-container">Вся информация принадлежит сайту <a href="https://metanit.com/"
+				                                                                target="_blank">METANIT.COM</a></div>
+				<div class="centered-content">
+					<a href="7-2.html">Назад</a>
+					<a href="text-guide-introduction.html">Содержание</a>
+					<a href="7-4.html">Вперед</a>
+				</div>
+			</div>
+		</div>
+		<!--MAIN ARTICLES END-->
+	</div>
+
+</main>
+<!--FOOTER START-->
+<footer class="footer centered-container border-top">
+	<div class="flex-container flex-items-center f12">
+		<ul class="list-style-none" style="margin-top: 6px;width: 16%;">
+			<li class="flex-items-center">
+				<a class="header-link" href="https://github.com/Antoher0101" target="_blank">
+					<span>
+						<img alt="@Antoher0101" class="avatar circle"
+						     height="24" src="https://avatars.githubusercontent.com/u/62786345?s=96&amp;v=4" width="24">
+					 © 2022 Antoher0101 </span>
+				</a>
+
+			</li>
+		</ul>
+		<ul class="flex-ul list-style-none two-third-width flex-space-between">
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp" target="_self">This
+			                                                                                                  repository</a>
+			</li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/commits/master"
+			                                 target="_blank">Commits</a></li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/blob/master/README.md"
+			                                 target="_blank">About</a></li>
+		</ul>
+	</div>
+</footer>
+<!--FOOTER END-->
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/ace/ace.js"></script>
+<script>
+    var code;
+    $('.code').each(function () {
+        code = ace.edit(this);
+        code.setTheme("ace/theme/one_dark");
+        code.getSession().setMode("ace/mode/c_cpp");
+        code.setShowPrintMargin(false);
+        code.setReadOnly(true);
+        code.setOptions({
+            maxLines: Infinity,
+            fontSize: "12pt",
+        });
+        code.$blockScrolling = Infinity;
+    });
+</script>
+</body>
+</html>

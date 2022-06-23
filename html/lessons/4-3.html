@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css">
+	<title>Изучение C++</title>
+</head>
+<body>
+<!--HEADER START-->
+<div class="header">
+	<div class="header-item">
+		<a class="header-link" href="../.." target="_self">
+			<span class="flex-span" style="display: flex;">
+			<svg class="icon" height="48" width="48" viewBox="0 0 32 32">
+				<path d="M29,10.232a2.387,2.387,0,0,0-.318-1.244,2.451,2.451,0,0,0-.936-.879Q22.552,5.241,17.353,2.376A2.642,2.642,0,0,0,14.59,2.4c-1.378.779-8.275,4.565-10.331,5.706A2.287,2.287,0,0,0,3,10.231V21.77a2.4,2.4,0,0,0,.3,1.22,2.434,2.434,0,0,0,.954.9c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733a2.444,2.444,0,0,0,.955-.9,2.4,2.4,0,0,0,.3-1.22V10.232"
+				      style="fill:#909090"/>
+				<path d="M28.549,23.171a2.126,2.126,0,0,0,.147-.182,2.4,2.4,0,0,0,.3-1.22V10.232a2.387,2.387,0,0,0-.318-1.244c-.036-.059-.089-.105-.13-.16L16,16Z"
+				      style="fill:#464646"/>
+				<path d="M28.549,23.171,16,16,3.451,23.171a2.435,2.435,0,0,0,.809.72c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733A2.43,2.43,0,0,0,28.549,23.171Z"
+				      style="fill:#363636"/>
+				<path d="M19.6,18.02a4.121,4.121,0,1,1-.027-4.087l3.615-2.073A8.309,8.309,0,0,0,7.7,16a8.216,8.216,0,0,0,1.1,4.117A8.319,8.319,0,0,0,23.211,20.1L19.6,18.02"
+				      color=""/>
+				<polygon
+						points="24.076 15.538 23.15 15.538 23.15 14.617 22.225 14.617 22.225 15.538 21.299 15.538 21.299 16.461 22.225 16.461 22.225 17.381 23.15 17.381 23.15 16.461 24.076 16.461 24.076 15.538"
+						style="fill:#fff"/>
+				<polygon
+						points="27.549 15.538 26.623 15.538 26.623 14.617 25.697 14.617 25.697 15.538 24.771 15.538 24.771 16.461 25.697 16.461 25.697 17.381 26.623 17.381 26.623 16.461 27.549 16.461 27.549 15.538"
+						style="fill:#fff"/>
+			</svg>
+			Leaner
+			</span>
+		</a>
+	</div>
+	<div class="v-splitter header-item"></div>
+	<nav class="flex-container flex-space-between one-third-width flex-no-wrap">
+		<a href="../faq.html" class="header-link header-item">FAQ</a>
+		<a href="text-guide-introduction.html" class="header-link header-item">Учебник</a>
+		<a href="../video-lessons.html" class="header-link header-item">Видеоуроки</a>
+		<a href="../compiler.html" class="header-link header-item">Компилятор</a>
+		<a href="https://github.com/Antoher0101/wwwLearnCpp" target="_blank" class="header-link header-item">Github</a>
+	</nav>
+</div>
+<!--HEADER END-->
+
+<main class="wrapper sidebar-position">
+	<div id="main-content" class="centered-container">
+		<!--		MAIN ARTICLES START-->
+		<div class="container-content bordered-container">
+			<div class="centered-container">
+				<span class="content-header">Арифметика указателей</span>
+				Указатели могут участвовать в арифметических операциях (сложение, вычитание, инкремент, декремент).
+				Однако сами операции производятся немного иначе, чем с числами. И многое здесь зависит от типа
+				указателя.
+				<br><br>
+				К указателю можно прибавлять целое число, и также можно вычитать из указателя целое число. Кроме того,
+				можно вычитать из одного указателя другой указатель.
+				<br><br>
+				Рассмотрим вначале операции инкремента и декремента и для этого возьмем указатель на объект типа
+				<b>int</b>:
+				<div class="code-container code">#include &lt;iostream&gt;
+
+int main()
+{
+	int n = 10;
+
+	int *ptr = &n;
+	std::cout << "address=" << ptr << "\tvalue=" << *ptr << std::endl;
+
+	ptr++;
+	std::cout << "address=" << ptr << "\tvalue=" << *ptr << std::endl;
+
+	ptr--;
+	std::cout << "address=" << ptr << "\tvalue=" << *ptr << std::endl;
+
+	return 0;
+}</div>
+					Операция инкремента ++ увеличивает значение на единицу. В случае с указателем увеличение на единицу
+					будет означать увеличение адреса, который хранится в указателе, на размер типа указателя. То есть в
+					данном случае указатель на тип int, а размер объектов int в большинстве архитектур равен 4 байтам.
+					Поэтому увеличение указателя типа int на единицу означает увеличение значение указателя на 4.
+					<br><br>
+					И в моем случае консольный вывод выглядит следующим образом:
+				<div class="console-out"><pre>address=0x60fe98 value=10
+address=0x60fe9c value=6356636
+address=0x60fe98 value=10</pre>
+				</div>
+					Здесь видно, что после инкремента значение указателя увеличилось на 4: с 0x60fe98 до 0x60fe9c. А
+					после декремента, то есть уменьшения на единицу, указатель получил предыдущий адрес в памяти.
+					<br><br>
+					Фактически увеличение на единицу означает, что мы хотим перейти к следующему объекту в памяти,
+					который находится за текущим и на который указывает указатель. А уменьшение на единицу означает
+					переход назад к предыдущему объекту в памяти.
+					<br><br>
+					После изменения адреса мы можем получить значение, которое находится по новому адресу, однако это
+					значение может быть неопределенным, как показано в случае выше.
+					<br><br>
+					В случае с указателем типа <b>int</b> увеличение/уменьшение на единицу означает изменение адреса на 4.
+					Аналогично, для указателя типа <b>short</b> эти операции изменяли бы адрес на 2, а для указателя типа
+				<b>char</b>
+					на 1.
+				<div class="code-container code">#include &lt;iostream&gt;
+
+int main()
+{
+	double d = 10.6;
+	double *pd = &d;
+	std::cout << "Pointer pd: address:" << pd << std::endl;
+	pd++;
+	std::cout << "Pointer pd: address:" << pd << std::endl;
+
+	char c = 'N';
+	char *pc = &c;
+	std::cout << "Pointer pc: address:" << (void*)pc << std::endl;
+	pc++;
+	std::cout << "Pointer pc: address:" << (void*)pc << std::endl;
+
+	return 0;
+}</div>
+						В моем случае консольный вывод будет выглядеть следующим образом:
+				<div class="console-out"><pre>Pointer pd: address=0x60fe90
+Pointer pd: address=0x60fe98
+Pointer pc: address=0x60fe8f
+Pointer pc: address=0x60fe90</pre>
+				</div>
+						Как видно из консольного вывода, увеличение на единицу указателя типа double дало увеличения
+						хранимого в нем адреса на 8 единиц (размер объекта double - 8 байт), а увеличение на единицу
+						указателя типа char дало увеличение хранимого в нем адреса на 1 (размер типа char - 1 байт).
+						<br><br>
+						Аналогично указатель будет изменяться при прибавлении/вычитании не единицы, а какого-то другого
+						числа.
+				<div class="code-container code">#include &lt;iostream&gt;
+
+int main()
+{
+	double d = 10.6;
+	double *pd = &d;
+	std::cout << "Pointer pd: address:" << pd << std::endl;
+	pd = pd + 2;
+	std::cout << "Pointer pd: address:" << pd << std::endl;
+
+	char c = 'N';
+	char *pc = &c;
+	std::cout << "Pointer pc: address:" << (void*)pc << std::endl;
+	pc = pc - 3;
+	std::cout << "Pointer pc: address:" << (void*)pc << std::endl;
+
+	return 0;
+}</div>
+							Добавление к указателю типа <b>double</b> числа 2
+				<div class="code-container code">pd = pd + 2;</div>
+							означает, что мы хотим перейти на два объекта double вперед, что подразумевает изменение
+							адреса на 2 * 8 = 16 байт.
+							<br><br>
+							Вычитание из указателя типа <b>char</b> числа 3
+				<div class="code-container code">pc = pc - 3;</div>
+							означает, что мы хотим перейти на три объекта char назад, что подразумевает изменение адреса
+							на 3 * 1 = 3 байта.
+							<br><br>
+							И в моем случае я получу следующий консольный вывод:
+				<div class="console-out"><pre>Pointer pd: address=0x60fe90
+Pointer pd: address=0x60fea0
+Pointer pc: address=0x60fe8f
+Pointer pc: address=0x60fe8c</pre></div>
+							В отличие от сложения операция вычитания может применять не только к указателю и целому
+							числу, но и к двум указателям одного типа:
+				<div class="code-container code">#include &lt;iostream&gt;
+
+int main()
+{
+	int a = 10;
+	int b = 23;
+	int *pa = &a;
+	int *pb = &b;
+	int c = pa - pb;
+
+	std::cout << "pa: " << pa << std::endl;
+	std::cout << "pb: " << pb << std::endl;
+	std::cout << "c: " << c << std::endl;
+
+	return 0;
+}</div>
+								Консольный вывод в моем случае:
+				<div class="console-out"><pre>pa: 0x60fe90
+pb: 0x60fe8c
+c: 1</pre>
+				</div>
+								Результатом разности двух указателей является "расстояние" между ними. Например, в
+								случае выше адрес из первого указателя на 4 больше, чем адрес из второго указателя
+								(0x60fe8c + 4 = 0x60fe90). Так как размер <b>одного</b> объекта int равен 4 байтам, то
+								расстояние между указателями будет равно (0x60fe90 - 0x60fe8c)/4 = 1.
+								<div class="container-content">
+									<span class="content-subheader">Некоторые особенности операций</span>
+									При работе с указателями надо отличать операции с самим указателем и операции со
+									значением по адресу, на который указывает указатель.
+									<div class="code-container code">int a = 10;
+int *pa = &a;
+int b = *pa + 20; // операция со значением, на который указывает указатель
+pa++; // операция с самим указателем
+
+std::cout << "b: " << b << std::endl; ; // 30</div>
+									То есть в данном случае через операцию разыменования *pa получаем значение, на
+									которое указывает указатель pa, то есть число 10, и выполняем операцию сложения. То
+									есть в данном случае обычная операция сложения между двумя числами, так как
+									выражение *pa представляет число.
+									<br><br>
+									Но в то же время есть особенности, в частности, с операциями инкремента и
+									декремента. Дело в том, что операции <b>*</b>, <b>++</b> и <b>--</b> имеют одинаковый приоритет и при
+									размещении рядом выполняются справа налево.
+									<br><br>
+									Например, выполним постфиксный инкремент:
+									<div class="code-container code">int a = 10;
+int *pa = &a;
+std::cout << "pa: address=" << pa << "\tvalue=" << *pa << std::endl;
+int b = *pa++; // инкремент адреса указателя
+
+std::cout << "b: value=" << b << std::endl;
+std::cout << "pa: address=" << pa << "\tvalue=" << *pa << std::endl;</div>
+									В выражении b = *pa++; сначала к указателю присваивается единица (то есть к адресу
+									добавляется 4, так как указатель типа <b>int</b>). Затем так как инкремент постфиксный, с
+									помощью операции разыменования возвращается значение, которое было до инкремента -
+									то есть число 10. И это число 10 присваивается переменной b. И в моем случае
+									результат работы будет следующий:
+									<div class="console-out"><pre>pa: address=0x60fe94 value=10
+b: value=10
+pa: address=0x60fe98 value=6356648</pre>
+									</div>
+									Изменим выражение:
+									<div class="code-container code">b = (*pa)++;</div>
+									Скобки изменяют порядок операций. Здесь сначала выполняется операция разыменования и
+									получение значения, затем это значение увеличивается на 1. Теперь по адресу в
+									указателе находится число 11. И затем так как инкремент постфиксный, переменная b
+									получает значение, которое было до инкремента, то есть опять число 10. Таким
+									образом, в отличие от предыдущего случая все операции производятся над значением по
+									адресу, который хранит указатель, но не над самим указателем. И, следовательно,
+									изменится результат работы:
+									<div class="console-out"><pre>pa: address=0x60fe94 value=10
+b: value=10
+pa: address=0x60fe94 value=11</pre></div>
+									Аналогично будет с префиксным инкрементом:
+									<div class="code-container code">b = ++*pa;</div>
+									В данном случае сначала с помощью операции разыменования получаем значение по адресу
+									из указателя pa, к этому значению прибавляется единица. То есть теперь значение по
+									адресу, который хранится в указателе, равно 11. Затем результат операции
+									присваивается переменной b:
+									<div class="console-out"><pre>pa: address=0x60fe94 value=10
+b: value=11
+pa: address=0x60fe94 value=11</pre>
+									</div>
+									Изменим выражение:
+									<div class="code-container code">b = *++pa;</div>
+									Теперь сначала изменяет адрес в указателе, затем мы получаем по этому адресу
+									значение и присваиваем его переменной b. Полученное значение в этом случае может
+									быть неопределенным:
+									<div class="console-out"><pre>pa: address=0x60fe94 value=10
+b: value=6356864
+pa: address=0x60fe98 value=6356864</pre>
+									</div>
+								</div>
+
+								<div class="code-container">Вся информация принадлежит сайту <a
+										href="https://metanit.com/"
+										target="_blank">METANIT.COM</a></div>
+								<div class="centered-content">
+									<a href="4-2.html">Назад</a>
+									<a href="text-guide-introduction.html">Содержание</a>
+									<a href="4-4.html">Вперед</a>
+								</div>
+			</div>
+		</div>
+		<!--MAIN ARTICLES END-->
+	</div>
+
+</main>
+<!--FOOTER START-->
+<footer class="footer centered-container border-top">
+	<div class="flex-container flex-items-center f12">
+		<ul class="list-style-none" style="margin-top: 6px;width: 16%;">
+			<li class="flex-items-center">
+				<a class="header-link" href="https://github.com/Antoher0101" target="_blank">
+					<span>
+						<img alt="@Antoher0101" class="avatar circle"
+						     height="24" src="https://avatars.githubusercontent.com/u/62786345?s=96&amp;v=4" width="24">
+					 © 2022 Antoher0101 </span>
+				</a>
+
+			</li>
+		</ul>
+		<ul class="flex-ul list-style-none two-third-width flex-space-between">
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp" target="_self">This
+			                                                                                                  repository</a>
+			</li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/commits/master"
+			                                 target="_blank">Commits</a></li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/blob/master/README.md"
+			                                 target="_blank">About</a></li>
+		</ul>
+	</div>
+</footer>
+<!--FOOTER END-->
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/ace/ace.js"></script>
+<script>
+    var code;
+    $('.code').each(function () {
+        code = ace.edit(this);
+        code.setTheme("ace/theme/one_dark");
+        code.getSession().setMode("ace/mode/c_cpp");
+        code.setShowPrintMargin(false);
+        code.setReadOnly(true);
+        code.setOptions({
+            maxLines: Infinity,
+            fontSize: "12pt",
+        });
+        code.$blockScrolling = Infinity;
+    });
+</script>
+</body>
+</html>

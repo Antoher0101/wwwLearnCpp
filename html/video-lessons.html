@@ -37,7 +37,7 @@
 	<div class="v-splitter header-item"></div>
 	<nav class="flex-container flex-space-between one-third-width flex-no-wrap">
 		<a href="faq.html" class="header-link header-item">FAQ</a>
-		<a href="" class="header-link header-item">Учебник</a>
+		<a href="lessons/text-guide-introduction.html" class="header-link header-item">Учебник</a>
 		<a href="video-lessons.html" class="header-link header-item">Видеоуроки</a>
 		<a href="compiler.html" class="header-link header-item">Компилятор</a>
 		<a href="https://github.com/Antoher0101/wwwLearnCpp" target="_blank" class="header-link header-item">Github</a>
@@ -488,23 +488,5 @@
 	</div>
 </footer>
 <!--FOOTER END-->
-<!--<script src="../js/jquery.min.js"></script>
-<script>
-    const ytApiKey = "AIzaSyARZGWHf1cSrkF2Ih9Q0s1e_rvyei7RKu4";
-
-	const v = document.querySelectorAll('.if-video-content');
-    v.forEach(function(e){
-        var videoId = youtube_parser(e.querySelector('iframe').src);
-        $.get("https://www.googleapis.com/youtube/v3/videos?part=snippet&id=" + videoId + "&key=" + ytApiKey, function(data) {
-            var label = data.items[0].snippet.title;
-            e.querySelector('.video-label').textContent = label;
-        });
-	});
-    function youtube_parser(url){
-        var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
-        var match = url.match(regExp);
-        return (match&&match[7].length==11)? match[7] : false;
-    }
-</script>-->
 </body>
 </html>

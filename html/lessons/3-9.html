@@ -5,14 +5,14 @@
 	<meta name="viewport"
 	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link href="../css/styles.css" rel="stylesheet" type="text/css">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css">
 	<title>Изучение C++</title>
 </head>
 <body>
 <!--HEADER START-->
 <div class="header">
 	<div class="header-item">
-		<a class="header-link" href="../index.html" target="_self">
+		<a class="header-link" href="../.." target="_self">
 			<span class="flex-span" style="display: flex;">
 			<svg class="icon" height="48" width="48" viewBox="0 0 32 32">
 				<path d="M29,10.232a2.387,2.387,0,0,0-.318-1.244,2.451,2.451,0,0,0-.936-.879Q22.552,5.241,17.353,2.376A2.642,2.642,0,0,0,14.59,2.4c-1.378.779-8.275,4.565-10.331,5.706A2.287,2.287,0,0,0,3,10.231V21.77a2.4,2.4,0,0,0,.3,1.22,2.434,2.434,0,0,0,.954.9c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733a2.444,2.444,0,0,0,.955-.9,2.4,2.4,0,0,0,.3-1.22V10.232"
@@ -36,31 +36,58 @@
 	</div>
 	<div class="v-splitter header-item"></div>
 	<nav class="flex-container flex-space-between one-third-width flex-no-wrap">
-		<a href="faq.html" class="header-link header-item">FAQ</a>
-		<a href="lessons/text-guide-introduction.html" class="header-link header-item">Учебник</a>
-		<a href="video-lessons.html" class="header-link header-item">Видеоуроки</a>
-		<a href="compiler.html" class="header-link header-item">Компилятор</a>
+		<a href="../faq.html" class="header-link header-item">FAQ</a>
+		<a href="text-guide-introduction.html" class="header-link header-item">Учебник</a>
+		<a href="../video-lessons.html" class="header-link header-item">Видеоуроки</a>
+		<a href="../compiler.html" class="header-link header-item">Компилятор</a>
 		<a href="https://github.com/Antoher0101/wwwLearnCpp" target="_blank" class="header-link header-item">Github</a>
 	</nav>
 </div>
 <!--HEADER END-->
+
 <main class="wrapper sidebar-position">
 	<div id="main-content" class="centered-container">
 		<!--		MAIN ARTICLES START-->
-		<div class="Layout-main">
-			<div class="container-content bordered-container">
-				<div class="content-header">Онлайн-компилятор</div>
-				<div id="code" class="code-container">#include &lt;iostream&gt;
+		<div class="container-content bordered-container">
+			<div class="centered-container">
+				<span class="content-header">Внешние объекты</span>
+				Кроме функций внешние файлы могут содержать различные объекты - переменные и константы. Для подключения
+				внешних объектов в файл кода применяется ключевое слово <b>extern</b>.
+				<br><br>
+				Для объявления объектов определим файл <b>objects.h</b> со следующим содержимым:
+				<div class="code-container code">extern const int x;
+extern double y;</div>
+				Здесь объявляются константа x и переменная y. Так как эти объекты будут внешними по отношению к
+				исходному коду, который будет их использовать, то они определяются с ключевым словом <b>extern</b>.
+				<br><br>
+				Для определения этих объектов добавим новый файл <b>objects.cpp</b>:
+				<div class="code-container code">#include "objects.h"
 
-using namespace std;
+const int x = 5;
+double y = 3.4;</div>
+				Используем эти объекты в файле <b>app.cpp</b>:
 
-int main(int argc, char **argv) {
-	cout<<"Hello world!" << endl;
+				<div class="code-container code">#include &lt;iostream&gt;
+#include "objects.h"
+
+int main()
+{
+	std::cout << "x = " << x << std::endl;
+	std::cout << "y = " << y << std::endl;
+
 	return 0;
 }</div>
-				<button id="run" class="main-btn" onclick='run();'>Запустить</button>
+					При компиляции в Visual Studio все файлы автоматически компилируются в один. При компиляции через
+					g++ необходимо передать все файлы через пробел компилятору.
 
-				<p>Вывод:</p><pre id="output" class="code-container"></pre>
+					<div class="code-container">Вся информация принадлежит сайту <a href="https://metanit.com/"
+					                                                                target="_blank">METANIT.COM</a>
+					</div>
+					<div class="centered-content">
+						<a href="3-8.html">Назад</a>
+						<a href="text-guide-introduction.html">Содержание</a>
+						<a href="4-1.html">Вперед</a>
+					</div>
 			</div>
 		</div>
 		<!--MAIN ARTICLES END-->
@@ -93,22 +120,22 @@ int main(int argc, char **argv) {
 	</div>
 </footer>
 <!--FOOTER END-->
-<script src="../js/jquery.min.js"></script>
-<script src="../js/ace/ace.js"></script>
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/ace/ace.js"></script>
 <script>
     var code;
-    $(function() {
-        code = ace.edit("code");                      // создаем редактор из элемента с id="code"
-        code.setTheme("ace/theme/one_dark");          // выбираем тему оформления для подсветки синтаксиса
-        code.getSession().setMode("ace/mode/c_cpp");  // говорим что код надо подсвечивать как C++ код
-        code.setShowPrintMargin(false);               // опционально: убираем вертикальную границу в 80 сиволов
+    $('.code').each(function () {
+        code = ace.edit(this);
+        code.setTheme("ace/theme/one_dark");
+        code.getSession().setMode("ace/mode/c_cpp");
+        code.setShowPrintMargin(false);
+        code.setReadOnly(true);
         code.setOptions({
-            maxLines: Infinity,                       // опционально: масштабировать редактор вертикально по размеру кода
-            fontSize: "12pt",                         // опционально: размер шрифта ставим побольше
+            maxLines: Infinity,
+            fontSize: "12pt",
         });
-        code.$blockScrolling = Infinity;              // отключаем устаревшие, не поддерживаемые фишки редактора
+        code.$blockScrolling = Infinity;
     });
 </script>
-<script src="../js/scripts.js"></script>
 </body>
 </html>

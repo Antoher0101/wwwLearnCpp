@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css">
+	<title>Изучение C++</title>
+</head>
+<body>
+<!--HEADER START-->
+<div class="header">
+	<div class="header-item">
+		<a class="header-link" href="../.." target="_self">
+			<span class="flex-span" style="display: flex;">
+			<svg class="icon" height="48" width="48" viewBox="0 0 32 32">
+				<path d="M29,10.232a2.387,2.387,0,0,0-.318-1.244,2.451,2.451,0,0,0-.936-.879Q22.552,5.241,17.353,2.376A2.642,2.642,0,0,0,14.59,2.4c-1.378.779-8.275,4.565-10.331,5.706A2.287,2.287,0,0,0,3,10.231V21.77a2.4,2.4,0,0,0,.3,1.22,2.434,2.434,0,0,0,.954.9c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733a2.444,2.444,0,0,0,.955-.9,2.4,2.4,0,0,0,.3-1.22V10.232"
+				      style="fill:#909090"/>
+				<path d="M28.549,23.171a2.126,2.126,0,0,0,.147-.182,2.4,2.4,0,0,0,.3-1.22V10.232a2.387,2.387,0,0,0-.318-1.244c-.036-.059-.089-.105-.13-.16L16,16Z"
+				      style="fill:#464646"/>
+				<path d="M28.549,23.171,16,16,3.451,23.171a2.435,2.435,0,0,0,.809.72c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733A2.43,2.43,0,0,0,28.549,23.171Z"
+				      style="fill:#363636"/>
+				<path d="M19.6,18.02a4.121,4.121,0,1,1-.027-4.087l3.615-2.073A8.309,8.309,0,0,0,7.7,16a8.216,8.216,0,0,0,1.1,4.117A8.319,8.319,0,0,0,23.211,20.1L19.6,18.02"
+				      color=""/>
+				<polygon
+						points="24.076 15.538 23.15 15.538 23.15 14.617 22.225 14.617 22.225 15.538 21.299 15.538 21.299 16.461 22.225 16.461 22.225 17.381 23.15 17.381 23.15 16.461 24.076 16.461 24.076 15.538"
+						style="fill:#fff"/>
+				<polygon
+						points="27.549 15.538 26.623 15.538 26.623 14.617 25.697 14.617 25.697 15.538 24.771 15.538 24.771 16.461 25.697 16.461 25.697 17.381 26.623 17.381 26.623 16.461 27.549 16.461 27.549 15.538"
+						style="fill:#fff"/>
+			</svg>
+			Leaner
+			</span>
+		</a>
+	</div>
+	<div class="v-splitter header-item"></div>
+	<nav class="flex-container flex-space-between one-third-width flex-no-wrap">
+		<a href="../faq.html" class="header-link header-item">FAQ</a>
+		<a href="text-guide-introduction.html" class="header-link header-item">Учебник</a>
+		<a href="../video-lessons.html" class="header-link header-item">Видеоуроки</a>
+		<a href="../compiler.html" class="header-link header-item">Компилятор</a>
+		<a href="https://github.com/Antoher0101/wwwLearnCpp" target="_blank" class="header-link header-item">Github</a>
+	</nav>
+</div>
+<!--HEADER END-->
+
+<main class="wrapper sidebar-position">
+	<div id="main-content" class="centered-container">
+		<!--		MAIN ARTICLES START-->
+		<div class="container-content bordered-container">
+			<div class="centered-container">
+				<span class="content-header">Основы языка программирования C++</span>
+				<span class="content-header">Структура программы</span>
+				<div class="container-content">
+					<span class="content-subheader">Инструкции</span>
+					Программа на С++ состоит из набора инструкций. Каждая инструкция (statement) выполняет определенное
+					действие. В конце инструкции в языке C++ ставится точка с запятой (;). Данный знак указывает
+					компилятору на завершение инструкции. Например:
+					<div class="code-container code">std::cout << "Hello World!";</div>
+					Данная строка выводит на консоль строку "Hello world!", является инструкцией и поэтому завершается
+					точкой с запятой.
+					<br><br>
+					Набор инструкций может представлять блок кода. Блок кода заключается в фигурные скобки, а инструкции
+					помещаются между открывающей и закрывающей фигурными скобками:
+					<div class="code-container code">{
+	std::cout << "Hello World!";
+	std::cout << "Bye World!";
+}</div>
+
+					В этом блоке кода две инструкции, которые выводят на консоль определенную строку.
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Функция main</span>
+					Каждая программа на языке С++ должна иметь как минимум одну функцию - функцию <b>main()</b>. Именно с этой
+					функции начинается выполнение приложения. Ее имя <b>main</b> фиксировано и для всех программ на Си всегда
+					одинаково.
+					<br><br>
+					Функция также является блоком кода, поэтому ее тело обрамляется фигурными скобками, между которыми
+					определяется набор инструкций.
+					<br><br>
+					В частности, при создании первой программы использовалась следующая функция main:
+					<div class="code-container code">#include &lt;iostream&gt; // подключаем заголовочный файл iostream
+
+int main()                       // определяем функцию main
+{                                // начало функции
+	std::cout << "Hello World!"; // выводим строку на консоль
+	return 0;                    // выходим из функции
+}                                // конец функции</div>
+					           Определение функии main начинается с возвращаемого типа. Функция main в любом случае
+					           должна возвращать число. Поэтому ее определение начинается с ключевого слова <b>int</b>.
+						<br><br>
+					           Далее идет название функции, то есть <b>main</b>. После названия в скобках идет список
+					           параметров. В данном случае функция main не принимает никаких параметров, поэтому после
+					           названия указаны пустые скобки. Однако есть другие варианты определения функции main,
+					           которые подразумевыют использование параметров. В частности, нередко может встречаться
+					           следующее определение функции main, использующей параметры:
+					<div class="code-container code">int main (int argc, char *argv[])
+{
+
+}</div>
+					           И после списка параметров идет блок кода, который и содержит в виде инструкций собственно
+					           те действия, выполняемые функцией main.
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Директивы препроцессора</span>
+					В примере выше на консоль выводится строка, но чтобы использовать вывод на консоль, необходимо в начале файла с исходным кодом подключать библиотеку iostream с помощью директивы
+					<b>include</b>.
+					<br><br>
+					Директива <b>include</b> является директивой препроцессора. Каждая директива препроцессора размещается на одной строке. И в отличие от обычных инструкциий языка C++, которые завершаются точкой с запятой ; признаком завершения препроцессорной директивы является перевод на новую строку. Кроме того, директива должна начинаться со знака решетки #. Непосредственно директива "include" определяет, какие файлы и библиотеки надо подключить в данном месте в код программы.
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Комментарии</span>
+					Исходный код может содержать комментарии. Комментарии позволяют понять смыл программы, что делают те или иные ее части. При компиляции комментарии игнорируются и не оказывают никакого влияние на работу приложения и на его размер.
+					<br><br>
+					В языке C++ есть два типа комментариев: однострочный и многострочный. Однострочный комментарий размещается на одной строке после двойного слеша //:
+					<div class="code-container code">#include &lt;iostream&gt; // подключаем библиотеку iostream
+
+int main()                       // определяем функцию main
+{                                // начало функции
+	std::cout << "Hello World!"; // выводим строку на консоль
+	return 0;                    // выходим из функции
+}                                // конец функции</div>
+					                                  Многострочный комментарий заключается между символами <b>/* текст
+					                                                                                           комментария
+					                                                                                           */</b>. Он может размещаться на нескольких строках. Например:
+					<br><br>
+					<div class="code-container code">#include &lt;iostream&gt;
+/*
+	Определение функции Main
+	Выводит на консоль строку Hello World!
+*/
+int main()
+{
+	std::cout << "Hello World!"; // вывод строки на консоль
+	return 0;
+}</div>
+				</div>
+				<div class="code-container">Вся информация принадлежит сайту <a href="https://metanit.com/"
+				                                                                target="_blank">METANIT.COM</a></div>
+				<div class="centered-content">
+					<a href="1-3.html">Назад</a>
+					<a href="text-guide-introduction.html">Содержание</a>
+					<a href="2-2.html">Вперед</a>
+				</div>
+			</div>
+		</div>
+		<!--MAIN ARTICLES END-->
+	</div>
+
+</main>
+<!--FOOTER START-->
+<footer class="footer centered-container border-top">
+	<div class="flex-container flex-items-center f12">
+		<ul class="list-style-none" style="margin-top: 6px;width: 16%;">
+			<li class="flex-items-center">
+				<a class="header-link" href="https://github.com/Antoher0101" target="_blank">
+					<span>
+						<img alt="@Antoher0101" class="avatar circle"
+						     height="24" src="https://avatars.githubusercontent.com/u/62786345?s=96&amp;v=4" width="24">
+					 © 2022 Antoher0101 </span>
+				</a>
+
+			</li>
+		</ul>
+		<ul class="flex-ul list-style-none two-third-width flex-space-between">
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp" target="_self">This
+			                                                                                                  repository</a>
+			</li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/commits/master"
+			                                 target="_blank">Commits</a></li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/blob/master/README.md"
+			                                 target="_blank">About</a></li>
+		</ul>
+	</div>
+</footer>
+<!--FOOTER END-->
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/ace/ace.js"></script>
+<script>
+    var code;
+    $('.code').each(function () {
+        code = ace.edit(this);
+        code.setTheme("ace/theme/one_dark");
+        code.getSession().setMode("ace/mode/c_cpp");
+        code.setShowPrintMargin(false);
+        code.setReadOnly(true);
+        code.setOptions({
+            maxLines: Infinity,
+            fontSize: "12pt",
+        });
+        code.$blockScrolling = Infinity;
+    });
+</script>
+</body>
+</html>

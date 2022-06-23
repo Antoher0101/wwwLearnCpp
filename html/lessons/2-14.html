@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css">
+	<title>Изучение C++</title>
+</head>
+<body>
+<!--HEADER START-->
+<div class="header">
+	<div class="header-item">
+		<a class="header-link" href="../.." target="_self">
+			<span class="flex-span" style="display: flex;">
+			<svg class="icon" height="48" width="48" viewBox="0 0 32 32">
+				<path d="M29,10.232a2.387,2.387,0,0,0-.318-1.244,2.451,2.451,0,0,0-.936-.879Q22.552,5.241,17.353,2.376A2.642,2.642,0,0,0,14.59,2.4c-1.378.779-8.275,4.565-10.331,5.706A2.287,2.287,0,0,0,3,10.231V21.77a2.4,2.4,0,0,0,.3,1.22,2.434,2.434,0,0,0,.954.9c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733a2.444,2.444,0,0,0,.955-.9,2.4,2.4,0,0,0,.3-1.22V10.232"
+				      style="fill:#909090"/>
+				<path d="M28.549,23.171a2.126,2.126,0,0,0,.147-.182,2.4,2.4,0,0,0,.3-1.22V10.232a2.387,2.387,0,0,0-.318-1.244c-.036-.059-.089-.105-.13-.16L16,16Z"
+				      style="fill:#464646"/>
+				<path d="M28.549,23.171,16,16,3.451,23.171a2.435,2.435,0,0,0,.809.72c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733A2.43,2.43,0,0,0,28.549,23.171Z"
+				      style="fill:#363636"/>
+				<path d="M19.6,18.02a4.121,4.121,0,1,1-.027-4.087l3.615-2.073A8.309,8.309,0,0,0,7.7,16a8.216,8.216,0,0,0,1.1,4.117A8.319,8.319,0,0,0,23.211,20.1L19.6,18.02"
+				      color=""/>
+				<polygon
+						points="24.076 15.538 23.15 15.538 23.15 14.617 22.225 14.617 22.225 15.538 21.299 15.538 21.299 16.461 22.225 16.461 22.225 17.381 23.15 17.381 23.15 16.461 24.076 16.461 24.076 15.538"
+						style="fill:#fff"/>
+				<polygon
+						points="27.549 15.538 26.623 15.538 26.623 14.617 25.697 14.617 25.697 15.538 24.771 15.538 24.771 16.461 25.697 16.461 25.697 17.381 26.623 17.381 26.623 16.461 27.549 16.461 27.549 15.538"
+						style="fill:#fff"/>
+			</svg>
+			Leaner
+			</span>
+		</a>
+	</div>
+	<div class="v-splitter header-item"></div>
+	<nav class="flex-container flex-space-between one-third-width flex-no-wrap">
+		<a href="../faq.html" class="header-link header-item">FAQ</a>
+		<a href="text-guide-introduction.html" class="header-link header-item">Учебник</a>
+		<a href="../video-lessons.html" class="header-link header-item">Видеоуроки</a>
+		<a href="../compiler.html" class="header-link header-item">Компилятор</a>
+		<a href="https://github.com/Antoher0101/wwwLearnCpp" target="_blank" class="header-link header-item">Github</a>
+	</nav>
+</div>
+<!--HEADER END-->
+
+<main class="wrapper sidebar-position">
+	<div id="main-content" class="centered-container">
+		<!--		MAIN ARTICLES START-->
+		<div class="container-content bordered-container">
+			<div class="centered-container">
+				<span class="content-header">Ссылки</span>
+				Ссылка (reference) представляет способ манипулировать каким-либо объектом. Фактически ссылка - это
+				альтернативное имя для объекта. Для определения ссылки применяется знак амперсанда &:
+				<div class="code-container code">int number = 5;
+int &refNumber = number;</div>
+				В данном случае определена ссылка refNumber, которая ссылается на объект number. При этом в определении
+				ссылки используется тот же тип, который представляет объект, на который ссылка ссылается, то есть в
+				данном случае int.
+				<br><br>
+				При этом нельзя просто определить ссылку:
+				<div class="code-container code">int &refNumber;</div>
+				Она обязательно должна указывать на какой-нибудь объект.
+				<br><br>
+				Также нельзя присвоить ссылке литеральное значение, например, число:
+				<div class="code-container code">int &refNumber = 10;</div>
+				После установления ссылки мы можем через нее манипулировать самим объектом, на который она ссылается:
+				<div class="code-container code">#include &lt;iostream&gt;
+
+int main()
+{
+	int number = 5;
+	int &refNumber = number;
+	std::cout << refNumber << std::endl; // 5
+	refNumber = 20;
+	std::cout << number << std::endl; // 20
+
+	return 0;
+}</div>
+					Изменения по ссылке неизбежно скажутся и на том объекте, на который ссылается ссылка.
+					<br><br>
+					Можно определять не только ссылки на переменные, но и ссылки на константы. Но при этом ссылка сама
+					должна быть константной:
+				<div class="code-container code">const int number = 5;
+const int &refNumber = number;
+std::cout << refNumber << std::endl; // 5
+//refNumber = 20; изменять значение по ссылке нельзя</div>
+					Инициализировать неконстантную ссылку константным объектом мы не можем:
+				<div class="code-container code">const int number = 5;
+int &refNumber = number; // ошибка</div>
+					Также константная ссылка может указывать и на обычную переменную, только значение по такой ссылке мы
+					не сможем изменить:
+				<div class="code-container code">int number = 5;
+const int &refNumber = number;
+std::cout << refNumber << std::endl; // 5
+
+//refNumber = 20;   изменять значение по ссылке на константу нельзя
+
+// но мы можем изменить саму переменную
+number = 20;
+std::cout << refNumber << std::endl; // 20</div>
+					В данном случае несмотря на то, что мы не можем напрямую изменить значение по константной ссылке,
+					тем не менее мы можем изменить сам объект, что приведет естественно к изменению константной ссылки.
+
+					<div class="code-container">Вся информация принадлежит сайту <a href="https://metanit.com/"
+					                                                                target="_blank">METANIT.COM</a>
+					</div>
+					<div class="centered-content">
+						<a href="2-13.html">Назад</a>
+						<a href="text-guide-introduction.html">Содержание</a>
+						<a href="2-15.html">Вперед</a>
+					</div>
+			</div>
+		</div>
+		<!--MAIN ARTICLES END-->
+	</div>
+
+</main>
+<!--FOOTER START-->
+<footer class="footer centered-container border-top">
+	<div class="flex-container flex-items-center f12">
+		<ul class="list-style-none" style="margin-top: 6px;width: 16%;">
+			<li class="flex-items-center">
+				<a class="header-link" href="https://github.com/Antoher0101" target="_blank">
+					<span>
+						<img alt="@Antoher0101" class="avatar circle"
+						     height="24" src="https://avatars.githubusercontent.com/u/62786345?s=96&amp;v=4" width="24">
+					 © 2022 Antoher0101 </span>
+				</a>
+
+			</li>
+		</ul>
+		<ul class="flex-ul list-style-none two-third-width flex-space-between">
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp" target="_self">This
+			                                                                                                  repository</a>
+			</li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/commits/master"
+			                                 target="_blank">Commits</a></li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/blob/master/README.md"
+			                                 target="_blank">About</a></li>
+		</ul>
+	</div>
+</footer>
+<!--FOOTER END-->
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/ace/ace.js"></script>
+<script>
+    var code;
+    $('.code').each(function () {
+        code = ace.edit(this);
+        code.setTheme("ace/theme/one_dark");
+        code.getSession().setMode("ace/mode/c_cpp");
+        code.setShowPrintMargin(false);
+        code.setReadOnly(true);
+        code.setOptions({
+            maxLines: Infinity,
+            fontSize: "12pt",
+        });
+        code.$blockScrolling = Infinity;
+    });
+</script>
+</body>
+</html>

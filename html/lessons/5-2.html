@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css">
+	<title>Изучение C++</title>
+</head>
+<body>
+<!--HEADER START-->
+<div class="header">
+	<div class="header-item">
+		<a class="header-link" href="../.." target="_self">
+			<span class="flex-span" style="display: flex;">
+			<svg class="icon" height="48" width="48" viewBox="0 0 32 32">
+				<path d="M29,10.232a2.387,2.387,0,0,0-.318-1.244,2.451,2.451,0,0,0-.936-.879Q22.552,5.241,17.353,2.376A2.642,2.642,0,0,0,14.59,2.4c-1.378.779-8.275,4.565-10.331,5.706A2.287,2.287,0,0,0,3,10.231V21.77a2.4,2.4,0,0,0,.3,1.22,2.434,2.434,0,0,0,.954.9c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733a2.444,2.444,0,0,0,.955-.9,2.4,2.4,0,0,0,.3-1.22V10.232"
+				      style="fill:#909090"/>
+				<path d="M28.549,23.171a2.126,2.126,0,0,0,.147-.182,2.4,2.4,0,0,0,.3-1.22V10.232a2.387,2.387,0,0,0-.318-1.244c-.036-.059-.089-.105-.13-.16L16,16Z"
+				      style="fill:#464646"/>
+				<path d="M28.549,23.171,16,16,3.451,23.171a2.435,2.435,0,0,0,.809.72c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733A2.43,2.43,0,0,0,28.549,23.171Z"
+				      style="fill:#363636"/>
+				<path d="M19.6,18.02a4.121,4.121,0,1,1-.027-4.087l3.615-2.073A8.309,8.309,0,0,0,7.7,16a8.216,8.216,0,0,0,1.1,4.117A8.319,8.319,0,0,0,23.211,20.1L19.6,18.02"
+				      color=""/>
+				<polygon
+						points="24.076 15.538 23.15 15.538 23.15 14.617 22.225 14.617 22.225 15.538 21.299 15.538 21.299 16.461 22.225 16.461 22.225 17.381 23.15 17.381 23.15 16.461 24.076 16.461 24.076 15.538"
+						style="fill:#fff"/>
+				<polygon
+						points="27.549 15.538 26.623 15.538 26.623 14.617 25.697 14.617 25.697 15.538 24.771 15.538 24.771 16.461 25.697 16.461 25.697 17.381 26.623 17.381 26.623 16.461 27.549 16.461 27.549 15.538"
+						style="fill:#fff"/>
+			</svg>
+			Leaner
+			</span>
+		</a>
+	</div>
+	<div class="v-splitter header-item"></div>
+	<nav class="flex-container flex-space-between one-third-width flex-no-wrap">
+		<a href="../faq.html" class="header-link header-item">FAQ</a>
+		<a href="text-guide-introduction.html" class="header-link header-item">Учебник</a>
+		<a href="../video-lessons.html" class="header-link header-item">Видеоуроки</a>
+		<a href="../compiler.html" class="header-link header-item">Компилятор</a>
+		<a href="https://github.com/Antoher0101/wwwLearnCpp" target="_blank" class="header-link header-item">Github</a>
+	</nav>
+</div>
+<!--HEADER END-->
+
+<main class="wrapper sidebar-position">
+	<div id="main-content" class="centered-container">
+		<!--		MAIN ARTICLES START-->
+		<div class="container-content bordered-container">
+			<div class="centered-container">
+				<span class="content-header">Конструкторы и инициализация объектов</span>
+				<div class="container-content">
+					В прошлой теме был разработан следующий класс:
+					<div class="code-container code">class Person
+{
+public:
+	string name;
+	int age;
+	void move() {
+		cout << name << " is moving"<< endl;
+	}
+};</div>
+					И мы можем установить значения для переменных класса Person, можем получить их значения во внешние
+					переменные. Однако если мы попробуем получить значения переменных name и age до их установки, то
+					результаты будут неопределенными:
+					<div class="code-container code">Person person;
+cout << "Name: " << person.name << "\tAge: " << person.age << endl;</div>
+					Чтобы избежать подобной ситуации применяются специальные функции инициализации или конструкторы. Они
+					позволяют инициализировать объект класса. Так, изменим код программы следующим образом:
+
+					<div class="code-container code">#include &lt;iostream&gt;
+#include &lt;string&gt;
+using std::string;
+using std::cout;
+using std::endl;
+
+class Person
+{
+public:
+	string name;
+	int age;
+	Person(string n, int a)
+	{
+		name = n; age = a;
+	}
+	void move()
+	{
+		cout << name << " is moving" << endl;
+	}
+};
+int main()
+{
+	Person person = Person("Tom", 22);
+	cout << "Name: " << person.name << "\tAge: " << person.age << endl;
+	person.name = "Bob";
+	person.move();
+
+	return 0;
+}</div>
+					Теперь в классе Person определен конструктор:
+					<div class="code-container code">Person(string n, int a)
+{
+	name = n; age = a;
+}</div>
+					По сути конструктор представляет функцию, которая может принимать параметры и которая должна
+					называться по имени класса. В данном случае конструктор принимает два параметра и передает
+					их значения полям name и age.
+					<br><br>
+					Если в классе определены конструкторы, то при создании объекта этого класса необходимо
+					вызвать один из его конструкторов.
+					<br><br>
+					Вызов конструктора получает значения для параметров и возвращает объект класса:
+					<div class="code-container code">Person person = Person("Tom", 22);</div>
+					После этого вызова у объекта person для поля name будет определено значение "Tom", а для
+					поля age - значение 22. Вполедствии мы также сможем обращаться к этим полям и
+					переустанавливать их значения.
+					<br><br>
+					Тажке можно использовать сокращенную форму инициализации:
+					<div class="code-container code">Person person("Tom", 22);</div>
+					По сути она будет эквивалетна предыдущей.
+					<br><br>
+					Консольный вывод определенной выше программы:
+					<div class="console-out"><pre>Name: Tom Age: 22
+Bob is moving</pre>
+					</div>
+					Подобным образом мы можем определить несколько конструкторов и затем их использовать:
+					<div class="code-container code">#include &lt;iostream&gt;
+#include &lt;string&gt;
+using std::string;
+using std::cout;
+using std::endl;
+
+class Person
+{
+public:
+	string name;
+	int age;
+	Person(string n, int a)
+	{
+		name = n;
+		age = a;
+	}
+	Person(string n)
+	{
+		name = n;
+		age = 18;
+	}
+	Person()
+	{
+		name = "Bob";
+		age = 18;
+	}
+	void move()
+	{
+		cout << name << " is moving" << endl;
+	}
+};
+int main()
+{
+	Person tom("Tom", 22);
+	cout << "Name: " << tom.name << "\tAge: " << tom.age << endl;
+	Person sam("Sam");
+	cout << "Name: " << sam.name << "\tAge: " << sam.age << endl;
+	Person bob = Person();
+	cout << "Name: " << bob.name << "\tAge: " << bob.age << endl;
+	return 0;
+}</div>
+					В классе Person определено три конструктора, и в функции все эти конструкторы
+					используются для создания объектов:
+					<div class="console-out"><pre>Name: Tom Age: 22
+Name: Sam Age: 18
+Name: Bob Age: 18</pre>
+					</div>
+					Хотя пример выше прекрасно работает, однако мы можем заметить, что все три
+					конструктора выполняют фактически одни и те же действия - устанавливают значения
+					переменных name и age. И в C++ можем сократить их определения, вызова из одного
+					конструктора другой и тем самым уменьшить объем кода:
+					<div class="code-container code">class Person
+{
+public:
+	string name;
+	int age;
+	Person(string n, int a)
+	{
+		name = n; age = a;
+		cout << "First constructor" << endl;
+	}
+	Person(string n): Person(n, 18) // вызов первого конструктора
+	{
+		cout << "Second constructor" << endl;
+	}
+	Person() : Person("Bob") // вызов второго конструктора
+	{
+		cout << "Third constructor" << endl;
+	}
+	void move()
+	{
+		cout << name << " is moving" << endl;
+	}
+};</div>
+					Запись Person(string n): Person(n, 18) представляет вызов конструктора, которому
+					передается значение параметра n и число 18. То есть второй конструктор делегирует
+					действия по инициализации переменных первому конструктору. При этом второй
+					конструктор может дополнительно определять какие-то свои действия.
+					<br><br>
+					Таким образом, следующее создание объекта
+					<div class="code-container code">Person bob = Person();</div>
+					будет использовать третий конструктор, который в свою очередь вызывает второй
+					конструктор, а тот обращается к первому конструктору.
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Инициализация констант и ссылок</span>
+					В теле конструктора мы можем передать значения переменным класса. Однако константы и ссылки требуют
+					особого отношения. Например, вначале определим следующий класс:
+					<div class="code-container code">class Person
+{
+public:
+	const string name;
+	int &ageRef;
+	int age;
+	Person(string n, int a)
+	{
+		name = n; age = a; ageRef = age;
+	}
+	Person(string n)
+	{
+		name = n; age = 18; ageRef = age;
+	}
+	void move()
+	{
+		cout << name << " is moving" << endl;
+	}
+};</div>
+					Этот класс не будет компилироваться, так как здесь есть две ошибки - отсутствие инициализации
+					константы name и ссылки ageRef. Хотяя их значения устанавливаются в конструкторе, но к моменту,
+					когда код инструкции из тела конструктора начнут выполняться, константы и ссылки уже должны быть
+					инициализированы. И для этого необходимо использовать списки инициализации:
+					<div class="code-container code">#include &lt;iostream&gt;
+#include &lt;string&gt;
+using std::string;
+using std::cout;
+using std::endl;
+
+class Person
+{
+public:
+	const string name;
+	int &ageRef;
+	int age;
+	Person(string n, int a) : name(n), age(a), ageRef(age)
+	{
+	}
+		Person(string n) : name(n), age(18), ageRef(age)
+	{
+	}
+	void move()
+	{
+		cout << name << " is moving" << endl;
+	}
+};
+int main()
+{
+	Person tom("Tom", 22);
+	cout << "Name: " << tom.name << "\tAge: " << tom.age << "\t AgeRef: " << tom.ageRef << endl;
+	return 0;
+}</div>
+					Списки инициализации представляют перечисления инициализаторов для каждой из переменных и
+					констант через двоеточие после списка параметров конструктора:
+					<div class="code-container code">Person(string n, int a) : name(n), age(a), ageRef(age)
+{
+}</div>
+					Таким образом, все переменные, константы и ссылки получат значение, и никакой ошибки не
+					возникнет.
+				</div>
+				<div class="code-container">Вся информация принадлежит сайту <a href="https://metanit.com/"
+				                                                                target="_blank">METANIT.COM</a></div>
+				<div class="centered-content">
+					<a href="5-1.html">Назад</a>
+					<a href="text-guide-introduction.html">Содержание</a>
+					<a href="5-3.html">Вперед</a>
+				</div>
+			</div>
+		</div>
+		<!--MAIN ARTICLES END-->
+	</div>
+
+</main>
+<!--FOOTER START-->
+<footer class="footer centered-container border-top">
+	<div class="flex-container flex-items-center f12">
+		<ul class="list-style-none" style="margin-top: 6px;width: 16%;">
+			<li class="flex-items-center">
+				<a class="header-link" href="https://github.com/Antoher0101" target="_blank">
+					<span>
+						<img alt="@Antoher0101" class="avatar circle"
+						     height="24" src="https://avatars.githubusercontent.com/u/62786345?s=96&amp;v=4" width="24">
+					 © 2022 Antoher0101 </span>
+				</a>
+
+			</li>
+		</ul>
+		<ul class="flex-ul list-style-none two-third-width flex-space-between">
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp" target="_self">This
+			                                                                                                  repository</a>
+			</li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/commits/master"
+			                                 target="_blank">Commits</a></li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/blob/master/README.md"
+			                                 target="_blank">About</a></li>
+		</ul>
+	</div>
+</footer>
+<!--FOOTER END-->
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/ace/ace.js"></script>
+<script>
+    var code;
+    $('.code').each(function () {
+        code = ace.edit(this);
+        code.setTheme("ace/theme/one_dark");
+        code.getSession().setMode("ace/mode/c_cpp");
+        code.setShowPrintMargin(false);
+        code.setReadOnly(true);
+        code.setOptions({
+            maxLines: Infinity,
+            fontSize: "12pt",
+        });
+        code.$blockScrolling = Infinity;
+    });
+</script>
+</body>
+</html>

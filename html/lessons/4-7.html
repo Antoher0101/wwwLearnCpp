@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css">
+	<title>Изучение C++</title>
+</head>
+<body>
+<!--HEADER START-->
+<div class="header">
+	<div class="header-item">
+		<a class="header-link" href="../.." target="_self">
+			<span class="flex-span" style="display: flex;">
+			<svg class="icon" height="48" width="48" viewBox="0 0 32 32">
+				<path d="M29,10.232a2.387,2.387,0,0,0-.318-1.244,2.451,2.451,0,0,0-.936-.879Q22.552,5.241,17.353,2.376A2.642,2.642,0,0,0,14.59,2.4c-1.378.779-8.275,4.565-10.331,5.706A2.287,2.287,0,0,0,3,10.231V21.77a2.4,2.4,0,0,0,.3,1.22,2.434,2.434,0,0,0,.954.9c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733a2.444,2.444,0,0,0,.955-.9,2.4,2.4,0,0,0,.3-1.22V10.232"
+				      style="fill:#909090"/>
+				<path d="M28.549,23.171a2.126,2.126,0,0,0,.147-.182,2.4,2.4,0,0,0,.3-1.22V10.232a2.387,2.387,0,0,0-.318-1.244c-.036-.059-.089-.105-.13-.16L16,16Z"
+				      style="fill:#464646"/>
+				<path d="M28.549,23.171,16,16,3.451,23.171a2.435,2.435,0,0,0,.809.72c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733A2.43,2.43,0,0,0,28.549,23.171Z"
+				      style="fill:#363636"/>
+				<path d="M19.6,18.02a4.121,4.121,0,1,1-.027-4.087l3.615-2.073A8.309,8.309,0,0,0,7.7,16a8.216,8.216,0,0,0,1.1,4.117A8.319,8.319,0,0,0,23.211,20.1L19.6,18.02"
+				      color=""/>
+				<polygon
+						points="24.076 15.538 23.15 15.538 23.15 14.617 22.225 14.617 22.225 15.538 21.299 15.538 21.299 16.461 22.225 16.461 22.225 17.381 23.15 17.381 23.15 16.461 24.076 16.461 24.076 15.538"
+						style="fill:#fff"/>
+				<polygon
+						points="27.549 15.538 26.623 15.538 26.623 14.617 25.697 14.617 25.697 15.538 24.771 15.538 24.771 16.461 25.697 16.461 25.697 17.381 26.623 17.381 26.623 16.461 27.549 16.461 27.549 15.538"
+						style="fill:#fff"/>
+			</svg>
+			Leaner
+			</span>
+		</a>
+	</div>
+	<div class="v-splitter header-item"></div>
+	<nav class="flex-container flex-space-between one-third-width flex-no-wrap">
+		<a href="../faq.html" class="header-link header-item">FAQ</a>
+		<a href="text-guide-introduction.html" class="header-link header-item">Учебник</a>
+		<a href="../video-lessons.html" class="header-link header-item">Видеоуроки</a>
+		<a href="../compiler.html" class="header-link header-item">Компилятор</a>
+		<a href="https://github.com/Antoher0101/wwwLearnCpp" target="_blank" class="header-link header-item">Github</a>
+	</nav>
+</div>
+<!--HEADER END-->
+
+<main class="wrapper sidebar-position">
+	<div id="main-content" class="centered-container">
+		<!--		MAIN ARTICLES START-->
+		<div class="container-content bordered-container">
+			<div class="centered-container">
+				<span class="content-header">Массивы в параметрах функции</span>
+				Если функция принимает в качестве параметра массив, то фактически в эту функцию передается указатель на
+				первый элемент массива. То есть как и в случае с указателями нам доступен адрес, по которому мы можем
+				менять значения. Поэтому следующие объявления функции будут по сути равноценны:
+				<div class="code-container code">void print(int numbers[]);
+void print(int *numbers);</div>
+				Передадим в функцию массив:
+				<div class="code-container code">#include &lt;iostream&gt;
+
+void print(int[]);
+
+int main()
+{
+	int nums[] = {1, 2, 3, 4, 5};
+	print(nums);
+	return 0;
+}
+
+void print(int numbers[])
+{
+	std::cout << "First number: " << numbers[0] << std::endl;
+}</div>
+					В данном случае функция print выводит на консоль первый элемент массива.
+					<br><br>
+					Теперь определим параметр как указатель:
+				<div class="code-container code">#include &lt;iostream&gt;
+
+void print(int*);
+
+int main()
+{
+	int nums[] = {1, 2, 3, 4, 5};
+	print(nums);
+	return 0;
+}
+
+void print(int *numbers)
+{
+	std::cout << "First number: " << *numbers << std::endl;
+}</div>
+						Здесь также в функцию передается массив, однако параметр представляет указатель на первый
+						элемент массива.
+						<div class="container-content">
+							<span class="content-subheader">Ограничения</span>
+							Поскольку параметр, определенный как массив, рассматривается именно как указатель на первый
+							элемент, то мы не сможем корректно получить длину массива, например, следующим образом:
+							<div class="code-container code">void print(int numbers[])
+{
+	int size = sizeof(numbers) / sizeof(numbers[0]);
+	std::cout << size << std::endl;
+}</div>
+							И также мы не сможем использовать цикл for для перебора этого массива:
+							<div class="code-container code">void print(int numbers[])
+{
+	for (int n : numbers)
+	std::cout << n << std::endl;
+}</div>
+						</div>
+						<div class="container-content">
+							<span class="content-subheader">Передача маркера конца массива</span>
+							Чтобы должным образом определять конец массив, перебирать элементы массива, необходимо
+							использовать специальный маркер, который бы сигнализировал об окончании массива. Для этого
+							могут использоваться разные подходы.
+							<br><br>
+							Первый подход заключается в том, чтобы один из элементов массива сам сигнализировал о его
+							окончании. В частности, массив символов может представлять строку - набор символов, который
+							завершается нулевым символом '\0'. Фактически нулевой символ служит признком окончания
+							символьного массива:
+							<div class="code-container code">#include &lt;iostream&gt;
+
+void print(char[]);
+
+int main()
+{
+	char chars[] = "Hello";
+
+	print(chars);
+	return 0;
+}
+
+void print(char chars[])
+{
+	for (int i = 0; chars[i] != '\0'; i++)
+	{
+		std::cout << chars[i] << "\t";
+	}
+}</div>
+								Второй подход заключается в передаче в функцию размера массива:
+							<div class="code-container code">#include &lt;iostream&gt;
+
+void print(int[], int);
+
+int main()
+{
+	int nums[] = {1, 2, 3, 4, 5};
+	int n = sizeof(nums)/sizeof(nums[0]);
+	print(nums, n);
+	return 0;
+}
+
+void print(int numbers[], int n)
+{
+	for(int i=0; i < n; i++)
+	{
+		std::cout << numbers[i] << "\t";
+	}
+}</div>
+									Третий подход заключается в передаче указателя на конец массива. Можно вручную
+									вычислять вычислять указатель на конец массива. А можно использовать встроенные
+									библиотечные функции <b>std::begin()</b> и <b>std::end()</b>:
+							<div class="code-container code">int nums[] = { 1, 2, 3, 4, 5 };
+int *begin = std::begin(nums); // указатель на начало массива
+int *end = std::end(nums); // указатель на конец массива</div>
+									Причем end возвращает указатель не на последний элемент, а адрес за последним
+									элементом в массиве.
+									<br><br>
+									Применим данные функции:
+							<div class="code-container code">#include &lt;iostream&gt;
+
+void print(int*, int*);
+
+int main()
+{
+	int nums[] = { 1, 2, 3, 4, 5 };
+	int *begin = std::begin(nums);
+	int *end = std::end(nums);
+
+	print(begin, end);
+	return 0;
+}
+
+void print(int *begin, int *end)
+{
+	for (int *ptr = begin; ptr != end; ptr++)
+	{
+		std::cout << *ptr << "\t";
+	}
+}</div>
+						</div>
+						<div class="container-content">
+							<span class="content-subheader">Константные массивы</span>
+							Поскольку при передаче массива передается фактически указатель на первый элемент, то
+							используя этот указатель, мы можем изменить элемены массива. Если нет необходимости в
+							изменении массива, то лучше параметр-массив определять как константный:
+							<div class="code-container code">#include &lt;iostream&gt;
+
+void print(const int*, const int*);
+void twice(int*, int*);
+
+int main()
+{
+	int nums1[] = { 1, 2, 3, 4, 5 };
+	int *begin = std::begin(nums1);
+	int *end = std::end(nums1);
+	print(begin, end);
+	std::cout << std::endl;
+
+	int nums2[] = { 1, 2, 3, 4, 5 };
+	begin = std::begin(nums2);
+	end = std::end(nums2);
+	twice(begin, end);
+	for (int *ptr = begin; ptr != end; ptr++)
+	{
+		std::cout << *ptr << "\t";
+	}
+	std::cout << std::endl;
+	return 0;
+}
+
+void print(const int *begin, const int *end)
+{
+	for (const int *ptr = begin; ptr != end; ptr++)
+	{
+		std::cout << *ptr << "\t";
+	}
+}
+void twice(int *begin, int *end)
+{
+	for (int *ptr = begin; ptr != end; ptr++)
+	{
+		*ptr = *ptr * 2;
+	}
+}</div>
+								В данном случае функция print просто выводит значения из массива, поэтому параметры этой
+								функции помечаются как константные.
+								<br><br>
+								Функция twice изменяет элементы массива - увеличивает их в два раза, поэтому в этой
+								функции параметры являются неконстантными. Причем поле выполнения функции twice массив
+								nums3 будет изменен.
+								<br><br>
+								Консольный вывод программы:
+							<div class="console-out"><pre>1    2    3    4    5
+2    4    6    8   10</pre>
+							</div>
+						</div>
+						<div class="container-content">
+							<span class="content-subheader">Передача многомерного массива</span>
+							Многомерный массив также передается как указатель наего первый элемент. В то же время
+							поскольку элементами многомерного массива являются другие массивы, то указатель на первый
+							элемент многомерного массива фактически будет представлять указатель на массив.
+							<br><br>
+							При определении параметра как указателя на массив размер второй размерности (а также всех
+							последующих размерностей) должен быть определен, так как данный размер является частью типа
+							элемента. Пример объявления:
+							<div class="code-container code">void print(int (*numbers)[3])</div>
+							Здесь предполагается, что передаваемый массив будет двухмерным, и все его подмассивы будут
+							иметь по 3 элемента. Стоит обратить внимание на скобки вокруг имени параметра, которые и
+							позволяют определить параметр как указатель на массив. И от этой ситуации стоит отличать
+							следующую:
+							<div class="code-container code">void print(int *numbers[3])</div>
+							В данном случае параметр определен как массив указателей, а не как указатель на массив.
+							<br><br>
+							Рассмотрим применение указателя на массив в качестве параметра:
+
+							<div class="code-container code">#include &lt;iostream&gt;
+
+void print(int(*)[3], int);
+int main()
+{
+	int table[3][3] = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9} };
+	// количество строк или подмассивов
+	int rowsCount = sizeof(table) / sizeof(table[0]);
+
+	print(table, rowsCount);
+	return 0;
+}
+
+void print(int (*numbers)[3], int rowsCount)
+{
+	// количество столбцов или элементов в каждом подмассиве
+	int columnsCount = sizeof(*numbers)/ sizeof(*numbers[0]);
+	for(int i =0; i < rowsCount; i++)
+	{
+		for (int j = 0; j < columnsCount; j++)
+		{
+			std::cout << numbers[i][j] << "\t";
+		}
+		std::cout << std::endl;
+	}
+}</div>
+								В функции main определяется двухмерных массив - он состоит из трех подмассивов. Каждый
+								подмассив имеет по три элемента.
+								<br><br>
+								В функцию print вместе с массивом передается и число строк - по сути число подмассивов.
+								В самой функции print получаем количество элементов в каждом подмассиве и с помощью двух
+								циклов перебираем все элементы. С помощью выражения number[0] можно обратиться к первому
+								подмассиву в двухмерном массиве, а с помощью выражения numbers[0][0] - к первому
+								элементу первого подмассива. И таким образом, манипулируя индексами можно перебрать весь
+								двухмерный массив.
+								<br><br>
+								В итоге мы получим следующий консольный вывод:
+							<div class="console-out"><pre>1    2    3
+4    5    6
+7    8    9</pre>
+							</div>
+								Также мы могли бы определить параметр функци print непосредственно как двухмерный
+								массив, но в этом случае опять же надо было бы указать явным образом вторую размерность:
+							<div class="code-container code">void print(int numbers[][3], int rowsCount)
+{
+// количество столбцов или элементов в каждом подмассиве
+	int columnsCount = sizeof(numbers[0])/ sizeof(numbers[0][0]);
+	for(int i =0; i < rowsCount; i++)
+	{
+		for (int j = 0; j < columnsCount; j++)
+		{
+			std::cout << numbers[i][j] << "\t";
+		}
+		std::cout << std::endl;
+	}
+}</div>
+						</div>
+
+						<div class="code-container">Вся информация принадлежит сайту <a href="https://metanit.com/"
+						                                                                target="_blank">METANIT.COM</a>
+						</div>
+						<div class="centered-content">
+							<a href="4-6.html">Назад</a>
+							<a href="text-guide-introduction.html">Содержание</a>
+							<a href="4-8.html">Вперед</a>
+						</div>
+			</div>
+		</div>
+		<!--MAIN ARTICLES END-->
+	</div>
+
+</main>
+<!--FOOTER START-->
+<footer class="footer centered-container border-top">
+	<div class="flex-container flex-items-center f12">
+		<ul class="list-style-none" style="margin-top: 6px;width: 16%;">
+			<li class="flex-items-center">
+				<a class="header-link" href="https://github.com/Antoher0101" target="_blank">
+					<span>
+						<img alt="@Antoher0101" class="avatar circle"
+						     height="24" src="https://avatars.githubusercontent.com/u/62786345?s=96&amp;v=4" width="24">
+					 © 2022 Antoher0101 </span>
+				</a>
+
+			</li>
+		</ul>
+		<ul class="flex-ul list-style-none two-third-width flex-space-between">
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp" target="_self">This
+			                                                                                                  repository</a>
+			</li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/commits/master"
+			                                 target="_blank">Commits</a></li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/blob/master/README.md"
+			                                 target="_blank">About</a></li>
+		</ul>
+	</div>
+</footer>
+<!--FOOTER END-->
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/ace/ace.js"></script>
+<script>
+    var code;
+    $('.code').each(function () {
+        code = ace.edit(this);
+        code.setTheme("ace/theme/one_dark");
+        code.getSession().setMode("ace/mode/c_cpp");
+        code.setShowPrintMargin(false);
+        code.setReadOnly(true);
+        code.setOptions({
+            maxLines: Infinity,
+            fontSize: "12pt",
+        });
+        code.$blockScrolling = Infinity;
+    });
+</script>
+</body>
+</html>
