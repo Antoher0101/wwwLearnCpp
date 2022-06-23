@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css">
+	<title>Изучение C++</title>
+</head>
+<body>
+<!--HEADER START-->
+<div class="header">
+	<div class="header-item">
+		<a class="header-link" href="../.." target="_self">
+			<span class="flex-span" style="display: flex;">
+			<svg class="icon" height="48" width="48" viewBox="0 0 32 32">
+				<path d="M29,10.232a2.387,2.387,0,0,0-.318-1.244,2.451,2.451,0,0,0-.936-.879Q22.552,5.241,17.353,2.376A2.642,2.642,0,0,0,14.59,2.4c-1.378.779-8.275,4.565-10.331,5.706A2.287,2.287,0,0,0,3,10.231V21.77a2.4,2.4,0,0,0,.3,1.22,2.434,2.434,0,0,0,.954.9c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733a2.444,2.444,0,0,0,.955-.9,2.4,2.4,0,0,0,.3-1.22V10.232"
+				      style="fill:#909090"/>
+				<path d="M28.549,23.171a2.126,2.126,0,0,0,.147-.182,2.4,2.4,0,0,0,.3-1.22V10.232a2.387,2.387,0,0,0-.318-1.244c-.036-.059-.089-.105-.13-.16L16,16Z"
+				      style="fill:#464646"/>
+				<path d="M28.549,23.171,16,16,3.451,23.171a2.435,2.435,0,0,0,.809.72c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733A2.43,2.43,0,0,0,28.549,23.171Z"
+				      style="fill:#363636"/>
+				<path d="M19.6,18.02a4.121,4.121,0,1,1-.027-4.087l3.615-2.073A8.309,8.309,0,0,0,7.7,16a8.216,8.216,0,0,0,1.1,4.117A8.319,8.319,0,0,0,23.211,20.1L19.6,18.02"
+				      color=""/>
+				<polygon
+						points="24.076 15.538 23.15 15.538 23.15 14.617 22.225 14.617 22.225 15.538 21.299 15.538 21.299 16.461 22.225 16.461 22.225 17.381 23.15 17.381 23.15 16.461 24.076 16.461 24.076 15.538"
+						style="fill:#fff"/>
+				<polygon
+						points="27.549 15.538 26.623 15.538 26.623 14.617 25.697 14.617 25.697 15.538 24.771 15.538 24.771 16.461 25.697 16.461 25.697 17.381 26.623 17.381 26.623 16.461 27.549 16.461 27.549 15.538"
+						style="fill:#fff"/>
+			</svg>
+			Leaner
+			</span>
+		</a>
+	</div>
+	<div class="v-splitter header-item"></div>
+	<nav class="flex-container flex-space-between one-third-width flex-no-wrap">
+		<a href="../faq.html" class="header-link header-item">FAQ</a>
+		<a href="text-guide-introduction.html" class="header-link header-item">Учебник</a>
+		<a href="../video-lessons.html" class="header-link header-item">Видеоуроки</a>
+		<a href="../compiler.html" class="header-link header-item">Компилятор</a>
+		<a href="https://github.com/Antoher0101/wwwLearnCpp" target="_blank" class="header-link header-item">Github</a>
+	</nav>
+</div>
+<!--HEADER END-->
+
+<main class="wrapper sidebar-position">
+	<div id="main-content" class="centered-container">
+		<!--		MAIN ARTICLES START-->
+		<div class="container-content bordered-container">
+			<div class="centered-container">
+				<span class="content-header">Циклы</span>
+				Для выполнения некоторых действий множество раз в зависимости от определенного условия используются
+				циклы. В языке C++ имеются следующие виды циклов:
+
+				<div class="centered-container"><b>for</b></div>
+
+				<div class="centered-container"><b>while</b></div>
+
+				<div class="centered-container"><b>do...while</b></div>
+				<div class="container-content">
+					<span class="content-subheader">Цикл while</span>
+					Цикл while выполняет некоторый код, пока его условие истинно, то есть возвращает true. Он имеет
+					следующее формальное определение:
+					<div class="code-container code">while(условие)
+{
+	// выполняемые действия
+}</div>
+					После ключевого слова <b>while</b> в скобках идет условное выражение, которое возвращает true или false.
+					Затем в фигурных скобках идет набор инструкций, которые составляют тело цикла. И пока условие
+					возвращает true, будут выполняться инструкции в теле цикла.
+					<br><br>
+					Например, выведем квадраты чисел от 1 до 9:
+					<div class="code-container code">#include &lt;iostream&gt;
+
+int main()
+{
+	int i = 1;
+	while(i < 10)
+	{
+		std::cout << i << " * " << i << " = " << i * i << std::endl;
+		i++;
+	}
+	return 0;
+}</div>
+						Здесь пока условие i < 10 истинно, будет выполняться цикл while, в котором выводится на консоль
+						квадрат числа и инкрементируется переменная i. В какой-то момент переменная i увеличится до 10,
+						условие i < 10 возвратит false, и цикл завершится.
+						<br><br>
+						Консольный вывод программы:
+
+					<div class="console-out"><pre>1 * 1 = 1
+2 * 2 = 4
+3 * 3 = 9
+4 * 4 = 16
+5 * 5 = 25
+6 * 6 = 36
+7 * 7 = 49
+8 * 8 = 64
+9 * 9 = 81</pre>
+					</div>
+						Каждый отдельный проход цикла называется итерацией. То есть в примере выше было 9 итераций.
+						<br><br>
+						Если цикл содержит одну инструкцию, то фигурные скобки можно опустить:
+
+					<div class="code-container code">int i = 0;
+while(++i < 10)
+	std::cout << i << " * " << i << " = " << i * i << std::endl;</div>
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Цикл for</span>
+					Цикл for имеет следующее формальное определение:
+
+					<div class="code-container code">for (выражение_1; выражение_2; выражение_3)
+{
+	// тело цикла
+}</div>
+					<i>выражение_1</i> выполняется один раз при начале выполнения цикла и представляет установку начальных
+					условий, как правило, это инициализация счетчиков - специальных переменных, которые используются для
+					контроля за циклом.
+					<br><br>
+					<i>выражение_2</i> представляет условие, при соблюдении которого выполняется цикл. Как правило, в качестве
+					условия используется операция сравнения, и если она возвращает ненулевое значение (то есть условие
+					истинно), то выполняется тело цикла, а затем вычисляется <i>выражение_3</i>.
+					<br><br>
+					<i>выражение_3</i> задает изменение параметров цикла, нередко здесь происходит увеличение счетчиков цикла
+					на единицу.
+					<br><br>
+					Например, перепишем программу по выводу квадратов чисел с помощью цикла for:
+
+					<div class="code-container code">#include &lt;iostream&gt;
+
+int main()
+{
+	for(int i =1; i < 10; i++)
+	{
+		std::cout << i << " * " << i << " = " << i * i << std::endl;
+	}
+	return 0;
+}</div>
+						Первая часть объявления цикла - int i = 1 - создает и инициализирует счетчик i. Фактически это
+						то же самое, что и объявление и инициализация переменной. Счетчик необязательно должен
+						представлять тип int. Это может быть и другой числовой тип, например, float. И перед выполнением
+						цикла его значение будет равно 1.
+						<br><br>
+						Вторая часть - условие, при котором будет выполняться цикл. В данном случае цикл будет
+						выполняться, пока переменная i не станет равна 10.
+						<br><br>
+						И третья часть - приращение счетчика на единицу. Опять же нам необязательно увеличивать на
+						единицу. Можно уменьшать: i--. Можно изменять на другое значение: i+=2.
+						<br><br>
+						В итоге блок цикла сработает 9 раз, пока переменная i не станет равна 10. И каждый раз это
+						значение будет увеличиваться на 1. И по сути мы получим тот же самый результат, что и в случае с
+						циклом while:
+					<div class="console-out"><pre>1 * 1 = 1
+2 * 2 = 4
+3 * 3 = 9
+4 * 4 = 16
+5 * 5 = 25
+6 * 6 = 36
+7 * 7 = 49
+8 * 8 = 64
+9 * 9 = 81</pre>
+					</div>
+						Необязательно указывать все три выражения в определении цикла, мы можем одно или даже все из них
+						опустить:
+
+					<div class="code-container code">int i = 1;
+for(; i < 10;)
+{
+	std::cout << i << " * " << i << " = " << i * i << std::endl;
+	i++;
+}</div>
+						Формально определение цикла осталось тем же, только теперь первое и третье выражения в
+						определении цикла отсутствуют: for (; i < 10;). Переменная-счетчик определена и инициализирована
+						вне цикла, а ее приращение происходит в самом цикле.
+						<br><br>
+						Можно определять вложенные циклы. Например, выведем таблицу умножения:
+					<div class="code-container code">#include &lt;iostream&gt;
+
+int main()
+{
+	for (int i=1; i < 10; i++)
+	{
+		for(int j = 1; j < 10; j++)
+		{
+			std::cout << i * j << "\t";
+		}
+		std::cout << std::endl;
+	}
+	return 0;
+}</div>
+					Вывод:
+					<div class="console-out"><pre>1	2	3	4	5	6	7	8	9
+2	4	6	8	10	12	14	16	18
+3	6	9	12	15	18	21	24	27
+4	8	12	16	20	24	28	32	36
+5	10	15	20	25	30	35	40	45
+6	12	18	24	30	36	42	48	54
+7	14	21	28	35	42	49	56	63
+8	16	24	32	40	48	56	64	72
+9	18	27	36	45	54	63	72	81</pre>
+					</div>
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Цикл do</span>
+					В цикле do сначала выполняется код цикла, а потом происходит проверка условия в инструкции while. И пока это условие истинно, то есть не равно 0, то цикл повторяется. Формальное определение цикла:
+					<div class="code-container code">do
+{
+	инструкции
+}
+while(условие);</div>
+					Например:
+					<div class="code-container code">#include &lt;iostream&gt;
+
+int main()
+{
+	int i = 6;
+	do
+	{
+		std::cout << i << std::endl;
+		i--;
+	}
+	while(i>0);
+
+	return 0;
+}</div>
+					Здесь код цикла сработает 6 раз, пока i не станет равным нулю.
+					<br><br>
+					Но важно отметить, что цикл do гарантирует хотя бы однократное выполнение действий, даже если условие в инструкции while не будет истинно. То есть мы можем написать:
+					<div class="code-container code">int i = -1;
+do
+{
+	std::cout << i << std::endl;
+	i--;
+}
+while(i>0);</div>
+					Хотя у нас переменная i меньше 0, цикл все равно один раз выполнится.
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Операторы continue и break</span>
+					Иногда возникает необходимость выйти из цикла до его завершения. В этом случае можно воспользоваться оператором
+					<b>break</b>. Например:
+					<div class="code-container code">#include &lt;iostream&gt;
+
+int main()
+{
+	int i = 1;
+	for ( ; ; )
+	{
+		std::cout << i << " * " << i << " = " << i * i << std::endl;
+		i++;
+		if (i > 9) break;
+	}
+	return 0;
+}</div>
+					Здесь когда значение переменной i достигнет 10, осуществляется выход из цикла с помощью оператора break.
+					<br><br>
+					В отличие от оператора break, оператор <b>continue</b> производит переход к следующей итерации. Например, нам надо посчитать сумму только нечетных чисел из некоторого диапазона:
+
+					<div class="code-container code">#include &lt;iostream&gt;
+int main()
+{
+	int result = 0;
+	for (int i=0; i<10; i++)
+	{
+		if (i % 2 == 0) continue;
+		result +=i;
+	}
+	std::cout << "result = " << result << std::endl; // 25
+	return 0;
+}</div>
+					Чтобы узнать, четное ли число, мы получаем остаток от целочисленного деления на 2, и если он равен 0, то с помощью оператора continue переходим к следующей итерации цикла. А если число нечетное, то складываем его с остальными нечетными числами.
+				</div>
+				<div class="code-container">Вся информация принадлежит сайту <a href="https://metanit.com/"
+				                                                                target="_blank">METANIT.COM</a></div>
+				<div class="centered-content">
+					<a href="2-12.html">Назад</a>
+					<a href="text-guide-introduction.html">Содержание</a>
+					<a href="2-14.html">Вперед</a>
+				</div>
+			</div>
+		</div>
+		<!--MAIN ARTICLES END-->
+	</div>
+
+</main>
+<!--FOOTER START-->
+<footer class="footer centered-container border-top">
+	<div class="flex-container flex-items-center f12">
+		<ul class="list-style-none" style="margin-top: 6px;width: 16%;">
+			<li class="flex-items-center">
+				<a class="header-link" href="https://github.com/Antoher0101" target="_blank">
+					<span>
+						<img alt="@Antoher0101" class="avatar circle"
+						     height="24" src="https://avatars.githubusercontent.com/u/62786345?s=96&amp;v=4" width="24">
+					 © 2022 Antoher0101 </span>
+				</a>
+
+			</li>
+		</ul>
+		<ul class="flex-ul list-style-none two-third-width flex-space-between">
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp" target="_self">This
+			                                                                                                  repository</a>
+			</li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/commits/master"
+			                                 target="_blank">Commits</a></li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/blob/master/README.md"
+			                                 target="_blank">About</a></li>
+		</ul>
+	</div>
+</footer>
+<!--FOOTER END-->
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/ace/ace.js"></script>
+<script>
+    var code;
+    $('.code').each(function () {
+        code = ace.edit(this);
+        code.setTheme("ace/theme/one_dark");
+        code.getSession().setMode("ace/mode/c_cpp");
+        code.setShowPrintMargin(false);
+        code.setReadOnly(true);
+        code.setOptions({
+            maxLines: Infinity,
+            fontSize: "12pt",
+        });
+        code.$blockScrolling = Infinity;
+    });
+</script>
+</body>
+</html>

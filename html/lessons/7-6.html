@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css">
+	<title>Изучение C++</title>
+</head>
+<body>
+<!--HEADER START-->
+<div class="header">
+	<div class="header-item">
+		<a class="header-link" href="../.." target="_self">
+			<span class="flex-span" style="display: flex;">
+			<svg class="icon" height="48" width="48" viewBox="0 0 32 32">
+				<path d="M29,10.232a2.387,2.387,0,0,0-.318-1.244,2.451,2.451,0,0,0-.936-.879Q22.552,5.241,17.353,2.376A2.642,2.642,0,0,0,14.59,2.4c-1.378.779-8.275,4.565-10.331,5.706A2.287,2.287,0,0,0,3,10.231V21.77a2.4,2.4,0,0,0,.3,1.22,2.434,2.434,0,0,0,.954.9c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733a2.444,2.444,0,0,0,.955-.9,2.4,2.4,0,0,0,.3-1.22V10.232"
+				      style="fill:#909090"/>
+				<path d="M28.549,23.171a2.126,2.126,0,0,0,.147-.182,2.4,2.4,0,0,0,.3-1.22V10.232a2.387,2.387,0,0,0-.318-1.244c-.036-.059-.089-.105-.13-.16L16,16Z"
+				      style="fill:#464646"/>
+				<path d="M28.549,23.171,16,16,3.451,23.171a2.435,2.435,0,0,0,.809.72c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733A2.43,2.43,0,0,0,28.549,23.171Z"
+				      style="fill:#363636"/>
+				<path d="M19.6,18.02a4.121,4.121,0,1,1-.027-4.087l3.615-2.073A8.309,8.309,0,0,0,7.7,16a8.216,8.216,0,0,0,1.1,4.117A8.319,8.319,0,0,0,23.211,20.1L19.6,18.02"
+				      color=""/>
+				<polygon
+						points="24.076 15.538 23.15 15.538 23.15 14.617 22.225 14.617 22.225 15.538 21.299 15.538 21.299 16.461 22.225 16.461 22.225 17.381 23.15 17.381 23.15 16.461 24.076 16.461 24.076 15.538"
+						style="fill:#fff"/>
+				<polygon
+						points="27.549 15.538 26.623 15.538 26.623 14.617 25.697 14.617 25.697 15.538 24.771 15.538 24.771 16.461 25.697 16.461 25.697 17.381 26.623 17.381 26.623 16.461 27.549 16.461 27.549 15.538"
+						style="fill:#fff"/>
+			</svg>
+			Leaner
+			</span>
+		</a>
+	</div>
+	<div class="v-splitter header-item"></div>
+	<nav class="flex-container flex-space-between one-third-width flex-no-wrap">
+		<a href="../faq.html" class="header-link header-item">FAQ</a>
+		<a href="text-guide-introduction.html" class="header-link header-item">Учебник</a>
+		<a href="../video-lessons.html" class="header-link header-item">Видеоуроки</a>
+		<a href="../compiler.html" class="header-link header-item">Компилятор</a>
+		<a href="https://github.com/Antoher0101/wwwLearnCpp" target="_blank" class="header-link header-item">Github</a>
+	</nav>
+</div>
+<!--HEADER END-->
+
+<main class="wrapper sidebar-position">
+	<div id="main-content" class="centered-container">
+		<!--		MAIN ARTICLES START-->
+		<div class="container-content bordered-container">
+			<div class="centered-container">
+				<span class="content-header">List</span>
+				Контейнер <b>list</b> представляет двухсвязный список. Для его использования необходимо подключить заголовочный
+				файл <b>list</b>.
+				<br><br>
+				Создание списка:
+
+				<div class="code-container code">std::list&lt;int&gt; list1; // пустой список
+std::list&lt;int&gt; list2(5); // список list2 состоит из 5 чисел, каждый элемент имеет значение по
+умолчанию
+std::list&lt;int&gt; list3(5, 2); // список list3 состоит из 5 чисел, каждое число равно 2
+std::list&lt;int&gt; list4{ 1, 2, 4, 5 }; // список list4 состоит из чисел 1, 2, 4, 5
+std::list&lt;int&gt; list5 = { 1, 2, 3, 5 }; // список list5 состоит из чисел 1, 2, 4, 5
+std::list&lt;int&gt; list6(list4); // список list6 - копия списка list4
+std::list&lt;int&gt; list7 = list4; // список list7 - копия списка list4</div>
+				<div class="container-content">
+					<span class="content-subheader">Получение элементов</span>
+					В отличие от других контейнеров для типа list не определена операция обращения по индексу или
+					функция at(), которая выполняет похожую задачу.
+					<br><br>
+					Тем не менее для контейнера list можно использовать функции <b>front()</b> и <b>back()</b>, которые возвращают
+					соответственно первый и последний элементы.
+					<br><br>
+					Чтобы обратиться к элементам, которые находятся в середине (после первого и до последнего
+					элементов), придется выполнять перебор элементов с помощью циклов или итераторов:
+					<div class="code-container code">#include &lt;iostream&gt;
+#include &lt;list&gt;
+
+int main()
+{
+	std::list&lt;int&gt; numbers = { 1, 2, 3, 4, 5 };
+
+	int first = numbers.front(); // 1
+	int last = numbers.back(); // 5
+
+	// перебор в цикле
+	for (int n : numbers)
+	std::cout << n << "\t";
+	std::cout << std::endl;
+
+	// перебор с помощью итераторов
+	for (auto iter = numbers.begin(); iter != numbers.end(); iter++)
+	{
+		std::cout << *iter << "\t";
+	}
+	std::cout << std::endl;
+	return 0;
+}</div>
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Размер списка</span>
+					Для получения размера списка можно использовать функцию <b>size()</b>:
+					<div class="code-container code">std::list&lt;int&gt; numbers = { 1, 2, 3, 4, 5 };
+int size = numbers.size(); // 5</div>
+					Функция <b>empty()</b> позволяет узнать, пуст ли список. Если он пуст, то функция возвращает значение true,
+					иначе возвращается значение false:
+					<div class="code-container code">std::list&lt;int&gt; numbers = { 1, 2, 3, 4, 5 };
+if (numbers.empty())
+	std::cout << "The list is empty" << std::endl;
+else
+	std::cout << "The list is not empty" << std::endl;</div>
+					С помощью функции <b>resize()</b> можно изменить размер списка. Эта функция имеет две формы:
+					<div class="sidebar-item"><b>resize(n)</b>: оставляет в списке n первых элементов. Если список
+					                                          содержит больше элементов, то он
+					                                          усекается до первых n элементов. Если размер списка меньше
+					                                          n, то добавляются недостающие элементы
+					                                          и
+					                                          инициализируются значением по умолчанию
+					</div>
+					<div class="sidebar-item"><b>resize(n, value)</b>: также оставляет в списке n первых элементов. Если
+					                                                 размер списка меньше n, то
+					                                                 добавляются недостающие элементы со значением value
+					</div>
+					Применение функции:
+					<div class="code-container code">std::list&lt;int&gt; numbers = { 1, 2, 3, 4, 5, 6 };
+numbers.resize(4); // оставляем первые четыре элемента - numbers = {1, 2, 3, 4}
+
+numbers.resize(6, 8); // numbers = {1, 2, 3, 4, 8, 8}</div>
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Изменение элементов списка</span>
+					Функция <b>assign()</b> позволяет заменить все элементы списка определенным набором. Она имеет
+					следующие
+					формы:
+					<div class="sidebar-item"><b>assign(il)</b>: заменяет содержимое контейнера элементами из списка
+					                                           инициализации il
+					</div>
+
+					<div class="sidebar-item"><b>assign(n, value)</b>: заменяет содержимое контейнера n элементами,
+					                                                 которые имеют значение value
+					</div>
+
+					<div class="sidebar-item"><b>assign(begin, end)</b>: заменяет содержимое контейнера элементами из
+					                                                   диапазона, на начало и конец
+					                                                   которого указывают итераторы begin и end
+					</div>
+					Применение функции:
+					<div class="code-container code">std::list&lt;int&gt; numbers = { 1, 2, 3, 4, 5 };
+
+numbers.assign({ 21, 22, 23, 24, 25 }); // numbers = { 21, 22, 23, 24, 25 }
+
+numbers.assign(4, 3); // numbers = {3, 3, 3, 3}
+
+std::list&lt;int&gt; values = { 6, 7, 8, 9, 10, 11 };
+auto start = ++values.begin(); // итератор указывает на второй элемент из values
+auto end = values.end();
+numbers.assign(start, end); // numbers = { 7, 8, 9, 10, 11 }</div>
+					Функция <b>swap()</b> обменивает значениями два списка:
+					<div class="code-container code">std::list&lt;int&gt; list1 = { 1, 2, 3, 4, 5 };
+std::list&lt;int&gt; list2 = { 6, 7, 8, 9};
+list1.swap(list2);
+// list1 = { 6, 7, 8, 9};
+// list2 = { 1, 2, 3, 4, 5 };</div>
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Добавление элементов</span>
+					Для добавления элементов в контейнер list применяется ряд функций.
+					<div class="sidebar-item"><b>push_back(val)</b>: добавляет значение val в конец списка</div>
+					<div class="sidebar-item"><b>push_front(val)</b>: добавляет значение val в начало списка</div>
+					<div class="sidebar-item"><b>emplace_back(val)</b>: добавляет значение val в конец списка</div>
+					<div class="sidebar-item"><b>emplace_front(val)</b>: добавляет значение val в начало списка</div>
+					<div class="sidebar-item"><b>emplace(pos, val)</b>: вставляет элемент val на позицию, на которую
+					                                                  указывает итератор pos. Возвращает
+					                                                  итератор на добавленный элемент
+					</div>
+					<div class="sidebar-item"><b>insert(pos, val)</b>: вставляет элемент val на позицию, на которую
+					                                                 указывает итератор pos, аналогично
+					                                                 функции emplace. Возвращает итератор на добавленный
+					                                                 элемент
+					</div>
+					<div class="sidebar-item"><b>insert(pos, n, val)</b>: вставляет n элементов val начиная с позиции,
+					                                                    на которую указывает итератор pos.
+					                                                    Возвращает итератор на первый добавленный
+					                                                    элемент. Если n = 0, то возвращается итератор
+					                                                    pos.
+					</div>
+					<div class="sidebar-item"><b>insert(pos, begin, end)</b>: вставляет начиная с позиции, на которую
+					                                                        указывает итератор pos, элементы из
+					                                                        другого контейнера из диапазона между
+					                                                        итераторами begin и end. Возвращает итератор
+					                                                        на первый
+					                                                        добавленный элемент. Если между итераторами
+					                                                        begin и end нет элементов, то возвращается
+					                                                        итератор pos.
+					</div>
+					<div class="sidebar-item"><b>insert(pos, values)</b>: вставляет список значений values начиная с
+					                                                    позиции, на которую указывает
+					                                                    итератор pos. Возвращает итератор на первый
+					                                                    добавленный элемент. Если values не содержит
+					                                                    элементов,
+					                                                    то возвращается итератор pos.
+					</div>
+					Функции push_back(), push_front(), emplace_back() и emplace_front():
+					<div class="code-container code">std::list&lt;int&gt; numbers = { 1, 2, 3, 4, 5 };
+numbers.push_back(23); // { 1, 2, 3, 4, 5, 23 }
+numbers.push_front(15); // { 15, 1, 2, 3, 4, 5, 23 }
+numbers.emplace_back(24); // { 15, 1, 2, 3, 4, 5, 23, 24 }
+numbers.emplace_front(14); // { 14, 15, 1, 2, 3, 4, 5, 23, 24 }</div>
+					Добавление в середину списка с помощью функции <b>emplace()</b>:
+					<div class="code-container code">std::list&lt;int&gt; numbers = { 1, 2, 3, 4, 5 };
+auto iter = ++numbers.cbegin(); // итератор указывает на второй элемент
+numbers.emplace(iter, 8); // добавляем после первого элемента numbers = { 1, 8, 2, 3, 4, 5};</div>
+					Добавление в середину списка с помощью функции <b>insert()</b>:
+					<div class="code-container code">std::list&lt;int&gt; numbers1 = { 1, 2, 3, 4, 5 };
+auto iter1 = numbers1.cbegin(); // итератор указывает на первый элемент
+numbers1.insert(iter1, 0); // добавляем начало списка
+//numbers1 = { 0, 1, 2, 3, 4, 5};
+
+std::list&lt;int&gt; numbers2 = { 1, 2, 3, 4, 5 };
+auto iter2 = numbers2.cbegin(); // итератор указывает на первый элемент
+numbers2.insert(++iter2, 3, 4); // добавляем после первого элемента три четверки
+//numbers2 = { 1, 4, 4, 4, 2, 3, 4, 5};
+
+std::list&lt;int&gt; values = { 10, 20, 30, 40, 50 };
+std::list&lt;int&gt; numbers3 = { 1, 2, 3, 4, 5 };
+auto iter3 = numbers3.cbegin(); // итератор указывает на первый элемент
+// добавляем в начало все элементы из values
+numbers3.insert(iter3, values.begin(), values.end());
+//numbers3 = { 10, 20, 30, 40, 50, 1, 2, 3, 4, 5};
+
+std::list&lt;int&gt; numbers4 = { 1, 2, 3, 4, 5 };
+auto iter4 = numbers4.cend(); // итератор указывает на позицию за последним элементом
+// добавляем в конец список из трех элементов
+numbers4.insert(iter4, { 21, 22, 23 });
+//numbers4 = { 1, 2, 3, 4, 5, 21, 22, 23};</div>
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Удаление элементов</span>
+					Для удаления элементов из контейнера list могут применяться следующие функции:
+					<div class="sidebar-item"><b>clear(p)</b>: удаляет все элементы</div>
+					<div class="sidebar-item"><b>pop_back()</b>: удаляет последний элемент</div>
+					<div class="sidebar-item"><b>pop_front()</b>: удаляет первый элемент</div>
+					<div class="sidebar-item"><b>erase(p)</b>: удаляет элемент, на который указывает итератор p.
+					                                         Возвращает итератор на элемент,
+					                                         следующий после удаленного, или на конец контейнера, если
+					                                         удален последний элемент
+					</div>
+					<div class="sidebar-item"><b>erase(begin, end)</b>: удаляет элементы из диапазона, на начало и конец
+					                                                  которого указывают итераторы
+					                                                  begin и end. Возвращает итератор на элемент,
+					                                                  следующий после последнего удаленного, или на
+					                                                  конец
+					                                                  контейнера, если удален последний элемент
+					</div>
+					Применение функций:
+					<div class="code-container code">std::list&lt;int&gt; numbers = { 1, 2, 3, 4, 5 };
+numbers.pop_front(); // numbers = { 2, 3, 4, 5 }
+numbers.pop_back(); // numbers = { 2, 3, 4 }
+numbers.clear(); // numbers ={}
+
+numbers = { 1, 2, 3, 4, 5 };
+auto iter = numbers.cbegin(); // указатель на первый элемент
+numbers.erase(iter); // удаляем первый элемент
+// numbers = { 2, 4, 5, 6 }
+
+numbers = { 1, 2, 3, 4, 5 };
+auto begin = numbers.begin(); // указатель на первый элемент
+auto end = numbers.end(); // указатель на последний элемент
+numbers.erase(++begin, --end); // удаляем со второго элемента до последнего
+//numbers = {1, 5}</div>
+				</div>
+				<div class="code-container">Вся информация принадлежит сайту <a href="https://metanit.com/"
+				                                                                target="_blank">METANIT.COM</a></div>
+				<div class="centered-content">
+					<a href="7-5.html">Назад</a>
+					<a href="text-guide-introduction.html">Содержание</a>
+					<a href="7-7.html">Вперед</a>
+				</div>
+			</div>
+		</div>
+		<!--MAIN ARTICLES END-->
+	</div>
+
+</main>
+<!--FOOTER START-->
+<footer class="footer centered-container border-top">
+	<div class="flex-container flex-items-center f12">
+		<ul class="list-style-none" style="margin-top: 6px;width: 16%;">
+			<li class="flex-items-center">
+				<a class="header-link" href="https://github.com/Antoher0101" target="_blank">
+					<span>
+						<img alt="@Antoher0101" class="avatar circle"
+						     height="24" src="https://avatars.githubusercontent.com/u/62786345?s=96&amp;v=4" width="24">
+					 © 2022 Antoher0101 </span>
+				</a>
+
+			</li>
+		</ul>
+		<ul class="flex-ul list-style-none two-third-width flex-space-between">
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp" target="_self">This
+			                                                                                                  repository</a>
+			</li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/commits/master"
+			                                 target="_blank">Commits</a></li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/blob/master/README.md"
+			                                 target="_blank">About</a></li>
+		</ul>
+	</div>
+</footer>
+<!--FOOTER END-->
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/ace/ace.js"></script>
+<script>
+    var code;
+    $('.code').each(function () {
+        code = ace.edit(this);
+        code.setTheme("ace/theme/one_dark");
+        code.getSession().setMode("ace/mode/c_cpp");
+        code.setShowPrintMargin(false);
+        code.setReadOnly(true);
+        code.setOptions({
+            maxLines: Infinity,
+            fontSize: "12pt",
+        });
+        code.$blockScrolling = Infinity;
+    });
+</script>
+</body>
+</html>

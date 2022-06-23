@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css">
+	<title>Изучение C++</title>
+</head>
+<body>
+<!--HEADER START-->
+<div class="header">
+	<div class="header-item">
+		<a class="header-link" href="../.." target="_self">
+			<span class="flex-span" style="display: flex;">
+			<svg class="icon" height="48" width="48" viewBox="0 0 32 32">
+				<path d="M29,10.232a2.387,2.387,0,0,0-.318-1.244,2.451,2.451,0,0,0-.936-.879Q22.552,5.241,17.353,2.376A2.642,2.642,0,0,0,14.59,2.4c-1.378.779-8.275,4.565-10.331,5.706A2.287,2.287,0,0,0,3,10.231V21.77a2.4,2.4,0,0,0,.3,1.22,2.434,2.434,0,0,0,.954.9c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733a2.444,2.444,0,0,0,.955-.9,2.4,2.4,0,0,0,.3-1.22V10.232"
+				      style="fill:#909090"/>
+				<path d="M28.549,23.171a2.126,2.126,0,0,0,.147-.182,2.4,2.4,0,0,0,.3-1.22V10.232a2.387,2.387,0,0,0-.318-1.244c-.036-.059-.089-.105-.13-.16L16,16Z"
+				      style="fill:#464646"/>
+				<path d="M28.549,23.171,16,16,3.451,23.171a2.435,2.435,0,0,0,.809.72c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733A2.43,2.43,0,0,0,28.549,23.171Z"
+				      style="fill:#363636"/>
+				<path d="M19.6,18.02a4.121,4.121,0,1,1-.027-4.087l3.615-2.073A8.309,8.309,0,0,0,7.7,16a8.216,8.216,0,0,0,1.1,4.117A8.319,8.319,0,0,0,23.211,20.1L19.6,18.02"
+				      color=""/>
+				<polygon
+						points="24.076 15.538 23.15 15.538 23.15 14.617 22.225 14.617 22.225 15.538 21.299 15.538 21.299 16.461 22.225 16.461 22.225 17.381 23.15 17.381 23.15 16.461 24.076 16.461 24.076 15.538"
+						style="fill:#fff"/>
+				<polygon
+						points="27.549 15.538 26.623 15.538 26.623 14.617 25.697 14.617 25.697 15.538 24.771 15.538 24.771 16.461 25.697 16.461 25.697 17.381 26.623 17.381 26.623 16.461 27.549 16.461 27.549 15.538"
+						style="fill:#fff"/>
+			</svg>
+			Leaner
+			</span>
+		</a>
+	</div>
+	<div class="v-splitter header-item"></div>
+	<nav class="flex-container flex-space-between one-third-width flex-no-wrap">
+		<a href="../faq.html" class="header-link header-item">FAQ</a>
+		<a href="text-guide-introduction.html" class="header-link header-item">Учебник</a>
+		<a href="../video-lessons.html" class="header-link header-item">Видеоуроки</a>
+		<a href="../compiler.html" class="header-link header-item">Компилятор</a>
+		<a href="https://github.com/Antoher0101/wwwLearnCpp" target="_blank" class="header-link header-item">Github</a>
+	</nav>
+</div>
+<!--HEADER END-->
+
+<main class="wrapper sidebar-position">
+	<div id="main-content" class="centered-container">
+		<!--		MAIN ARTICLES START-->
+		<div class="container-content bordered-container">
+			<div class="centered-container">
+				<span class="content-header">Чтение и запись текстовых файлов</span>
+				Потоки для работы с текстовыми файлами представляют объекты, для которых не задан режим открытия
+				<b>ios::binary</b>.
+				<div class="container-content">
+					<span class="content-subheader">Запись в файл</span>
+					Для записи в файл к объекту ofstream или fstream применяется оператор &lt;&lt; (как и при выводе на консоль):
+					<div class="code-container code">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+
+int main()
+{
+	std::ofstream out;          // поток для записи
+	out.open("D:\\hello.txt"); // окрываем файл для записи
+	if (out.is_open())
+	{
+		out << "Hello World!" << std::endl;
+	}
+
+	std::cout << "End of program" << std::endl;
+	return 0;
+}</div>
+					Данный способ перезаписывает файл заново. Если надо дозаписать текст в конец файла, то для открытия
+					файла нужно использовать режим <b>ios::app</b>:
+					<div class="code-container code">std::ofstream out("D:\\hello.txt", std::ios::app);
+if (out.is_open())
+{
+	out << "Welcome to CPP" << std::endl;
+}
+out.close();</div>
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Чтение из файла</span>
+					Если надо считать всю строку целиком или даже все строки из файла, то лучше использовать встроенную
+					функцию <b>getline()</b>, которая принимает поток для чтения и переменную, в которую надо считать текст:
+					<div class="code-container code">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;string&gt;
+
+int main()
+{
+	std::string line;
+
+	std::ifstream in("D:\\hello.txt"); // окрываем файл для чтения
+	if (in.is_open())
+	{
+		while (getline(in, line))
+		{
+			std::cout << line << std::endl;
+		}
+	}
+	in.close();     // закрываем файл
+
+	std::cout << "End of program" << std::endl;
+	return 0;
+}</div>
+					Также для чтения данных из файла для объектов ifstream и fstream может применяться оператор >> (также как и при чтении с консоли):
+					<div class="code-container code">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;vector&gt;
+
+struct Operation
+{
+	int sum; // купленная сумма
+	double rate; // по какому курсу
+	Operation(double s, double r) : sum(s), rate(r)
+	{}
+};
+int main()
+{
+	std::vector&lt;Operation&gt; operations = {
+		Operation(120, 57.7),
+		Operation(1030, 57.4),
+		Operation(980, 58.5),
+		Operation(560, 57.2)
+	};
+
+	std::ofstream out("D:\\operations.txt");
+
+	if (out.is_open())
+	{
+		for (int i = 0; i < operations.size(); i++)
+		{
+			out << operations[i].sum << " " << operations[i].rate << std::endl;
+		}
+	}
+	out.close();
+
+	std::vector&lt;Operation&gt; new_operations;
+	double rate;
+	int sum;
+	std::ifstream in("D:\\operations.txt"); // окрываем файл для чтения
+	if (in.is_open())
+	{
+		while (in >> sum >> rate)
+		{
+			new_operations.push_back(Operation(sum, rate));
+		}
+	}
+	in.close();
+
+	for (int i = 0; i < new_operations.size(); i++)
+	{
+		std::cout << new_operations[i].sum << " - " << new_operations[i].rate << std::endl;
+	}
+	return 0;
+}</div>
+					Здесь вектор структур Operation записывается в файл.
+					<div class="code-container code">for (int i = 0; i < operations.size(); i++)
+{
+	out << operations[i].sum << " " << operations[i].rate << std::endl;
+}</div>
+					При записи в данном случае будет создаваться файл в формате
+					<div class="code-container code">120 57.7
+1030 57.4
+980 58.5
+560 57.2</div>
+					Используя оператор >>, можно считать последовательно данные в переменные sum и rate и ими
+					инициализировать структуру.
+					<div class="code-container code">while (in >> sum >> rate)
+{
+	new_operations.push_back(Operation(sum, rate));
+}</div>
+				</div>
+
+				<div class="code-container">Вся информация принадлежит сайту <a href="https://metanit.com/"
+				                                                                target="_blank">METANIT.COM</a></div>
+				<div class="centered-content">
+					<a href="8-2.html">Назад</a>
+					<a href="text-guide-introduction.html">Содержание</a>
+					<a href="8-4.html">Вперед</a>
+				</div>
+			</div>
+		</div>
+		<!--MAIN ARTICLES END-->
+	</div>
+
+</main>
+<!--FOOTER START-->
+<footer class="footer centered-container border-top">
+	<div class="flex-container flex-items-center f12">
+		<ul class="list-style-none" style="margin-top: 6px;width: 16%;">
+			<li class="flex-items-center">
+				<a class="header-link" href="https://github.com/Antoher0101" target="_blank">
+					<span>
+						<img alt="@Antoher0101" class="avatar circle"
+						     height="24" src="https://avatars.githubusercontent.com/u/62786345?s=96&amp;v=4" width="24">
+					 © 2022 Antoher0101 </span>
+				</a>
+
+			</li>
+		</ul>
+		<ul class="flex-ul list-style-none two-third-width flex-space-between">
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp" target="_self">This
+			                                                                                                  repository</a>
+			</li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/commits/master"
+			                                 target="_blank">Commits</a></li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/blob/master/README.md"
+			                                 target="_blank">About</a></li>
+		</ul>
+	</div>
+</footer>
+<!--FOOTER END-->
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/ace/ace.js"></script>
+<script>
+    var code;
+    $('.code').each(function () {
+        code = ace.edit(this);
+        code.setTheme("ace/theme/one_dark");
+        code.getSession().setMode("ace/mode/c_cpp");
+        code.setShowPrintMargin(false);
+        code.setReadOnly(true);
+        code.setOptions({
+            maxLines: Infinity,
+            fontSize: "12pt",
+        });
+        code.$blockScrolling = Infinity;
+    });
+</script>
+</body>
+</html>

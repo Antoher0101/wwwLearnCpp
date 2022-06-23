@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css">
+	<title>Изучение C++</title>
+</head>
+<body>
+<!--HEADER START-->
+<div class="header">
+	<div class="header-item">
+		<a class="header-link" href="../.." target="_self">
+			<span class="flex-span" style="display: flex;">
+			<svg class="icon" height="48" width="48" viewBox="0 0 32 32">
+				<path d="M29,10.232a2.387,2.387,0,0,0-.318-1.244,2.451,2.451,0,0,0-.936-.879Q22.552,5.241,17.353,2.376A2.642,2.642,0,0,0,14.59,2.4c-1.378.779-8.275,4.565-10.331,5.706A2.287,2.287,0,0,0,3,10.231V21.77a2.4,2.4,0,0,0,.3,1.22,2.434,2.434,0,0,0,.954.9c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733a2.444,2.444,0,0,0,.955-.9,2.4,2.4,0,0,0,.3-1.22V10.232"
+				      style="fill:#909090"/>
+				<path d="M28.549,23.171a2.126,2.126,0,0,0,.147-.182,2.4,2.4,0,0,0,.3-1.22V10.232a2.387,2.387,0,0,0-.318-1.244c-.036-.059-.089-.105-.13-.16L16,16Z"
+				      style="fill:#464646"/>
+				<path d="M28.549,23.171,16,16,3.451,23.171a2.435,2.435,0,0,0,.809.72c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733A2.43,2.43,0,0,0,28.549,23.171Z"
+				      style="fill:#363636"/>
+				<path d="M19.6,18.02a4.121,4.121,0,1,1-.027-4.087l3.615-2.073A8.309,8.309,0,0,0,7.7,16a8.216,8.216,0,0,0,1.1,4.117A8.319,8.319,0,0,0,23.211,20.1L19.6,18.02"
+				      color=""/>
+				<polygon
+						points="24.076 15.538 23.15 15.538 23.15 14.617 22.225 14.617 22.225 15.538 21.299 15.538 21.299 16.461 22.225 16.461 22.225 17.381 23.15 17.381 23.15 16.461 24.076 16.461 24.076 15.538"
+						style="fill:#fff"/>
+				<polygon
+						points="27.549 15.538 26.623 15.538 26.623 14.617 25.697 14.617 25.697 15.538 24.771 15.538 24.771 16.461 25.697 16.461 25.697 17.381 26.623 17.381 26.623 16.461 27.549 16.461 27.549 15.538"
+						style="fill:#fff"/>
+			</svg>
+			Leaner
+			</span>
+		</a>
+	</div>
+	<div class="v-splitter header-item"></div>
+	<nav class="flex-container flex-space-between one-third-width flex-no-wrap">
+		<a href="../faq.html" class="header-link header-item">FAQ</a>
+		<a href="text-guide-introduction.html" class="header-link header-item">Учебник</a>
+		<a href="../video-lessons.html" class="header-link header-item">Видеоуроки</a>
+		<a href="../compiler.html" class="header-link header-item">Компилятор</a>
+		<a href="https://github.com/Antoher0101/wwwLearnCpp" target="_blank" class="header-link header-item">Github</a>
+	</nav>
+</div>
+<!--HEADER END-->
+
+<main class="wrapper sidebar-position">
+	<div id="main-content" class="centered-container">
+		<!--		MAIN ARTICLES START-->
+		<div class="container-content bordered-container">
+			<div class="centered-container">
+				<span class="content-header">Условные конструкции</span>
+				Условные конструкции направляют ход программы по одному из возможных путей в зависимости от условия.
+				<div class="container-content">
+					<span class="content-subheader">Конструкция if</span>
+					Конструкция <b>if</b> проверяет истинность условия, и если оно истинно, выполняет блок инструкций. Этот
+					оператор имеет следующую сокращенную форму:
+					<div class="code-container code">if (условие)
+{
+	инструкции;
+}</div>
+					В качестве условия использоваться условное выражение, которое возвращает <b>true</b> или
+					<b>false</b>. Если
+					условие возвращает true, то выполняются последующие инструкции, которые входят в блок if. Если
+					условие возвращает false, то последующие инструкции не выполняются. Блок инструкций заключается в
+					фигурные скобки.
+					<br><br>
+					Например:
+
+					<div class="code-container code">#include &lt;iostream&gt;
+
+int main()
+{
+	int x = 60;
+	
+	if(x > 50)
+	{
+		std::cout << "x is greater than 50 \n";
+	}
+	
+	if(x < 30)
+	{
+		std::cout << "x is less than 30 \n";
+	}
+	
+	std::cout << "End of Program" << "\n";
+	return 0;
+}</div>
+						Здесь определены две условных конструкции if. Они проверят больше или меньше значение переменной
+						x, чем определенное значение. В качестве инструкции в обоих случаях выполняется вывод некоторой
+						строки на консоль.
+						<br><br>
+						В первом случае x > 50 условие истинно, так как значение переменной x действительно больше 50,
+						поэтому это условие возвратит true, и, следовательно, будут выполнятся инструкции, которые
+						входят в блок if.
+						<br><br>
+						Во втором случае операция отношения x < 30 возвратит false, так как условие ложно, поэтому
+						последующий блок инструкций выполняться не будет. В итоге при запуске программы вывод консоли
+						будет выглядеть следующим образом:
+
+					<div class="console-out"><pre>x greater than 50
+End of Program</pre>
+					</div>
+						Также мы можем использовать полную форму конструкции if, которая включает оператор else:
+
+					<div class="code-container code">if(выражение_условия)
+	инструкция_1
+else
+	инструкция_2</div>
+						После оператора else мы можем определить набор инструкций, которые выполняются, если условие в
+						операторе if возвращает false. То есть если условие истинно, выполняются инструкции после
+						оператора if, а если это выражение ложно, то выполняются инструкции после оператора else.
+
+					<div class="code-container code">int x = 50;
+if(x > 60)
+	std::cout << "x is greater than 60 \n";
+else
+	std::cout << "x is less or equal 60 \n";</div>
+						В данном случае условие x > 60 ложно, то есть возвращает false, поэтому будет выполняться блок
+						else. И в итоге на консоль будет выведена строка "x is less or equal 60 \n".
+						<br><br>
+						Однако нередко надо обработать не два возможных альтернативных варианта, а гораздо больше.
+						Например, в случае выше можно насчитать три условия: переменная x может быть больше 60, меньше
+						60 и равна 60. Для проверки альтернативных условий мы можем вводить выражения <b>else if</b>:
+
+					<div class="code-container code">int x = 60;
+
+if(x > 60)
+{
+	std::cout << "x is greater than 60 \n";
+}
+else if (x < 60)
+{
+	std::cout << "x is less than 60 \n";
+}
+else
+{
+	std::cout << "x is equal 60 \n";
+}</div>
+						То есть в данном случае мы получаем три ветки развития событий в программе.
+						<br><br>
+						Если в блоке if или else или else-if необходимо выполнить только одну инструкцию, то фигурные
+						скобки можно опустить:
+
+					<div class="code-container code">int x = 60;
+
+if(x > 60)
+	std::cout << "x is greater than 60 \n";
+else if (x < 60)
+	std::cout << "x is less than 60 \n";
+else
+	std::cout << "x is equal 60 \n";</div>
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Конструкция switch</span>
+					Другую форму организации ветвления программ представляет конструкция <b>switch...case</b>. Она имеет
+					следующую форму:
+
+					<div class="code-container code">switch(выражение)
+{
+	case константа_1: инструкции_1;
+	case константа_2: инструкции_2;
+	
+	default: инструкции;
+}</div>
+					После ключевого слова <b>switch</b> в скобках идет сравниваемое выражение. Значение этого выражения
+					последовательно сравнивается со значениями после оператора <b>case</b>. И если совпадение будет найдено, то
+					будет выполняться определенный блок <b>case</b>.
+
+					В конце конструкции switch может стоять блок <b>default</b>. Он необязателен и выполняется в том случае,
+					если значение после switch не соответствует ни одному из операторов case. Например:
+
+					<div class="code-container code">#include &lt;iostream>&gt;
+
+int main()
+{
+	int x = 2;
+
+	switch(x)
+	{
+		case 1:
+			std::cout << "x = 1" << "\n";
+			break;
+		case 2:
+			std::cout << "x = 2" << "\n";
+			break;
+		case 3:
+			std::cout << "x = 3" << "\n";
+			break;
+		default:
+			std::cout << "x is undefined" << "\n";
+			break;
+	}
+	return 0;
+}</div>
+						Чтобы избежать выполнения последующих блоков case/default, в конце каждого блока ставится
+						оператор <b>break</b>. То есть в данном случае будет выполняться оператор
+
+					<div class="code-container code">case 2:
+	std::cout << "x = 2" << "\n";
+	break;</div>
+						После выполнения оператора break произойдет выход из конструкции switch..case, и остальные
+						операторы case будут проигнорированы. Поэтому на консоль будет выведена следующая строка
+
+					<div class="console-out">x = 2</div>
+						Стоит отметить важность использования оператора break. Если мы его не укажем в блоке case, то
+						после этого блока выполнение перейдет к следующему блоку case. Например, уберем из предыдущего
+						примера все операторы break:
+
+					<div class="code-container code">#include &lt;iostream&gt;
+
+int main()
+{
+	int x = 2;
+
+	switch(x)
+	{
+		case 1:
+			std::cout << "x = 1" << "\n";
+		case 2:
+			std::cout << "x = 2" << "\n";
+		case 3:
+			std::cout << "x = 3" << "\n";
+		default:
+			std::cout << "x is undefined" << "\n";
+	}
+	return 0;
+}</div>
+							В этом случае опять же будет выполняться оператор case 2:, так как переменная x=2. Однако
+							так как этот блок case не завершается оператором break, то после его завершения будет
+							выполняться набор инструкций после case 3: даже несмотря на то, что переменная x по прежнему
+							равна 2. В итоге мы получим следующий консольный вывод:
+
+					<div class="console-out"><pre>x = 2
+x = 3
+x is undefined</pre>
+					</div>
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Тернарный оператор</span>
+					Тернарный оператор ?: позволяет сократить определение простейших условных конструкций if и имеет
+					следующую форму:
+
+					<div class="code-container code">[первый операнд - условие] ? [второй операнд] : [третий операнд]</div>
+					Оператор использует сразу три операнда. В зависимости от условия тернарный оператор возвращает
+					второй или третий операнд: если условие равно true (то есть истинно), то возвращается второй
+					операнд; если условие равно false (то есть ложно), то третий. Например:
+
+					<div class="code-container code">#include &lt;iostream&gt;
+
+int main()
+{
+	setlocale(LC_ALL, "");
+	int x = 5;
+	int y = 3;
+	char sign;
+	std::cout << "Введите знак операции: ";
+	std::cin >> sign;
+	int result = sign=='+'?x + y:x - y;
+	std::cout << "Результат: " << result << "\n";
+	return 0;
+}</div>
+						В данном случае производится ввод знака операции. Здесь результатом тернарной операции является
+						переменная result. И если переменная sign содержит знак "+", то result будет равно второму
+						операнду - (x+y). Иначе result будет равно третьему операнду.
+				</div>
+				<div class="code-container">Вся информация принадлежит сайту <a href="https://metanit.com/"
+				                                                                target="_blank">METANIT.COM</a></div>
+				<div class="centered-content">
+					<a href="2-11.html">Назад</a>
+					<a href="text-guide-introduction.html">Содержание</a>
+					<a href="2-13.html">Вперед</a>
+				</div>
+			</div>
+		</div>
+		<!--MAIN ARTICLES END-->
+	</div>
+
+</main>
+<!--FOOTER START-->
+<footer class="footer centered-container border-top">
+	<div class="flex-container flex-items-center f12">
+		<ul class="list-style-none" style="margin-top: 6px;width: 16%;">
+			<li class="flex-items-center">
+				<a class="header-link" href="https://github.com/Antoher0101" target="_blank">
+					<span>
+						<img alt="@Antoher0101" class="avatar circle"
+						     height="24" src="https://avatars.githubusercontent.com/u/62786345?s=96&amp;v=4" width="24">
+					 © 2022 Antoher0101 </span>
+				</a>
+
+			</li>
+		</ul>
+		<ul class="flex-ul list-style-none two-third-width flex-space-between">
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp" target="_self">This
+			                                                                                                  repository</a>
+			</li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/commits/master"
+			                                 target="_blank">Commits</a></li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/blob/master/README.md"
+			                                 target="_blank">About</a></li>
+		</ul>
+	</div>
+</footer>
+<!--FOOTER END-->
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/ace/ace.js"></script>
+<script>
+    var code;
+    $('.code').each(function () {
+        code = ace.edit(this);
+        code.setTheme("ace/theme/one_dark");
+        code.getSession().setMode("ace/mode/c_cpp");
+        code.setShowPrintMargin(false);
+        code.setReadOnly(true);
+        code.setOptions({
+            maxLines: Infinity,
+            fontSize: "12pt",
+        });
+        code.$blockScrolling = Infinity;
+    });
+</script>
+</body>
+</html>

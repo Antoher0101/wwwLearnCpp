@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css">
+	<title>Изучение C++</title>
+</head>
+<body>
+<!--HEADER START-->
+<div class="header">
+	<div class="header-item">
+		<a class="header-link" href="../.." target="_self">
+			<span class="flex-span" style="display: flex;">
+			<svg class="icon" height="48" width="48" viewBox="0 0 32 32">
+				<path d="M29,10.232a2.387,2.387,0,0,0-.318-1.244,2.451,2.451,0,0,0-.936-.879Q22.552,5.241,17.353,2.376A2.642,2.642,0,0,0,14.59,2.4c-1.378.779-8.275,4.565-10.331,5.706A2.287,2.287,0,0,0,3,10.231V21.77a2.4,2.4,0,0,0,.3,1.22,2.434,2.434,0,0,0,.954.9c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733a2.444,2.444,0,0,0,.955-.9,2.4,2.4,0,0,0,.3-1.22V10.232"
+				      style="fill:#909090"/>
+				<path d="M28.549,23.171a2.126,2.126,0,0,0,.147-.182,2.4,2.4,0,0,0,.3-1.22V10.232a2.387,2.387,0,0,0-.318-1.244c-.036-.059-.089-.105-.13-.16L16,16Z"
+				      style="fill:#464646"/>
+				<path d="M28.549,23.171,16,16,3.451,23.171a2.435,2.435,0,0,0,.809.72c2.056,1.141,8.954,4.927,10.332,5.706a2.642,2.642,0,0,0,2.763.026q5.19-2.871,10.386-5.733A2.43,2.43,0,0,0,28.549,23.171Z"
+				      style="fill:#363636"/>
+				<path d="M19.6,18.02a4.121,4.121,0,1,1-.027-4.087l3.615-2.073A8.309,8.309,0,0,0,7.7,16a8.216,8.216,0,0,0,1.1,4.117A8.319,8.319,0,0,0,23.211,20.1L19.6,18.02"
+				      color=""/>
+				<polygon
+						points="24.076 15.538 23.15 15.538 23.15 14.617 22.225 14.617 22.225 15.538 21.299 15.538 21.299 16.461 22.225 16.461 22.225 17.381 23.15 17.381 23.15 16.461 24.076 16.461 24.076 15.538"
+						style="fill:#fff"/>
+				<polygon
+						points="27.549 15.538 26.623 15.538 26.623 14.617 25.697 14.617 25.697 15.538 24.771 15.538 24.771 16.461 25.697 16.461 25.697 17.381 26.623 17.381 26.623 16.461 27.549 16.461 27.549 15.538"
+						style="fill:#fff"/>
+			</svg>
+			Leaner
+			</span>
+		</a>
+	</div>
+	<div class="v-splitter header-item"></div>
+	<nav class="flex-container flex-space-between one-third-width flex-no-wrap">
+		<a href="../faq.html" class="header-link header-item">FAQ</a>
+		<a href="text-guide-introduction.html" class="header-link header-item">Учебник</a>
+		<a href="../video-lessons.html" class="header-link header-item">Видеоуроки</a>
+		<a href="../compiler.html" class="header-link header-item">Компилятор</a>
+		<a href="https://github.com/Antoher0101/wwwLearnCpp" target="_blank" class="header-link header-item">Github</a>
+	</nav>
+</div>
+<!--HEADER END-->
+
+<main class="wrapper sidebar-position">
+	<div id="main-content" class="centered-container">
+		<!--		MAIN ARTICLES START-->
+		<div class="container-content bordered-container">
+			<div class="centered-container">
+				<span class="content-header">Наследование</span>
+				<div class="container-content">
+					<b>Наследование</b> (inheritance) представляет один из ключевых аспектов объектно-ориентированного
+					                    программирования, который позволяет наследовать функциональность одного класса
+					                    или базового класса (base class) в другом - производном классе (derived class).
+					<br><br>
+					                    Зачем нужно наследование? Рассмотрим небольшую ситуацию, допустим, у нас есть
+					                    классы, которые представляют человека и работника предприятия:
+					<div class="code-container code">class Person
+{
+public:
+	std::string name; // имя
+	int age; // возраст
+	void display()
+	{
+		std::cout << "Name: " << name << "\tAge: " << age << std::endl;
+	}
+};
+class Employee
+{
+public:
+	std::string name; // имя
+	int age; // возраст
+	std::string company; // компания
+	void display()
+	{
+		std::cout << "Name: " << name << "\tAge: " << age << std::endl;
+	}
+};</div>
+					                    В данном случае класс Employee фактически содержит функционал класса Person:
+					                    свойства name и age и функцию display. И было бы не совсем правильно повторять
+					                    функциональность одного класса в другом классе, тем более что по сути сотрудник
+					                    предприятия в любом случае является человеком. Поэтому в этом случае лучше
+					                    использовать механизм наследования. Унаследуем класс Employee от класса Person:
+					<div class="code-container code">class Person
+{
+public:
+	std::string name; // имя
+	int age; // возраст
+	void display()
+	{
+		std::cout << "Name: " << name << "\tAge: " << age << std::endl;
+	}
+};
+class Employee : public Person
+{
+public:
+	std::string company; // компания
+};</div>
+					                    Для установки отношения наследования после название класса ставится двоеточие,
+					                    затем идет название класса, от которого мы хотим унаследовать функциональность.
+					                    В этом отношении класс Person еще будет называться базовым классом, а Employee -
+					                    производным классом.
+					<br><br>
+					                    Перед названием базового класса также можно указать спецификатор доступа, как в
+					                    данном случае используется спецификатор <b>public</b>, который позволяет использовать в
+					                    производном классе все открытые члены базового класса. Если мы не используем
+					                    модификатор доступа, то класс Employee ничего не будет знать о переменных name и
+					                    age и функции display.
+					<br><br>
+					                    После установки наследования мы можем убрать из класса Employee те переменные,
+					                    которые уже определены в классе Person. Используем оба класса:
+					<div class="code-container code">#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+class Person
+{
+public:
+	std::string name; // имя
+	int age; // возраст
+	void display()
+	{
+		std::cout << "Name: " << name << "\tAge: " << age << std::endl;
+	}
+};
+class Employee : public Person
+{
+public:
+	std::string company; // компания
+};
+
+int main()
+{
+	Person tom;
+	tom.name = "Tom";
+	tom.age = 23;
+	tom.display();
+
+	Employee bob;
+	bob.name = "Bob";
+	bob.age = 31;
+	bob.company = "Microsoft";
+	bob.display();
+
+	return 0;
+}</div>
+					                    Таким образом, через переменную класса Employee мы можем обращаться ко всем
+					                    открытым членам класса Person.
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Конструкторы</span>
+					Стоит учитывать, что конструкторы при наследовании не наследуются. И если базовый класс содержит
+					только конструкторы с параметрами, то производный класс должен вызывать в своем конструкторе один из
+					конструкторов базового класса. Например, добавим в классы выше конструкторы:
+					<div class="code-container code">#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+class Person
+{
+public:
+	Person(std::string n, int a)
+	{
+		name = n; age = a;
+	}
+	void display()
+	{
+		std::cout << "Name: " << name << "\tAge: " << age << std::endl;
+	}
+private:
+	std::string name;
+	int age;
+};
+class Employee : public Person
+{
+public:
+	Employee(std::string n, int a, std::string c):Person(n, a)
+	{
+		company = c;
+	}
+private:
+	std::string company;
+};
+
+int main()
+{
+	Person tom("Tom", 23);
+	tom.display();
+
+	Employee bob("Bob", 31, "Microsoft");
+	bob.display();
+
+	return 0;
+}</div>
+					После списка параметров конструктора производного класса через двоеточие идет вызов конструктора
+					базового класса, в который передаются значения параметров n и a.
+					<div class="code-container code">Employee(std::string n, int a, std::string c):Person(n, a)
+{
+	company = c;
+}</div>
+					Если бы мы не вызвали конструктор базового класса, то это было бы ошибкой.
+					<br><br>
+					Консольный вывод программы:
+					<div class="console-out"><pre>Name: Tom    Age: 23
+Name: Bob    Age: 31</pre>
+					</div>
+					Таким образом, в строке
+					<div class="code-container code">Employee bob("Bob", 31, "Microsoft");</div>
+					Вначале будет вызываться конструктор базового класса Person, в который будут передаваться значения
+					"Bob" и 31. И таким образом будут установлены имя и возраст. Затем будет выполняться собственно
+					конструктор Employee, который установит компанию.
+					<br><br>
+					Также мы могли бы определить конструктор Employee следующим обазом:
+					<div class="code-container code">Employee(std::string n, int a, std::string c):Person(n, a), company(c)
+{
+}</div>
+					Также в примере выше стои отметить, что переменные в обоих классах стали закрытыми, то есть они
+					объявлены со спецификатором private. Производный класс не может обращаться к закрытым членам
+					базового класса. Поэтому, если бы мы попробовали обратиться к закрытым переменным класса Person
+					через переменную класса Employee, то мы бы получили ошибку:
+					<div class="code-container code">Employee bob("Bob", 31, "Microsoft");
+bob.name = "Bobby"; // ошибка
+bob.age = 23; // ошибка</div>
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Спецификатор protected</span>
+					С помощью спецификатора <b>public</b> можно определить общедоступные открытые члены классы, которые
+					доступны извне и их можно использовать в любой части программы. С помощью спецификатора
+					<b>private</b>
+					можно определить закрытые переменные и функции, которые можно использовать только внутри своего
+					класса. Однако иногда возникает необходимость в таких переменных и методах, которые были бы доступны
+					классам-наследникам, но не были бы доступны извне. И именно для определения уровня доступа подобных
+					членов класса используется спецификатор <b>protected</b>.
+					<br><br>
+					Например, определим переменную name со спецификатором protected:
+					<div class="code-container code">#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+class Person
+{
+public:
+	Person(std::string n, int a)
+	{
+		name = n; age = a;
+	}
+	void display()
+	{
+		std::cout << "Name: " << name << "\tAge: " << age << std::endl;
+	}
+protected:
+	std::string name;
+private:
+	int age;
+};
+class Employee : public Person
+{
+public:
+	Employee(std::string n, int a, std::string c):Person(n, a)
+	{
+		company = c;
+	}
+	void showEmployeeName()
+	{
+		std::cout << "Employee Name: " << name << std::endl;
+	}
+private:
+	std::string company;
+};
+
+int main()
+{
+	Person tom("Tom", 23);
+	// tom.name = "Tommy"; ошибка
+	Employee bob("Bob", 31, "Microsoft");
+	// bob.name = "Bob Tompson"; ошибка
+	bob.showEmployeeName();
+
+	return 0;
+}</div>
+					Таким образом, мы можем использовать переменную name в производном классе, например, в методе
+					showEmployeeName, но извне мы к ней обратиться по-прежнему не можем.
+				</div>
+				<div class="container-content">
+					<span class="content-subheader">Запрет наследования</span>
+					Иногда наследование от класса может быть нежелательно. И с помощью спецификатора <b>final</b> мы можем
+					запретить наследование:
+					<div class="code-container code">class User final
+{
+};</div>
+					После этого мы не сможем унаследовать другие классы от класса User. И, например, если мы попробуем
+					написать, как в случае ниже, то мы столкнемся с ошибкой:
+					<div class="code-container code">class VipUser : public User
+{
+};</div>
+				</div>
+				<div class="code-container">Вся информация принадлежит сайту <a href="https://metanit.com/"
+				                                                                target="_blank">METANIT.COM</a></div>
+				<div class="centered-content">
+					<a href="5-9.html">Назад</a>
+					<a href="text-guide-introduction.html">Содержание</a>
+					<a href="5-11.html">Вперед</a>
+				</div>
+			</div>
+		</div>
+		<!--MAIN ARTICLES END-->
+	</div>
+
+</main>
+<!--FOOTER START-->
+<footer class="footer centered-container border-top">
+	<div class="flex-container flex-items-center f12">
+		<ul class="list-style-none" style="margin-top: 6px;width: 16%;">
+			<li class="flex-items-center">
+				<a class="header-link" href="https://github.com/Antoher0101" target="_blank">
+					<span>
+						<img alt="@Antoher0101" class="avatar circle"
+						     height="24" src="https://avatars.githubusercontent.com/u/62786345?s=96&amp;v=4" width="24">
+					 © 2022 Antoher0101 </span>
+				</a>
+
+			</li>
+		</ul>
+		<ul class="flex-ul list-style-none two-third-width flex-space-between">
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp" target="_self">This
+			                                                                                                  repository</a>
+			</li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/commits/master"
+			                                 target="_blank">Commits</a></li>
+			<li class="flex-items-center"><a href="https://github.com/Antoher0101/wwwLearnCpp/blob/master/README.md"
+			                                 target="_blank">About</a></li>
+		</ul>
+	</div>
+</footer>
+<!--FOOTER END-->
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/ace/ace.js"></script>
+<script>
+    var code;
+    $('.code').each(function () {
+        code = ace.edit(this);
+        code.setTheme("ace/theme/one_dark");
+        code.getSession().setMode("ace/mode/c_cpp");
+        code.setShowPrintMargin(false);
+        code.setReadOnly(true);
+        code.setOptions({
+            maxLines: Infinity,
+            fontSize: "12pt",
+        });
+        code.$blockScrolling = Infinity;
+    });
+</script>
+</body>
+</html>
